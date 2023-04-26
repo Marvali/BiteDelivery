@@ -4,6 +4,8 @@
  */
 package interfaz;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author isaac
@@ -13,8 +15,11 @@ public class MenuInicial extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+   
     public MenuInicial() {
+
         initComponents();
+        
     }
 
     /**
@@ -29,7 +34,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        BotonRegistrarse = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -44,10 +49,16 @@ public class MenuInicial extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña:");
 
-        jButton2.setText("Registrarse");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BotonRegistrarse.setText("Registrarse");
+        BotonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+
+            
+
+
+
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BotonRegistrarseActionPerformed(evt);
             }
         });
 
@@ -74,7 +85,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addGap(0, 210, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton2)
+                .addComponent(BotonRegistrarse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(42, 42, 42))
@@ -93,7 +104,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(BotonRegistrarse))
                 .addGap(38, 38, 38))
         );
 
@@ -111,9 +122,11 @@ public class MenuInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
+ 
+   MenuRegistrarse sjf = new MenuRegistrarse(this);
+        
+    }//GEN-LAST:event_BotonRegistrarseActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +158,7 @@ public class MenuInicial extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MenuInicial().setVisible(true);
             }
@@ -152,8 +166,8 @@ public class MenuInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonRegistrarse;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
