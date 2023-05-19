@@ -4,6 +4,9 @@
  */
 package interfaz;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author Isaac
@@ -42,11 +45,14 @@ private MenuInicial principal;
         correo = new javax.swing.JTextField();
         contraseña = new javax.swing.JPasswordField();
         telefono = new javax.swing.JTextField();
-        direccion = new javax.swing.JTextField();
+        calle = new javax.swing.JTextField();
+        numeroCalle = new javax.swing.JFormattedTextField();
+        codigoPostal = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1280, 848));
-        setMinimumSize(new java.awt.Dimension(1280, 848));
+        setMaximumSize(new java.awt.Dimension(1280, 760));
+        setMinimumSize(new java.awt.Dimension(1280, 760));
         setPreferredSize(new java.awt.Dimension(1280, 848));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -96,6 +102,11 @@ private MenuInicial principal;
                 nombreFocusGained(evt);
             }
         });
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
 
         apellido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         apellido.setText("Apellido");
@@ -139,18 +150,58 @@ private MenuInicial principal;
         telefono.setText("Telefono");
         telefono.setToolTipText("Telefono");
 
-        direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        direccion.setText("Dirreccion");
-        direccion.setToolTipText("Direccion");
-        direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        direccion.addFocusListener(new java.awt.event.FocusAdapter() {
+        calle.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        calle.setText("Calle");
+        calle.setToolTipText("Calle");
+        calle.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        calle.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                direccionFocusGained(evt);
+                calleFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                direccionFocusLost(evt);
+                calleFocusLost(evt);
             }
         });
+
+        numeroCalle.setText("Numero");
+        numeroCalle.setToolTipText("Numero");
+        numeroCalle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                numeroCalleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                numeroCalleFocusLost(evt);
+            }
+        });
+        numeroCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroCalleActionPerformed(evt);
+            }
+        });
+        numeroCalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroCalleKeyTyped(evt);
+            }
+        });
+
+        codigoPostal.setText("Codigo Postal");
+        codigoPostal.setToolTipText("Codigo Postal");
+        codigoPostal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                codigoPostalFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                codigoPostalFocusLost(evt);
+            }
+        });
+        codigoPostal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codigoPostalKeyTyped(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuRegistrarse/fraseRegistrarse.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout panelLateralLayout = new javax.swing.GroupLayout(panelLateral);
         panelLateral.setLayout(panelLateralLayout);
@@ -158,18 +209,24 @@ private MenuInicial principal;
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLateralLayout.createSequentialGroup()
                 .addGap(86, 86, 86)
-                .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(direccion)
-                    .addComponent(correo)
-                    .addGroup(panelLateralLayout.createSequentialGroup()
-                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLateralLayout.createSequentialGroup()
-                        .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(telefono)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelLateralLayout.createSequentialGroup()
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelLateralLayout.createSequentialGroup()
+                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(telefono))
+                        .addComponent(correo)
+                        .addComponent(calle)
+                        .addGroup(panelLateralLayout.createSequentialGroup()
+                            .addComponent(numeroCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(codigoPostal, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         panelLateralLayout.setVerticalGroup(
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,8 +242,14 @@ private MenuInicial principal;
                     .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(calle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numeroCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122))
         );
 
         javax.swing.GroupLayout panelInferiorLayout = new javax.swing.GroupLayout(panelInferior);
@@ -195,8 +258,8 @@ private MenuInicial principal;
             panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInferiorLayout.createSequentialGroup()
                 .addComponent(fondoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelInferiorLayout.setVerticalGroup(
             panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,17 +365,68 @@ private MenuInicial principal;
         }
     }//GEN-LAST:event_telefonoFocusLost
 
-    private void direccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_direccionFocusGained
+    private void calleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_calleFocusGained
         // TODO add your handling code here:
-        direccion.setText("");
-    }//GEN-LAST:event_direccionFocusGained
+        calle.setText("");
+    }//GEN-LAST:event_calleFocusGained
 
-    private void direccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_direccionFocusLost
+    private void calleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_calleFocusLost
         // TODO add your handling code here:
-        if(direccion.getText().equals("")){
-            direccion.setText("Direccion");
+        if(calle.getText().equals("")){
+            calle.setText("Direccion");
         }
-    }//GEN-LAST:event_direccionFocusLost
+    }//GEN-LAST:event_calleFocusLost
+
+    private void numeroCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroCalleActionPerformed
+
+    private void numeroCalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroCalleFocusGained
+        // TODO add your handling code here:
+        numeroCalle.setText("");
+    }//GEN-LAST:event_numeroCalleFocusGained
+
+    private void numeroCalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numeroCalleFocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_numeroCalleFocusLost
+
+    private void codigoPostalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusGained
+        // TODO add your handling code here:
+        codigoPostal.setText("");
+    }//GEN-LAST:event_codigoPostalFocusGained
+
+    private void codigoPostalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusLost
+        // TODO add your handling code here:
+
+     
+        
+    }//GEN-LAST:event_codigoPostalFocusLost
+
+    private void numeroCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCalleKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+    }//GEN-LAST:event_numeroCalleKeyTyped
+
+    private void codigoPostalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigoPostalKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+        }
+
+    }//GEN-LAST:event_codigoPostalKeyTyped
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -347,12 +461,15 @@ private MenuInicial principal;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
     private javax.swing.JPanel background1;
+    private javax.swing.JTextField calle;
+    private javax.swing.JFormattedTextField codigoPostal;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JTextField correo;
-    private javax.swing.JTextField direccion;
     private javax.swing.JLabel fondoRegistrarse;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField nombre;
+    private javax.swing.JFormattedTextField numeroCalle;
     private javax.swing.JPanel panelInferior;
     private javax.swing.JPanel panelLateral;
     private javax.swing.JPanel panelSuperior;
