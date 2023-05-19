@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author Fer
  */
 public class Comidas {
-    
+    //ATRIBUTOS
     private String titulo;
     private ArrayList ingredientes;
     private double precio_venta;
     private String fotografia;
-
+    //CONSTRUCTOR
     public Comidas(String titulo, ArrayList ingredientes, double precio_venta, String fotografia) {
         this.titulo = titulo;
         this.ingredientes = ingredientes;
@@ -26,7 +26,7 @@ public class Comidas {
     }
 
     
-    
+    //GETTERS AND SETTERS
     public String getFotografia() {
         return fotografia;
     }

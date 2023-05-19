@@ -11,15 +11,17 @@ import java.util.logging.Logger;
  * @author Fer
  */
 public class Administradores {
-    
+    //ATRIBUTOS
     private String correo;
     private String clave;
-
+    
+    //CONSTRUCTOR
     public Administradores(String correo, String clave) {
         this.correo = correo;
         this.clave = clave;
     }
     
+    //GETTERS AND SETTERS
     public String getClave() {
         return clave;
     }
