@@ -51,20 +51,25 @@ private MenuInicial principal;
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BiteDelivery");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(1280, 760));
         setMinimumSize(new java.awt.Dimension(1280, 760));
-        setPreferredSize(new java.awt.Dimension(1280, 848));
+        setPreferredSize(new java.awt.Dimension(1280, 760));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
             }
         });
 
-        background1.setBackground(new java.awt.Color(255, 255, 255));
-        background1.setForeground(new java.awt.Color(255, 255, 255));
+        background1.setBackground(new java.awt.Color(0, 0, 0));
+        background1.setForeground(new java.awt.Color(0, 0, 0));
+        background1.setMaximumSize(new java.awt.Dimension(1270, 760));
+        background1.setName("BiteDelivery"); // NOI18N
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelSuperior.setBackground(new java.awt.Color(0, 0, 0));
+        panelSuperior.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logotipoletras.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -74,8 +79,8 @@ private MenuInicial principal;
         panelSuperiorLayout.setHorizontalGroup(
             panelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSuperiorLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(971, Short.MAX_VALUE))
         );
         panelSuperiorLayout.setVerticalGroup(
@@ -86,10 +91,31 @@ private MenuInicial principal;
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        background1.add(panelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, -1));
+        background1.add(panelSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, 100));
 
         fondoRegistrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuRegistrarse/FondoRegistrarse (Medium).jpg"))); // NOI18N
         fondoRegistrarse.setText("jLabel1");
+
+        javax.swing.GroupLayout panelInferiorLayout = new javax.swing.GroupLayout(panelInferior);
+        panelInferior.setLayout(panelInferiorLayout);
+        panelInferiorLayout.setHorizontalGroup(
+            panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 733, Short.MAX_VALUE)
+            .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInferiorLayout.createSequentialGroup()
+                    .addComponent(fondoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 733, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        panelInferiorLayout.setVerticalGroup(
+            panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 663, Short.MAX_VALUE)
+            .addGroup(panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelInferiorLayout.createSequentialGroup()
+                    .addComponent(fondoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        background1.add(panelInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 720, 660));
 
         panelLateral.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -208,25 +234,25 @@ private MenuInicial principal;
         panelLateralLayout.setHorizontalGroup(
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLateralLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(115, 115, 115)
                 .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLateralLayout.createSequentialGroup()
+                            .addComponent(numeroCalle)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLateralLayout.createSequentialGroup()
+                            .addComponent(contraseña)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(correo, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(panelLateralLayout.createSequentialGroup()
                             .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelLateralLayout.createSequentialGroup()
-                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(telefono))
-                        .addComponent(correo)
-                        .addComponent(calle)
-                        .addGroup(panelLateralLayout.createSequentialGroup()
-                            .addComponent(numeroCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(codigoPostal, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addComponent(calle, javax.swing.GroupLayout.Alignment.TRAILING)))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         panelLateralLayout.setVerticalGroup(
             panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,43 +273,26 @@ private MenuInicial principal;
                 .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(92, 92, 92)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(122, 122, 122))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout panelInferiorLayout = new javax.swing.GroupLayout(panelInferior);
-        panelInferior.setLayout(panelInferiorLayout);
-        panelInferiorLayout.setHorizontalGroup(
-            panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInferiorLayout.createSequentialGroup()
-                .addComponent(fondoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 776, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelLateral, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelInferiorLayout.setVerticalGroup(
-            panelInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondoRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 660, Short.MAX_VALUE)
-            .addComponent(panelLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        background1.add(panelInferior, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1270, 660));
+        background1.add(panelLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, -1, 660));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

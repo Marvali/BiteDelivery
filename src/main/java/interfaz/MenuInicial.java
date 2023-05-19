@@ -38,6 +38,7 @@ public class MenuInicial extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("BiteDelivery");
         setBackground(new java.awt.Color(255, 255, 255));
         setType(java.awt.Window.Type.UTILITY);
 
