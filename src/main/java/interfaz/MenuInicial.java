@@ -31,102 +31,68 @@ public class MenuInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        BotonRegistrarse = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Backgroud = new javax.swing.JPanel();
+        iniciarSesion = new javax.swing.JLabel();
+        registrarse = new javax.swing.JLabel();
+        logo = new javax.swing.JLabel();
+        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setType(java.awt.Window.Type.UTILITY);
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
+        Backgroud.setBackground(new java.awt.Color(255, 255, 255));
+        Backgroud.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Usuario:");
-
-        jLabel3.setText("Contraseña:");
-
-        BotonRegistrarse.setText("Registrarse");
-        BotonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
-
-            
-
-
-
-
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonRegistrarseActionPerformed(evt);
+        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonInicioSesion.png"))); // NOI18N
+        iniciarSesion.setText("jLabel2");
+        iniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarSesionMouseExited(evt);
             }
         });
+        Backgroud.add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 200, 50));
 
-        jPasswordField1.setText("jPasswordField1");
+        registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonRegistrarse.png"))); // NOI18N
+        registrarse.setText("jLabel1");
+        Backgroud.add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 150, 60));
 
-        jButton1.setText("Entrar");
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/android-chrome-192x192.png"))); // NOI18N
+        Backgroud.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 190, 190));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(BotonRegistrarse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 210, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(BotonRegistrarse))
-                .addGap(38, 38, 38))
-        );
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
+        Backgroud.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Backgroud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Backgroud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarseActionPerformed
- 
-   MenuRegistrarse sjf = new MenuRegistrarse(this);
-        
-    }//GEN-LAST:event_BotonRegistrarseActionPerformed
+    private void iniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseEntered
+        // TODO add your handling code here:
+          iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/botonInicioSesion2.png"))); // NOI18N
+    }//GEN-LAST:event_iniciarSesionMouseEntered
+
+    private void iniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseExited
+        // TODO add your handling code here:
+        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/botonInicioSesion.png"))); // NOI18N
+    }//GEN-LAST:event_iniciarSesionMouseExited
 
     /**
      * @param args the command line arguments
@@ -166,12 +132,10 @@ public class MenuInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonRegistrarse;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel Backgroud;
+    private javax.swing.JLabel fondo;
+    private javax.swing.JLabel iniciarSesion;
+    private javax.swing.JLabel logo;
+    private javax.swing.JLabel registrarse;
     // End of variables declaration//GEN-END:variables
 }
