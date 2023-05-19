@@ -17,19 +17,30 @@ public class Restaurantes {
     private double gastosEnvio;
     private int tiempoMedioEnvio;
     private boolean servicioCatering;
+    private Comidas comidas;
 
+   //CONsTRUCTOR
 
-    // CONSTRUCTOR
-    public Restaurantes(Direccion direccion, String especialidad, double calificacion, double gastosEnvio, int tiempoMedioEnvio, boolean servicioCatering) {
+    public Restaurantes(Direccion direccion, String especialidad, double calificacion, double gastosEnvio, int tiempoMedioEnvio, boolean servicioCatering, Comidas comidas) {
         this.direccion = direccion;
         this.especialidad = especialidad;
         this.calificacion = calificacion;
         this.gastosEnvio = gastosEnvio;
         this.tiempoMedioEnvio = tiempoMedioEnvio;
         this.servicioCatering = servicioCatering;
+        this.comidas = comidas;
     }
 
-    // GETTERS Y SETTERS
+
+   // GETTERS Y SETTERS
+    public Comidas getComidas() {
+        return comidas;
+    }
+
+    public void setComidas(Comidas comidas) {
+        this.comidas = comidas;
+    }
+    
     public Direccion getDireccion() {
         return direccion;
     }
