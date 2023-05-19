@@ -44,9 +44,12 @@ public class MenuInicial extends javax.swing.JFrame {
         Backgroud.setBackground(new java.awt.Color(255, 255, 255));
         Backgroud.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonInicioSesion.png"))); // NOI18N
+        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botonInicioSesion.png"))); // NOI18N
         iniciarSesion.setText("jLabel2");
         iniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarSesionMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 iniciarSesionMouseEntered(evt);
             }
@@ -54,16 +57,26 @@ public class MenuInicial extends javax.swing.JFrame {
                 iniciarSesionMouseExited(evt);
             }
         });
-        Backgroud.add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 200, 50));
+        Backgroud.add(iniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 190, 50));
 
-        registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/botonRegistrarse.png"))); // NOI18N
-        registrarse.setText("jLabel1");
-        Backgroud.add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, 150, 60));
+        registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botonRegistrarse.png"))); // NOI18N
+        registrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registrarseMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registrarseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registrarseMouseExited(evt);
+            }
+        });
+        Backgroud.add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 190, 60));
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/android-chrome-192x192.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logotipo192x192.png"))); // NOI18N
         Backgroud.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 190, 190));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo2.jpg"))); // NOI18N
         Backgroud.add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 760));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,13 +99,40 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void iniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseEntered
         // TODO add your handling code here:
-          iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/botonInicioSesion2.png"))); // NOI18N
+          iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botoninicioSesion2.png"))); // NOI18N
     }//GEN-LAST:event_iniciarSesionMouseEntered
 
     private void iniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseExited
         // TODO add your handling code here:
-        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/botonInicioSesion.png"))); // NOI18N
+        iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botoninicioSesion.png"))); // NOI18N
     }//GEN-LAST:event_iniciarSesionMouseExited
+
+    private void iniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseClicked
+        // TODO add your handling code here:
+        
+
+     
+        
+        
+    }//GEN-LAST:event_iniciarSesionMouseClicked
+
+    private void registrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseClicked
+        // TODO add your handling code here:
+        MenuRegistrarse menu = new MenuRegistrarse(this);
+        menu.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_registrarseMouseClicked
+
+    private void registrarseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseEntered
+        // TODO add your handling code here:
+        registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botonRegistrarse2.png"))); // NOI18N
+    }//GEN-LAST:event_registrarseMouseEntered
+
+    private void registrarseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseExited
+        // TODO add your handling code here:
+         registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/botonRegistrarse.png"))); // NOI18N
+    }//GEN-LAST:event_registrarseMouseExited
 
     /**
      * @param args the command line arguments
