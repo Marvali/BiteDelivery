@@ -19,7 +19,7 @@ public class Restaurantes {
     private boolean servicioCatering;
     private Comidas comidas;
 
-   //CONsTRUCTOR
+   //CONSTRUCTOR
 
     public Restaurantes(Direccion direccion, String especialidad, double calificacion, double gastosEnvio, int tiempoMedioEnvio, boolean servicioCatering, Comidas comidas) {
         this.direccion = direccion;
