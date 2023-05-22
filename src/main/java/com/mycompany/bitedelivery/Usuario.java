@@ -2,86 +2,41 @@ package com.mycompany.bitedelivery;
 
 /*
     Clase Cliente
+    -nombre
+    -apellido
+
     -email: String
     -password: String
-    -nombre: String
+    -tarjeta: Tarjeta
     -direccion: Direccion
     -tarjetaCredito: TarjetaCredito
     -telefono: String
+    -codigo postal
  */
 
 
 public class Usuario {
     // ATRIBUTOS
+    private String nombre;
+    private String apellido;
     private String email;
     private String password;
-    private String nombre;
+    private TarjetaCredito tarjeta;
     private Direccion direccion;
-    private TarjetaCredito tarjetaCredito;
     private int telefono;
+    private String codigoPostal;
+
+    // GETTERS Y SETTERS
+
 
     // CONSTRUCTOR
-    public Usuario(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito,int telefono) {
+    public Usuario(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String zip) {
+        this.nombre = nombre;
         this.email = email;
         this.password = password;
-        this.nombre = nombre;
+        this.tarjeta = tarjetaCredito;
         this.direccion = direccion;
-        this.tarjetaCredito = tarjetaCredito;
         this.telefono = telefono;
-    }
-    // GETTERS Y SETTERS
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Direccion getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
-    }
-
-    public TarjetaCredito getTarjetaCredito() {
-        return tarjetaCredito;
-    }
-
-    public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
-        this.tarjetaCredito = tarjetaCredito;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "email=" + email + ", password=" + password + ", nombre=" + nombre + ", direccion=" + direccion + ", tarjetaCredito=" + tarjetaCredito + ", telefono=" + telefono + '}';
+        this.codigoPostal = zip;
     }
 }

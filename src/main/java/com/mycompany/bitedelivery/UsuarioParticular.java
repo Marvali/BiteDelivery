@@ -7,8 +7,8 @@ public class UsuarioParticular extends Usuario {
     // ATRIBUTOS
     private String DNI;
     // CONSTRUCTOR
-    public UsuarioParticular(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String DNI) {
-        super(email, password, nombre, direccion, tarjetaCredito, telefono);
+    public UsuarioParticular(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String DNI,String zip) {
+        super(email, password, nombre, direccion, tarjetaCredito, telefono, zip);
         this.DNI = DNI;
     }
     // GETTERS Y SETTERS
