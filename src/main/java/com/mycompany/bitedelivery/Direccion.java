@@ -5,21 +5,21 @@ package com.mycompany.bitedelivery;
 *-calle: String        |
  -numero: String       |
  -codigoPostal: String |
- -ciudad: String
+
 * */
 public class Direccion {
     // ATRIBUTOS
     private String calle;
     private int numero;
     private int codigoPostal;
-    private String ciudad;
+
 
     // CONSTRUCTOR
-    public Direccion(String calle,int numero, int codigoPostal, String ciudad) {
+    public Direccion(String calle,int numero, int codigoPostal) {
         this.calle = calle;
         this.numero = numero;
         this.codigoPostal = codigoPostal;
-        this.ciudad = ciudad;
+
     }
     // GETTERS Y SETTERS
     public String getCalle() {
@@ -50,11 +50,5 @@ public class Direccion {
 
    
 
-    public String getCiudad() {
-        return ciudad;
-    }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
 }

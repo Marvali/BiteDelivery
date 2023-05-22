@@ -4,6 +4,7 @@
  */
 package interfaz;
 
+import com.mycompany.bitedelivery.Direccion;
 import com.mycompany.bitedelivery.UsuarioEmpresa;
 
 import javax.swing.*;
@@ -104,6 +105,12 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
         jLabel8.setText("Numero");
 
         jLabel9.setText("Codigo Postal");
+
+        textoNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoNumeroKeyTyped(evt);
+            }
+        });
 
         jLabel10.setText("Tarjeta");
 
@@ -225,7 +232,20 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public Direccion crearDireccion(String calle, int numero, int zip) {
+        //if calle is empty numero emty zip empty parseInt
+        if (!textoCalle.getText().isEmpty() && !textoNumero.getText().isEmpty() && !textoZip.getText().isEmpty()) {
+            calle = textoCalle.getText();
+            // get number from textfield convert to int
+            numero = Integer.parseInt(textoNumero.getText());
+            zip = Integer.parseInt(textoZip.getText());
+            Direccion direccion = new Direccion(calle, numero, zip);
+        } else {
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos de la direccion");
+        }
+        Direccion direccion = new Direccion(calle, numero, zip);
+        return direccion;
+    }
     private void textoDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDNIActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoDNIActionPerformed
@@ -240,19 +260,20 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
         String dni = textoDNI.getText();
         String cif = textoCIF.getText();
         String tarjeta = textoTarjeta.getText();
-        String calle = textoCalle.getText();
-        String numero = textoNumero.getText();
-        String zip = textoZip.getText();
+
+
+
         String modelo = (String) eleccionCombo.getSelectedItem();
         String telefono = textoTelefono.getText();
         //print(nombre, apellido, correo, contraseña, dni);
         System.out.println(nombre + " " + apellido + " " + correo + " " + contraseña + " " + dni);
-        System.out.println(cif + " " + tarjeta + " " + calle + " " + numero + " " + zip);
+        System.out.println(cif + " " + tarjeta + " " + telefono);
         if (modelo.equals("Empresa")) {
             if (nombre.equals("") || apellido.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || calle.equals("") || numero.equals("") || zip.equals("")) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
-                UsuarioEmpresa empresa = new UsuarioEmpresa(nombre, apellido, correo, contraseña, cif, tarjeta, calle, numero, zip);
+
+                UsuarioEmpresa empresa = new UsuarioEmpresa(nombre, apellido, correo, contraseña, cif, tarjeta,);
 
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
                 System.out.println(empresa.getNombre());
@@ -297,7 +318,19 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
 
     private void textoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoTelefonoActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_textoTelefonoActionPerformed
+
+    private void textoNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoNumeroKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+
+    }//GEN-LAST:event_textoNumeroKeyTyped
 
     /**
      * @param args the command line arguments
