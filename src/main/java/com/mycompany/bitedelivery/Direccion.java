@@ -4,21 +4,21 @@ package com.mycompany.bitedelivery;
 /*
 *-calle: String        |
  -numero: String       |
- -codigoPostal: String |
+ -zip: String |
 
 * */
 public class Direccion {
     // ATRIBUTOS
     private String calle;
     private int numero;
-    private int codigoPostal;
+    private int zip;
 
 
     // CONSTRUCTOR
-    public Direccion(String calle,int numero, int codigoPostal) {
+    public Direccion(String calle,int numero, int zip) {
         this.calle = calle;
         this.numero = numero;
-        this.codigoPostal = codigoPostal;
+        this.zip = zip;
 
     }
     // GETTERS Y SETTERS
@@ -38,17 +38,14 @@ public class Direccion {
         this.numero = numero;
     }
 
-    public int getCodigoPostal() {
-        return codigoPostal;
+    //zip get and set
+    public int getZip() {
+        return zip;
     }
+        public void setZip(int zip) {
+        this.zip = zip;
 
-    public void setCodigoPostal(int codigoPostal) {
-        this.codigoPostal = codigoPostal;
-    }
-
- 
-
-   
-
-
+        }
 }
+
+

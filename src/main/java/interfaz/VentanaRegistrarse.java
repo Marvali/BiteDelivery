@@ -56,6 +56,8 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         textoTelefono = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        textoWeb = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,6 +124,14 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setText("WEBPAGE");
+
+        textoWeb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textoWebActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,7 +156,10 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                                     .addComponent(jLabel10))
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(179, 179, 179)
+                                        .addComponent(jLabel12))
                                     .addComponent(textoDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +180,8 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                             .addComponent(textoCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Registrarse)
                             .addComponent(textoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textoZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textoZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -197,7 +211,9 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(textoWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,19 +248,21 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public Direccion crearDireccion(String calle, int numero, int zip) {
+    public Direccion crearDireccion( ) {
+        Direccion direccion = null;
         //if calle is empty numero emty zip empty parseInt
         if (!textoCalle.getText().isEmpty() && !textoNumero.getText().isEmpty() && !textoZip.getText().isEmpty()) {
-            calle = textoCalle.getText();
+            String calle = textoCalle.getText();
             // get number from textfield convert to int
-            numero = Integer.parseInt(textoNumero.getText());
-            zip = Integer.parseInt(textoZip.getText());
-            Direccion direccion = new Direccion(calle, numero, zip);
+            int numero = Integer.parseInt(textoNumero.getText());
+            int zip = Integer.parseInt(textoZip.getText());
+            direccion = new Direccion(calle, numero, zip);
+            
         } else {
             JOptionPane.showMessageDialog(null, "Rellene todos los campos de la direccion");
         }
-        Direccion direccion = new Direccion(calle, numero, zip);
         return direccion;
+        
     }
     private void textoDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDNIActionPerformed
         // TODO add your handling code here:
@@ -260,34 +278,40 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
         String dni = textoDNI.getText();
         String cif = textoCIF.getText();
         String tarjeta = textoTarjeta.getText();
-
-
-
+        Direccion direccion = crearDireccion();
         String modelo = (String) eleccionCombo.getSelectedItem();
         String telefono = textoTelefono.getText();
+        String web = textoWeb.getText();
         //print(nombre, apellido, correo, contraseña, dni);
-        System.out.println(nombre + " " + apellido + " " + correo + " " + contraseña + " " + dni);
-        System.out.println(cif + " " + tarjeta + " " + telefono);
         if (modelo.equals("Empresa")) {
-            if (nombre.equals("") || apellido.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || calle.equals("") || numero.equals("") || zip.equals("")) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono.equals("") || web.equals("")) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
+                //String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String CIF, String web
+                UsuarioEmpresa empresa;
+                empresa = new UsuarioEmpresa(correo, contraseña, nombre, direccion, tarjeta, Integer.parseInt(telefono), cif, web);
+                    //imprimir(empresa);
+                //imprimir empresa
+                System.out.println(empresa.getNombre());
+                System.out.println(empresa.getCorreo());
+                System.out.println(empresa.getPassword());
+                System.out.println(empresa.getTelefono());
+                System.out.println(empresa.getTarjeta());
 
-                UsuarioEmpresa empresa = new UsuarioEmpresa(nombre, apellido, correo, contraseña, cif, tarjeta,);
+                System.out.println(empresa.getDireccion()); //to string usuario empresa
+                System.out.println(empresa.getDireccion().getCalle());
+                System.out.println(empresa.getDireccion().getNumero());
+                System.out.println(empresa.getDireccion().getZip());
+                System.out.println(empresa.toString());
 
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
-                System.out.println(empresa.getNombre());
+
             }
         } else {
-            if (nombre.equals("") || apellido.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || calle.equals("") || numero.equals("") || zip.equals("")) {
+            if (nombre.equals("") || apellido.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") ) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
-                Persona persona = new Persona(nombre, apellido, correo, contraseña, dni, tarjeta, calle, numero, zip);
-                persona.registrar();
-                JOptionPane.showMessageDialog(null, "Registrado correctamente");
-                this.setVisible(false);
-                Login login = new Login();
-                login.setVisible(true);
+
             }
         }
 
@@ -332,6 +356,10 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
 
     }//GEN-LAST:event_textoNumeroKeyTyped
 
+    private void textoWebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoWebActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoWebActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -373,6 +401,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -392,6 +421,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField textoNumero;
     private javax.swing.JTextField textoTarjeta;
     private javax.swing.JTextField textoTelefono;
+    private javax.swing.JTextField textoWeb;
     private javax.swing.JFormattedTextField textoZip;
     // End of variables declaration//GEN-END:variables
 }

@@ -198,7 +198,7 @@
                                       <Component id="numeroCalle" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="codigoPostal" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="zip" min="-2" pref="140" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
@@ -230,7 +230,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="numeroCalle" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="codigoPostal" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="zip" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dni" min="-2" pref="40" max="-2" attributes="0"/>
@@ -330,7 +330,7 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroCalleKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="codigoPostal">
+            <Component class="javax.swing.JFormattedTextField" name="zip">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Codigo Postal"/>
                 <Property name="toolTipText" type="java.lang.String" value="Codigo Postal"/>
