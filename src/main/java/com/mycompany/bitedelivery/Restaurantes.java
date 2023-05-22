@@ -1,5 +1,7 @@
 package com.mycompany.bitedelivery;
 
+import java.util.ArrayList;
+
 /* -direccion: Direccion             |
         -especialidad: String             |
         -calificacion: double             |
@@ -17,29 +19,24 @@ public class Restaurantes {
     private double gastosEnvio;
     private int tiempoMedioEnvio;
     private boolean servicioCatering;
-    private Comidas comidas;
+    private ArrayList Comidas;
+
+   
+
 
    //CONSTRUCTOR
-
-    public Restaurantes(Direccion direccion, String especialidad, double calificacion, double gastosEnvio, int tiempoMedioEnvio, boolean servicioCatering, Comidas comidas) {
+ 
+     public Restaurantes(Direccion direccion, String especialidad, double calificacion, double gastosEnvio, int tiempoMedioEnvio, boolean servicioCatering, ArrayList Comidas) {
         this.direccion = direccion;
         this.especialidad = especialidad;
         this.calificacion = calificacion;
         this.gastosEnvio = gastosEnvio;
         this.tiempoMedioEnvio = tiempoMedioEnvio;
         this.servicioCatering = servicioCatering;
-        this.comidas = comidas;
+        this.Comidas = Comidas;
     }
 
-
-   // GETTERS Y SETTERS
-    public Comidas getComidas() {
-        return comidas;
-    }
-
-    public void setComidas(Comidas comidas) {
-        this.comidas = comidas;
-    }
+    // GETTERS Y SETTERS
     
     public Direccion getDireccion() {
         return direccion;
@@ -88,4 +85,17 @@ public class Restaurantes {
     public void setServicioCatering(boolean servicioCatering) {
         this.servicioCatering = servicioCatering;
     }
+    public ArrayList getComidas() {
+        return Comidas;
+    }
+
+    public void setComidas(ArrayList Comidas) {
+        this.Comidas = Comidas;
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurantes{" + "direccion=" + direccion + ", especialidad=" + especialidad + ", calificacion=" + calificacion + ", gastosEnvio=" + gastosEnvio + ", tiempoMedioEnvio=" + tiempoMedioEnvio + ", servicioCatering=" + servicioCatering + ", Comidas=" + Comidas + '}';
+    }
+    
 }
