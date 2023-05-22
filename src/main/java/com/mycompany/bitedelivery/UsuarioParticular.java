@@ -7,7 +7,7 @@ public class UsuarioParticular extends Usuario {
     // ATRIBUTOS
     private String DNI;
     // CONSTRUCTOR
-    public UsuarioParticular(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, String telefono, String DNI) {
+    public UsuarioParticular(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String DNI) {
         super(email, password, nombre, direccion, tarjetaCredito, telefono);
         this.DNI = DNI;
     }

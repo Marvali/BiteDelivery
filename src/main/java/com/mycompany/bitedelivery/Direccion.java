@@ -10,12 +10,12 @@ package com.mycompany.bitedelivery;
 public class Direccion {
     // ATRIBUTOS
     private String calle;
-    private String numero;
-    private String codigoPostal;
+    private int numero;
+    private int codigoPostal;
     private String ciudad;
 
     // CONSTRUCTOR
-    public Direccion(String calle, String numero, String codigoPostal, String ciudad) {
+    public Direccion(String calle,int numero, int codigoPostal, String ciudad) {
         this.calle = calle;
         this.numero = numero;
         this.codigoPostal = codigoPostal;
@@ -30,21 +30,25 @@ public class Direccion {
         this.calle = calle;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
-    public String getCodigoPostal() {
+    public int getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
+    public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
+
+ 
+
+   
 
     public String getCiudad() {
         return ciudad;

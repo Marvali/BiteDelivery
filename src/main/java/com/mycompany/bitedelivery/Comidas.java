@@ -18,11 +18,11 @@ public class Comidas {
     private double precio_venta;
     private String fotografia;
     //CONSTRUCTOR
-    public Comidas(String titulo, ArrayList ingredientes, double precio_venta, String fotografia) {
+    public Comidas(String titulo, ArrayList ingredientes, double precio_venta) {
         this.titulo = titulo;
         this.ingredientes = ingredientes;
         this.precio_venta = precio_venta;
-        this.fotografia = fotografia;
+        
     }
 
     

@@ -18,10 +18,10 @@ public class Usuario {
     private String nombre;
     private Direccion direccion;
     private TarjetaCredito tarjetaCredito;
-    private String telefono;
+    private int telefono;
 
     // CONSTRUCTOR
-    public Usuario(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, String telefono) {
+    public Usuario(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito,int telefono) {
         this.email = email;
         this.password = password;
         this.nombre = nombre;
@@ -70,13 +70,15 @@ public class Usuario {
         this.tarjetaCredito = tarjetaCredito;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
+
+    
 
     @Override
     public String toString() {

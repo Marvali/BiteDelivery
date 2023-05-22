@@ -14,7 +14,7 @@ public class UsuarioEmpresa extends Usuario {
 
 
     // CONSTRUCTOR
-    public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, String telefono, String CIF, String web) {
+    public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String CIF, String web) {
         super(email, password, nombre, direccion, tarjetaCredito, telefono);
         this.CIF = CIF;
         this.web = web;
