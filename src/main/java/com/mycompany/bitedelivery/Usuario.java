@@ -1,5 +1,5 @@
 package com.mycompany.bitedelivery;
-
+import java.io.Serializable;
 /*
     Clase Cliente
     -nombre
@@ -15,7 +15,7 @@ package com.mycompany.bitedelivery;
  */
 
 
-public class Usuario {
+public class Usuario implements Serializable {
     // ATRIBUTOS
     private String nombre;
     private String apellido;
@@ -24,7 +24,9 @@ public class Usuario {
     private String tarjeta;
     private Direccion direccion;
     private int telefono;
- 
+
+
+
 
     // GETTERS Y SETTERS
     public String getNombre() {

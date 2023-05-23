@@ -1,5 +1,5 @@
 package com.mycompany.bitedelivery;
-
+import java.io.Serializable;
 
 /*
 *-calle: String        |
@@ -7,7 +7,7 @@ package com.mycompany.bitedelivery;
  -zip: String |
 
 * */
-public class Direccion {
+public class Direccion implements Serializable {
     // ATRIBUTOS
     private String calle;
     private int numero;

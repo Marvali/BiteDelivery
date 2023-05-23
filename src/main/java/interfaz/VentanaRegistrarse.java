@@ -9,15 +9,14 @@ import com.mycompany.bitedelivery.UsuarioEmpresa;
 import com.mycompany.bitedelivery.UsuarioParticular;
 import com.mycompany.bitedelivery.GuardoDatos;
 import javax.swing.*;
-
-import static com.mycompany.bitedelivery.GuardoDatos.empresas;
-import static com.mycompany.bitedelivery.GuardoDatos.registerEmpresa;
+import java.io.Serializable;
+import static com.mycompany.bitedelivery.GuardoDatos.*;
 
 /**
  *
  * @author isaac
  */
-public class VentanaRegistrarse extends javax.swing.JFrame {
+public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializable{
     private String modelo;
     /**
      * Creates new form VentanaRegistrarse
@@ -310,7 +309,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                 System.out.println(empresa.getDireccion().getZip());
                 System.out.println(empresa.toString());
                 registerEmpresa(empresa);
-
+                saveDataEmpresas();
                 for (int i = 0; i < empresas.size(); i++) {
                     System.out.println("Empresa, entro en el bucle " + i);
                     System.out.println(empresas.get(i).getNombre());
@@ -322,6 +321,18 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                     System.out.println("Empresa, final del en el bucle " + i);
                 }
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
+
+                loadData();
+                for (int i = 0; i < prueba.size(); i++) {
+                    System.out.println("Usuario, entro en el bucle " + i);
+                    System.out.println(prueba.get(i).getNombre());
+                    System.out.println(prueba.get(i).getDireccion().getCalle());
+                    System.out.println(prueba.get(i).getDireccion().getNumero());
+                    System.out.println(prueba.get(i).getDireccion().getZip());
+                    System.out.println(prueba.get(i).getCorreo());
+                    System.out.println(prueba.get(i).getPassword());
+                    System.out.println("leyendo" + i);
+                }
 
             }
         } else {

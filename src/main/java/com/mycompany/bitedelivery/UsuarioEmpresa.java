@@ -1,5 +1,5 @@
 package com.mycompany.bitedelivery;
-
+import java.io.Serializable;
 /*extends cliente
 *
 *Inherits Cliente                  |
@@ -7,7 +7,7 @@ package com.mycompany.bitedelivery;
 |-web: String
 *
 *  */
-public class UsuarioEmpresa extends Usuario {
+public class UsuarioEmpresa extends Usuario implements Serializable {
 
     // ATRIBUTOS
     private String CIF;
@@ -16,13 +16,27 @@ public class UsuarioEmpresa extends Usuario {
     public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, String tarjeta, int telefono, String CIF, String web) {
         super(email, password, nombre, direccion, tarjeta, telefono);
 
+
     // GETTERS Y SETTERS
-        this.CIF = CIF;
-        this.web = web;
-        //get CIF
+
 
 
     }
+    // GETTERS Y SETTERS
+    public String getCIF() {
+        return CIF;
+    }
+    public void setCIF(String CIF) {
+        this.CIF = CIF;
+    }
+    public String getWeb() {
+        return web;
+    }
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
+        // Default constructor
+    }
 
 
-}
