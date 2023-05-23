@@ -90,10 +90,12 @@
                           <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="textoCalle" min="-2" pref="154" max="-2" attributes="0"/>
-                              <Component id="Registrarse" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoNumero" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoZip" min="-2" max="-2" attributes="0"/>
-                              <Component id="textoWeb" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="textoWeb" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textoZip" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="textoNumero" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="Registrarse" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>

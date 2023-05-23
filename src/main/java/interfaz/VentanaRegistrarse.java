@@ -6,8 +6,12 @@ package interfaz;
 
 import com.mycompany.bitedelivery.Direccion;
 import com.mycompany.bitedelivery.UsuarioEmpresa;
-
+import com.mycompany.bitedelivery.UsuarioParticular;
+import com.mycompany.bitedelivery.GuardoDatos;
 import javax.swing.*;
+
+import static com.mycompany.bitedelivery.GuardoDatos.empresas;
+import static com.mycompany.bitedelivery.GuardoDatos.registerEmpresa;
 
 /**
  *
@@ -178,10 +182,11 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Registrarse)
-                            .addComponent(textoNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textoZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textoWeb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(textoWeb, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textoZip, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textoNumero, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Registrarse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(37, 37, 37))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -280,16 +285,17 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
         String tarjeta = textoTarjeta.getText();
         Direccion direccion = crearDireccion();
         String modelo = (String) eleccionCombo.getSelectedItem();
-        String telefono = textoTelefono.getText();
+        int telefono =Integer.parseInt(textoTelefono.getText());
         String web = textoWeb.getText();
         //print(nombre, apellido, correo, contraseña, dni);
         if (modelo.equals("Empresa")) {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono.equals("") || web.equals("")) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("")) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
+
                 //String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjetaCredito, int telefono, String CIF, String web
                 UsuarioEmpresa empresa;
-                empresa = new UsuarioEmpresa(correo, contraseña, nombre, direccion, tarjeta, Integer.parseInt(telefono), cif, web);
+                empresa = new UsuarioEmpresa(correo, contraseña, nombre, direccion, tarjeta, telefono, cif, web);
                     //imprimir(empresa);
                 //imprimir empresa
                 System.out.println(empresa.getNombre());
@@ -303,14 +309,41 @@ public class VentanaRegistrarse extends javax.swing.JFrame {
                 System.out.println(empresa.getDireccion().getNumero());
                 System.out.println(empresa.getDireccion().getZip());
                 System.out.println(empresa.toString());
+                registerEmpresa(empresa);
 
+                for (int i = 0; i < empresas.size(); i++) {
+                    System.out.println("Empresa, entro en el bucle " + i);
+                    System.out.println(empresas.get(i).getNombre());
+                    System.out.println(empresas.get(i).getDireccion().getCalle());
+                    System.out.println(empresas.get(i).getDireccion().getNumero());
+                    System.out.println(empresas.get(i).getDireccion().getZip());
+                    System.out.println(empresas.get(i).getCorreo());
+                    System.out.println(empresas.get(i).getPassword());
+                    System.out.println("Empresa, final del en el bucle " + i);
+                }
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
 
             }
         } else {
-            if (nombre.equals("") || apellido.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") ) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || telefono==0) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
+                UsuarioParticular particular;
+                particular = new UsuarioParticular(correo, contraseña, nombre, direccion, tarjeta,telefono, dni);
+                //imprimir(particular);
+                //imprimir particular
+                System.out.println(particular.getNombre());
+                System.out.println(particular.getCorreo());
+                System.out.println(particular.getPassword());
+                System.out.println(particular.getTarjeta());
+                System.out.println(particular.getDNI());
+                System.out.println(particular.getDireccion()); //to string usuario empresa
+                System.out.println(particular.getDireccion().getCalle());
+                System.out.println(particular.getDireccion().getNumero());
+                System.out.println(particular.getDireccion().getZip());
+                System.out.println(particular.toString());
+
+                JOptionPane.showMessageDialog(null, "Registrado correctamente");
 
             }
         }
