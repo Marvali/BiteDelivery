@@ -13,7 +13,7 @@ public class UsuarioEmpresa extends Usuario implements Serializable {
     private String CIF;
     private String web;
     // CONSTRUCTOR
-    public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, String tarjeta, int telefono, String CIF, String web) {
+    public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjeta, int telefono, String CIF, String web) {
         super(email, password, nombre, direccion, tarjeta, telefono);
 
 

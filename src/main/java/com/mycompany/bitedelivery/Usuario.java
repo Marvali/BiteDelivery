@@ -1,5 +1,6 @@
 package com.mycompany.bitedelivery;
 import java.io.Serializable;
+
 /*
     Clase Cliente
     -nombre
@@ -21,7 +22,7 @@ public class Usuario implements Serializable {
     private String apellido;
     private String email;
     private String password;
-    private String tarjeta;
+    private TarjetaCredito tarjeta;
     private Direccion direccion;
     private int telefono;
 
@@ -41,7 +42,7 @@ public class Usuario implements Serializable {
     public String getPassword() {
         return password;
     }
-    public String getTarjeta() {
+    public TarjetaCredito getTarjeta() {
         return tarjeta;
     }
     public Direccion getDireccion() {
@@ -66,7 +67,7 @@ public class Usuario implements Serializable {
 
 
     // CONSTRUCTOR
-    public Usuario(String email, String password, String nombre, Direccion direccion,String tarjeta, int telefono) {
+    public Usuario(String email, String password, String nombre, Direccion direccion,TarjetaCredito tarjeta, int telefono) {
         this.nombre = nombre;
         this.email = email;
         this.password = password;
