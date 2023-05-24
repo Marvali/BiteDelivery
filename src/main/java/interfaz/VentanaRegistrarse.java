@@ -327,7 +327,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         if (!textoNumeroTarjeta.getText().isEmpty() & !textoTitularTarjeta.getText().isEmpty() & jDateChooser1.getDate() != null&&!(fechaCaducidad.before(fechaActual))) {
 
 
-            // get number from textfield convert to int
+
             int numeroTarjeta = Integer.parseInt(textoNumeroTarjeta.getText());
             String titularTarjeta = textoTitularTarjeta.getText();
             System.out.println("fecha actual");
@@ -389,6 +389,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 System.out.println(empresa.toString());
 
                 registerEmpresa(empresa);
+
                 saveDataEmpresas();
                 for (int i = 0; i < empresas.size(); i++) {
                     System.out.println("leyendo de la lista de empresas " + i);

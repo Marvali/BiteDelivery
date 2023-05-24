@@ -47,7 +47,7 @@ private MenuInicial principal;
         telefono = new javax.swing.JTextField();
         calle = new javax.swing.JTextField();
         numeroCalle = new javax.swing.JFormattedTextField();
-        codigoPostal = new javax.swing.JFormattedTextField();
+        zip = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         botonRegistro = new javax.swing.JLabel();
         dni = new javax.swing.JTextField();
@@ -217,9 +217,9 @@ private MenuInicial principal;
             }
         });
 
-        codigoPostal.setText("Codigo Postal");
-        codigoPostal.setToolTipText("Codigo Postal");
-        codigoPostal.addFocusListener(new java.awt.event.FocusAdapter() {
+        zip.setText("Codigo Postal");
+        zip.setToolTipText("Codigo Postal");
+        zip.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 codigoPostalFocusGained(evt);
             }
@@ -227,7 +227,7 @@ private MenuInicial principal;
                 codigoPostalFocusLost(evt);
             }
         });
-        codigoPostal.addKeyListener(new java.awt.event.KeyAdapter() {
+        zip.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 codigoPostalKeyTyped(evt);
             }
@@ -285,7 +285,7 @@ private MenuInicial principal;
                                 .addComponent(dni, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(numeroCalle))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(botonRegistro)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -309,7 +309,7 @@ private MenuInicial principal;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(codigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
@@ -443,7 +443,7 @@ private MenuInicial principal;
 
     private void codigoPostalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusGained
         // TODO add your handling code here:
-        codigoPostal.setText("");
+
     }//GEN-LAST:event_codigoPostalFocusGained
 
     private void codigoPostalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigoPostalFocusLost
@@ -497,7 +497,7 @@ private MenuInicial principal;
         int telefono = Integer.parseInt(this.telefono.getText());
         String calle = this.calle.getText();
         int numeroCalle = Integer.parseInt(this.numeroCalle.getText());
-        int codigoPostal = Integer.parseInt(this.codigoPostal.getText());
+
         // String ciudad = this.ciudad.getText();
        // String provincia = this.provincia.getText();
        // String pais = this.pais.getText();
@@ -554,7 +554,6 @@ private MenuInicial principal;
     private javax.swing.JPanel background1;
     private javax.swing.JLabel botonRegistro;
     private javax.swing.JTextField calle;
-    private javax.swing.JFormattedTextField codigoPostal;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JTextField correo;
     private javax.swing.JTextField dni;
@@ -567,5 +566,6 @@ private MenuInicial principal;
     private javax.swing.JPanel panelLateral;
     private javax.swing.JPanel panelSuperior;
     private javax.swing.JTextField telefono;
+    private javax.swing.JFormattedTextField zip;
     // End of variables declaration//GEN-END:variables
 }

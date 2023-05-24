@@ -55,4 +55,15 @@ public class GuardoDatos implements Serializable {
             return true;
         }
     }
+
+    public static boolean loginEmpresa(String email, String password){
+        //login a company
+
+        for (UsuarioEmpresa empresa : empresas){
+            if (empresa.getEmail().equals(email) && empresa.getPassword().equals(password)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

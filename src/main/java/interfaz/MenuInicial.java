@@ -3,14 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz;
-
-import javax.swing.JPanel;
-
+import java.io.Serializable;
 /**
  *
  * @author isaac
  */
-public class MenuInicial extends javax.swing.JFrame {
+public class MenuInicial extends javax.swing.JFrame implements Serializable  {
 
     /**
      * Creates new form menu
@@ -110,8 +108,9 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void iniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionMouseClicked
         // TODO add your handling code here:
+        MenuLogin menu = new MenuLogin(this);
+        menu.setVisible(true);
         
-
      
         
         
@@ -119,9 +118,11 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void registrarseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registrarseMouseClicked
         // TODO add your handling code here:
-        MenuRegistrarse menu = new MenuRegistrarse(this);
-        menu.setVisible(true);
-        this.setVisible(false);
+
+        VentanaRegistrarse ventana = new VentanaRegistrarse();
+        ventana.setVisible(true);
+
+
         
     }//GEN-LAST:event_registrarseMouseClicked
 
