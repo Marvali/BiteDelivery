@@ -1,16 +1,18 @@
 package com.mycompany.bitedelivery;
+import java.io.Serializable;
+import java.util.Date;
 
 /*
 titular: String          |
 numero: String           |
 -fechaCaducidad: String */
-public class TarjetaCredito {
+public class TarjetaCredito implements Serializable {
     // ATRIBUTOS
     private String titular;
-    private String numero;
-    private String fechaCaducidad;
+    private long numero;
+    private Date fechaCaducidad;
     // CONSTRUCTOR
-    public TarjetaCredito(String titular, String numero, String fechaCaducidad) {
+    public TarjetaCredito(String titular, long numero, Date fechaCaducidad) {
         this.titular = titular;
         this.numero = numero;
         this.fechaCaducidad = fechaCaducidad;
@@ -22,16 +24,16 @@ public class TarjetaCredito {
     public void setTitular(String titular) {
         this.titular = titular;
     }
-    public String getNumero() {
+    public long getNumero() {
         return numero;
     }
-    public void setNumero(String numero) {
+    public void setNumero(long numero) {
         this.numero = numero;
     }
-    public String getFechaCaducidad() {
+    public Date getFechaCaducidad() {
         return fechaCaducidad;
     }
-    public void setFechaCaducidad(String fechaCaducidad) {
+    public void setFechaCaducidad(Date fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 }

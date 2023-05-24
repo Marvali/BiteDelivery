@@ -5,9 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-     UsuarioParticular Usuario1= new UsuarioParticular("fernando@gmail.com","fer123","fer",new Direccion("Los espartales",29,25105),new TarjetaCredito("Fernando",2352363674646l,"01/05/2025"),626568761,"24331652V");
-     UsuarioParticular Usuario2= new UsuarioParticular("isaac@gmail.com","isaac123","isaac",new Direccion("Los Persas",15,25232),new TarjetaCredito("Isaac",1352363674646l,"01/05/2025"),626568761,"64536253H");
-     UsuarioParticular Usuario3= new UsuarioParticular("pepa@gmail.com","pepa234","pepa",new Direccion("Las Margaritas",24,25162),new TarjetaCredito("pepa",3462768694047l,"01/08/2027"),680980701,"67421739G");
+
     
      ArrayList Ingredientes_comida1 = new ArrayList();
      Ingredientes_comida1.add("carne");

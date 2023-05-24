@@ -321,7 +321,24 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
     public TarjetaCredito crearTarjeta() {
         //if numeroTarjeta is empty parseInt and textoTitularTarjeta and jDateChooser1 is not empty
         TarjetaCredito tarjeta = null;
-        
+        Date fechaActual = new Date();
+        Date fechaCaducidad = jDateChooser1.getDate();
+        System.out.println(fechaCaducidad.before(fechaActual));
+        if (!textoNumeroTarjeta.getText().isEmpty() & !textoTitularTarjeta.getText().isEmpty() & jDateChooser1.getDate() != null&&!(fechaCaducidad.before(fechaActual))) {
+
+
+            // get number from textfield convert to int
+            int numeroTarjeta = Integer.parseInt(textoNumeroTarjeta.getText());
+            String titularTarjeta = textoTitularTarjeta.getText();
+            System.out.println("fecha actual");
+            System.out.println(new Date());
+
+            tarjeta = new TarjetaCredito(titularTarjeta,numeroTarjeta, fechaCaducidad);
+        } else {
+            JOptionPane.showMessageDialog(null, "Rellene todos los campos de la tarjeta y asegurese de que la fecha de caducidad no es anterior a la actual");
+        }
+
+
 
         return tarjeta;
     }
@@ -338,6 +355,10 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         String contraseña = textoContraseña.getText();
         String dni = textoDNI.getText();
         String cif = textoCIF.getText();
+        System.out.println(jDateChooser1.getDate());
+        jDateChooser1.setDateFormatString("dd/MM/yyyy");
+        System.out.println(jDateChooser1.getDate());
+
 
         TarjetaCredito tarjeta = crearTarjeta();
         Direccion direccion = crearDireccion();
@@ -366,30 +387,40 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 System.out.println(empresa.getDireccion().getNumero());
                 System.out.println(empresa.getDireccion().getZip());
                 System.out.println(empresa.toString());
+
                 registerEmpresa(empresa);
                 saveDataEmpresas();
                 for (int i = 0; i < empresas.size(); i++) {
-                    System.out.println("Empresa, entro en el bucle " + i);
+                    System.out.println("leyendo de la lista de empresas " + i);
                     System.out.println(empresas.get(i).getNombre());
                     System.out.println(empresas.get(i).getDireccion().getCalle());
                     System.out.println(empresas.get(i).getDireccion().getNumero());
                     System.out.println(empresas.get(i).getDireccion().getZip());
                     System.out.println(empresas.get(i).getCorreo());
                     System.out.println(empresas.get(i).getPassword());
-                    System.out.println("Empresa, final del en el bucle " + i);
+
+                    System.out.println(empresas.get(0).getTarjeta().getFechaCaducidad());
+                    System.out.println(empresas.get(0).getTarjeta().getNumero());
+                    System.out.println("saliendo de la lista de empresas " + i);
+
+
                 }
+
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
 
                 loadData();
                 for (int i = 0; i < prueba.size(); i++) {
-                    System.out.println("Usuario, entro en el bucle " + i);
+                    System.out.println("leyendo del TXT" + i);
                     System.out.println(prueba.get(i).getNombre());
                     System.out.println(prueba.get(i).getDireccion().getCalle());
                     System.out.println(prueba.get(i).getDireccion().getNumero());
                     System.out.println(prueba.get(i).getDireccion().getZip());
                     System.out.println(prueba.get(i).getCorreo());
                     System.out.println(prueba.get(i).getPassword());
-                    System.out.println("leyendo" + i);
+
+                    System.out.println(empresas.get(0).getTarjeta().getFechaCaducidad());
+                    System.out.println(empresas.get(0).getTarjeta().getNumero());
+                    System.out.println("leyendo ULTIMA linea del txt" + i);
                 }
 
             }
