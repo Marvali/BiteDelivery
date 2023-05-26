@@ -2,20 +2,61 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+// 
 package interfaz;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import javax.swing.table.DefaultTableModel;
+
+import com.mycompany.bitedelivery.Restaurante;
+import com.mycompany.bitedelivery.GuardoDatos;
 
 /**
  *
  * @author isaac
  */
 public class MenuUsuario extends javax.swing.JFrame {
-
+    DefaultTableModel prueba = new DefaultTableModel();
+    private static ArrayList<Restaurante> ventaRestaurantes = new ArrayList<Restaurante>(); 
     /**
      * Creates new form MenuUsuario
      */
     public MenuUsuario() {
         initComponents();
+        setModeloTabla();
+        
+        ordenProductos();
+
+       setDatosTabla(ventaRestaurantes);
     }
+    
+    // opciones de ordenación Por relevancia (se muestran los restaurantes con la mejor calificación).Por tiempo medio de envío. Servicio de catering disponible o no
+    private void setModeloTabla(){
+        String[] cabecera = {"Nombre","Calificacion","Tiempo Medio envio ","Catering"};
+
+        prueba.setColumnIdentifiers(cabecera);
+        tablaRestaurantes.setModel(prueba); 
+        
+
+        }
+    private void ordenProductos(){
+        //ordenar por relevancia
+        //ordenar por tiempo medio de envio
+        //ordenar por servicio de catering
+       GuardoDatos.loadDataRestaurantes();
+        ventaRestaurantes = GuardoDatos.getRestaurantes();
+        setDatosTabla(ventaRestaurantes);
+    }
+    private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
+    for (Restaurante restaurante : restaurantes) {
+        Object[] fila = {restaurante.getNombre(), restaurante.getCalificacion(), restaurante.getTiempoMedioEnvio(), restaurante.isServicioCatering()};
+        prueba.addRow(fila);
+    }
+}
+       
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,17 +67,39 @@ public class MenuUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaRestaurantes = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        tablaRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tablaRestaurantes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -78,5 +141,8 @@ public class MenuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tablaRestaurantes;
     // End of variables declaration//GEN-END:variables
 }
+

@@ -1,4 +1,5 @@
 package com.mycompany.bitedelivery;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -6,7 +7,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-    
+
+
      ArrayList Ingredientes_comida1 = new ArrayList();
      Ingredientes_comida1.add("carne");
      Ingredientes_comida1.add("salsa de tomate");
@@ -31,7 +33,7 @@ public class Main {
     restaurante1_comida.add(Comida1);
     restaurante1_comida.add(Comida2);
     restaurante1_comida.add(Comida3);
-    Restaurantes Restaurante1 = new Restaurantes(new Direccion("Los Espartales",29,25105),"Pasta",7.3,13,34,true,restaurante1_comida);
+    
     
     ArrayList Ingredientes_comida4 = new ArrayList();
     Ingredientes_comida4.add("emperador");
@@ -55,10 +57,14 @@ public class Main {
     restaurante2_comida.add(Comida4);
     restaurante2_comida.add(Comida5);
     restaurante2_comida.add(Comida6);
-    Restaurantes Restaurante2 = new Restaurantes(new Direccion("Los Martos",49,24735),"Pescado",6.5,10,54,false,restaurante2_comida);
-    
-    
-    
+    Restaurante Restaurante2 = new Restaurante("la pi",new Direccion("Los Martos",49,24735),"Pescado",6.5,10,54,false,restaurante2_comida);
+    Restaurante Restaurante1 = new Restaurante("ja",new Direccion("Los Espartales",29,25105),"Pasta",7.3,13,34,true,restaurante1_comida);
+    Restaurante Restaurante3 = new Restaurante("Ho",new Direccion("Los paga",19,25155),"Carne",7.0,5,44,true,restaurante1_comida);
+    //save
+    GuardoDatos.registerRestaurantes(Restaurante1);
+    GuardoDatos.registerRestaurantes(Restaurante2);
+    GuardoDatos.registerRestaurantes(Restaurante3);
+    GuardoDatos.saveDataRestaurantes();
     }
 
 }

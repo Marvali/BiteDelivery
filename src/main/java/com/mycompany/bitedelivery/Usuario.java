@@ -12,19 +12,20 @@ import java.io.Serializable;
     -direccion: Direccion
     -tarjetaCredito: TarjetaCredito
     -telefono: String
-    -codigo postal
+  
  */
 
 
 public class Usuario implements Serializable {
     // ATRIBUTOS
     private String nombre;
-    private String apellido;
+ 
     private String email;
     private String password;
     private TarjetaCredito tarjeta;
     private Direccion direccion;
     private int telefono;
+    
 
 
 
@@ -33,9 +34,7 @@ public class Usuario implements Serializable {
     public String getNombre() {
         return nombre;
     }
-    public String getApellido() {
-        return apellido;
-    }
+   
     public String getEmail() {
         return email;
     }

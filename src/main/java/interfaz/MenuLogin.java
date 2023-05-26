@@ -158,14 +158,26 @@ private MenuInicial prueba;
 
             //
 
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+        }else if(loginParticular(correo,contraseña)){
+            JOptionPane.showMessageDialog(null, "Login correcto");
+            //open new window MenuUsuario
+            MenuUsuario ventana = new MenuUsuario();
+        }else if(correo.equals("admin@javaeat.com") && contraseña.equals("admin")){
+            JOptionPane.showMessageDialog(null, "Login correcto");
+            //open new window MenuAdmin
+            MenuAdmin ventana = new MenuAdmin();
+            ventana.setVisible(true);
+
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Login incorrecto");
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     private void cargarDatosPruebasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarDatosPruebasActionPerformed
         // TODO add your handling code here:
-        loadData();
+        loadDataEmpresas();
+        loadDataParticulares();
         for (int i = 0; i < empresas.size(); i++) {
             System.out.println("datos de la lista de empresas " + i);
             System.out.println(empresas.get(i).getCorreo());
