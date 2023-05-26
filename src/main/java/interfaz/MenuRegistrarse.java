@@ -65,13 +65,11 @@ private MenuInicial principal;
         });
 
         background1.setBackground(new java.awt.Color(0, 0, 0));
-        background1.setForeground(new java.awt.Color(0, 0, 0));
         background1.setMaximumSize(new java.awt.Dimension(1270, 760));
         background1.setName("BiteDelivery"); // NOI18N
         background1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelSuperior.setBackground(new java.awt.Color(0, 0, 0));
-        panelSuperior.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logotipoletras.png"))); // NOI18N
         jLabel2.setText("jLabel2");
