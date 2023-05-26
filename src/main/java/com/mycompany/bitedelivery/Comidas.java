@@ -1,5 +1,5 @@
 package com.mycompany.bitedelivery;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Fer
  */
-public class Comidas {
+public class Comidas implements Serializable {
     //ATRIBUTOS
     private String titulo;
     private ArrayList ingredientes;
