@@ -94,14 +94,15 @@ public class MenuUsuario extends javax.swing.JFrame {
     
 }
 //selected row return restaurante nombre
-    private String getRestauranteSeleccionado() {
+    public  void setRestauranteSeleccionado() {
         int fila = tablaRestaurantes.getSelectedRow();
         if (fila == -1) {
-            return null;
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun Restaurante");
+            return;
         }
-        return (String) prueba.getValueAt(fila, 0);
+        GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);
     }
-    
+
        
     
 
@@ -122,6 +123,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         textoBuscador = new javax.swing.JTextField();
         botonBuscador = new javax.swing.JToggleButton();
         jCombo = new javax.swing.JComboBox<>();
+        botonOpenRestaurant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,6 +181,14 @@ public class MenuUsuario extends javax.swing.JFrame {
             }
         });
 
+        botonOpenRestaurant.setText("Ver restaurante");
+        botonOpenRestaurant.setToolTipText("");
+        botonOpenRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonOpenRestaurantActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -187,17 +197,19 @@ public class MenuUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(117, 117, 117)
-                                .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textoBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botonOpenRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(66, 66, 66)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(117, 117, 117)
+                                    .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botonBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(textoBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 119, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -216,7 +228,9 @@ public class MenuUsuario extends javax.swing.JFrame {
                         .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonOpenRestaurant)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -245,6 +259,21 @@ public class MenuUsuario extends javax.swing.JFrame {
        
     ordenProductos();
     }//GEN-LAST:event_jComboActionPerformed
+
+    private void botonOpenRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonOpenRestaurantActionPerformed
+        // TODO add your handling code here:
+        //abrir ventana de restaurante setvisible true
+        if(tablaRestaurantes.getSelectedRow()==-1){
+            JOptionPane.showMessageDialog(null, "No has seleccionado ningun restaurante");
+        }else{
+        setRestauranteSeleccionado();
+        MenuRestaurante menuRestaurante = new MenuRestaurante();
+        menuRestaurante.setVisible(true);
+        
+        }
+        
+
+    }//GEN-LAST:event_botonOpenRestaurantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,6 +312,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton botonBuscador;
+    private javax.swing.JButton botonOpenRestaurant;
     private javax.swing.JComboBox<String> jCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
