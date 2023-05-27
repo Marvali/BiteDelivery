@@ -38,6 +38,7 @@ public class MenuInicial extends javax.swing.JFrame implements Serializable  {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BiteDelivery");
         setBackground(new java.awt.Color(255, 255, 255));
+        setIconImages(null);
         setType(java.awt.Window.Type.UTILITY);
 
         Backgroud.setBackground(new java.awt.Color(255, 255, 255));
@@ -72,7 +73,7 @@ public class MenuInicial extends javax.swing.JFrame implements Serializable  {
         });
         Backgroud.add(registrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 190, 60));
 
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logotipo192x192.png"))); // NOI18N
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logos/bite logo-192x192.png"))); // NOI18N
         Backgroud.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 190, 190));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo2.jpg"))); // NOI18N

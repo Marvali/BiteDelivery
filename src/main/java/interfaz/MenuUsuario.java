@@ -7,10 +7,13 @@ package interfaz;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.table.DefaultTableModel;
 
 import com.mycompany.bitedelivery.Restaurante;
+import com.mycompany.bitedelivery.Direccion;
 import com.mycompany.bitedelivery.GuardoDatos;
 import javax.swing.JOptionPane;
 
@@ -29,8 +32,8 @@ public class MenuUsuario extends javax.swing.JFrame {
         setModeloTabla();
         
         ordenProductos();
-
-       setDatosTabla(ventaRestaurantes);
+        
+       
     }
     
     // opciones de ordenación Por relevancia (se muestran los restaurantes con la mejor calificación).Por tiempo medio de envío. Servicio de catering disponible o no
@@ -40,23 +43,65 @@ public class MenuUsuario extends javax.swing.JFrame {
         prueba.setColumnIdentifiers(cabecera);
         tablaRestaurantes.setModel(prueba); 
         
+        
+        
 
         }
     private void ordenProductos(){
-        //ordenar por relevancia
-        //ordenar por tiempo medio de envio
-        //ordenar por servicio de catering
-       GuardoDatos.loadDataRestaurantes();
+        GuardoDatos.loadDataRestaurantes();
         ventaRestaurantes = GuardoDatos.getRestaurantes();
+        String combo = jCombo.getSelectedItem().toString();
+        Comparator<Restaurante> comparator = null;
+    switch (combo) {
+        case "Por relevancia":
+            comparator = Comparator.comparing(Restaurante::getCalificacion).reversed();
+            break;
+        case "Por tiempo medio de envio":
+            comparator = Comparator.comparing(Restaurante::getTiempoMedioEnvio);
+            break;
+        case "Servicio de catering disponible":
+            comparator = Comparator.comparing(Restaurante::isServicioCatering).reversed();
+            break;
+        default:
+            break;
+    }
+    if (comparator != null) {
+        System.out.println("sin comparar");
+        System.out.println(ventaRestaurantes.get(0).getNombre());
+        System.out.println(ventaRestaurantes.get(1).getNombre());
+        System.out.println(ventaRestaurantes.get(2).getNombre());
+        Collections.sort(ventaRestaurantes, comparator);
         setDatosTabla(ventaRestaurantes);
+        System.out.println("comparado");
+        System.out.println(ventaRestaurantes.get(0).getNombre());
+        System.out.println(ventaRestaurantes.get(1).getNombre());
+        System.out.println(ventaRestaurantes.get(2).getNombre());
+
+    }
+       
     }
     private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
         prueba.setRowCount(0);
+        //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
+
     for (Restaurante restaurante : restaurantes) {
-        Object[] fila = {restaurante.getNombre(), restaurante.getCalificacion(), restaurante.getTiempoMedioEnvio(), restaurante.isServicioCatering()};
+        Object[] fila = {restaurante.getNombre(), restaurante.getCalificacion(), restaurante.getTiempoMedioEnvio(), restaurante.isServicioCatering() ? "Sí" : "No"};
         prueba.addRow(fila);
     }
+
+    
+
+    
 }
+//selected row return restaurante nombre
+    private String getRestauranteSeleccionado() {
+        int fila = tablaRestaurantes.getSelectedRow();
+        if (fila == -1) {
+            return null;
+        }
+        return (String) prueba.getValueAt(fila, 0);
+    }
+    
        
     
 
@@ -127,7 +172,7 @@ public class MenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "calificacion", "tiempoMedioEnvio", "servicioCatering" }));
+        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por relevancia", "Por tiempo medio de envio", "Servicio de catering disponible" }));
         jCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboActionPerformed(evt);
@@ -197,6 +242,8 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void jComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboActionPerformed
         // TODO add your handling code here:
+       
+    ordenProductos();
     }//GEN-LAST:event_jComboActionPerformed
 
     /**
