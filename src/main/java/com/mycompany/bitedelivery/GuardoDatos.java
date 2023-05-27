@@ -69,6 +69,7 @@ public class GuardoDatos implements Serializable {
     }
 }
 
+
     public static void loadDataParticulares() {
         try (FileInputStream fis = new FileInputStream("particulares.dat");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
@@ -208,4 +209,17 @@ public class GuardoDatos implements Serializable {
         }
         return false;
     }
+public static ArrayList<Restaurante> buscar(String nombre) {
+    ArrayList<Restaurante> restaurantesEncontrados = new ArrayList<>();
+    for (Restaurante restaurante : restaurantes) {
+        if (restaurante.getNombre().equalsIgnoreCase(nombre) ) {
+            restaurantesEncontrados.add(restaurante);
+        }
+        
+    }
+    return restaurantesEncontrados;
+}
+
+
+
 }

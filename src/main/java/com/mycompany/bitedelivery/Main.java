@@ -60,6 +60,9 @@ public class Main {
     Restaurante Restaurante2 = new Restaurante("la pi",new Direccion("Los Martos",49,24735),"Pescado",6.5,10,54,false,restaurante2_comida);
     Restaurante Restaurante1 = new Restaurante("ja",new Direccion("Los Espartales",29,25105),"Pasta",7.3,13,34,true,restaurante1_comida);
     Restaurante Restaurante3 = new Restaurante("Ho",new Direccion("Los paga",19,25155),"Carne",7.0,5,44,true,restaurante1_comida);
+    Restaurante Restaurante4 = new Restaurante("Ho",new Direccion("Los paga",19,25155),"Carne",7.0,5,44,true,restaurante1_comida);
+    
+    
     //save
     GuardoDatos.registerRestaurantes(Restaurante1);
     GuardoDatos.registerRestaurantes(Restaurante2);
