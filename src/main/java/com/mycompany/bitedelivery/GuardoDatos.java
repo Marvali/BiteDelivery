@@ -10,6 +10,8 @@ public class GuardoDatos implements Serializable {
     public static ArrayList<UsuarioParticular> particulares = new ArrayList<>();
     public static ArrayList<Restaurante>restaurantes = new ArrayList<>();
     public static ArrayList<UsuarioEmpresa> prueba = new ArrayList<>();
+     public static ArrayList<Comidas> selectedFoodArrayList = new ArrayList<>();
+     private static ArrayList<Comidas> comidasArrayList = new ArrayList<>();
     public static String selectedRestaurantName;
     public static String selectedFoodName;
 
@@ -225,8 +227,36 @@ public String getselectedRestaurantName(){
 
 return selectedRestaurantName;
 };
-public String getSelectedFoodName(){
 
-    return selectedFoodName;
+//selected foodarraylist
+public static ArrayList<Comidas> createFoodArrayList(String nombre, int quantity) {
+    ArrayList<Comidas> selectedFoodArrayList = new ArrayList<>();
+    loadDataComidas();
+    boolean found = false;
+    for (Comidas comidas : comidasArrayList) {
+        if (comidas.getTitulo().equalsIgnoreCase(nombre) && comidas.getCantidad() >= quantity) {
+            found = true;
+            // Check if the Comidas object already exists in the selectedFoodArrayList
+            boolean exists = false;
+            for (Comidas selectedComidas : selectedFoodArrayList) {
+                if (selectedComidas.getTitulo().equalsIgnoreCase(nombre)) {
+                    // If it exists, update its cantidad attribute
+                    selectedComidas.setCantidad(selectedComidas.getCantidad() + quantity);
+                    exists = true;
+                    break;
+                }
+            }
+            // If it doesn't exist, add it to the selectedFoodArrayList
+            if (!exists) {
+                selectedFoodArrayList.add(comidas);
+            }
+        }
+    }
+    if (found) {
+        saveDataComidas();
+    }
+    return selectedFoodArrayList;
 }
 }
+
+

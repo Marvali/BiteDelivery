@@ -28,7 +28,7 @@ private static ArrayList<Comidas> foodtoPayList;
         setDataTable();
     }
     private void setModeloTabla(){
-        String[] cabecera = {"Nombre", "Precio"};
+        String[] cabecera = {"Nombre", "Precio", "Cantidad"};
         modeloTabla.setColumnIdentifiers(cabecera);
         tableToPay.setModel(modeloTabla);
 
@@ -39,16 +39,27 @@ private void setDataTable() {
     modeloTabla.setRowCount(0);
     foodtoPayList = new ArrayList<>();
     String foodSelected = GuardoDatos.selectedFoodName;
-    GuardoDatos.getRestaurantes().forEach((restaurante) -> {
-        restaurante.getComidas().forEach((Comidas comida) -> {
+    ArrayList<Restaurante> restaurantes = GuardoDatos.getRestaurantes();
+    boolean productAdded = false; // Initialize the flag to false
+    for (Restaurante restaurante : restaurantes) {
+        ArrayList<Comidas> comidas = restaurante.getComidas();
+        for (Comidas comida : comidas) {
             if (comida.getTitulo().equals(foodSelected)) {
-                foodtoPayList.add(comida);
+                if (!productAdded) {
+                    foodtoPayList.add(comida);
+                    productAdded = true; // Set the flag to true
+                }
+                else {
+                    // If the product has already been added, update its quantity
+                    Comidas existingProduct = foodtoPayList.get(foodtoPayList.indexOf(comida));
+                    existingProduct.setCantidad(existingProduct.getCantidad() + 1);
+                }
             }
-        });
-    });
+        }
+    }
 
     for (Comidas comida : foodtoPayList) {
-        Object[] fila = {comida.getTitulo(), comida.getPrecio_venta()};
+        Object[] fila = {comida.getTitulo(), comida.getPrecio_venta(), comida.getCantidad()};
         modeloTabla.addRow(fila);
     }
 }

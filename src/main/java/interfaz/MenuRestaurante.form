@@ -25,18 +25,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace pref="100" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="536" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="spinnerQuantity" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                      <Component id="buttonToCart" min="-2" pref="142" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jScrollPane1" min="-2" pref="536" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+              <Component id="buttonGoCart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="spinnerQuantity" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+              <Component id="buttonToCart" min="-2" pref="142" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,6 +48,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonToCart" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="spinnerQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonGoCart" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
@@ -81,6 +81,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JSpinner" name="spinnerQuantity">
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="buttonGoCart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ir al carrito para pagar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonGoCartActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

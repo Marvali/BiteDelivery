@@ -58,7 +58,10 @@ public void addFoodToCart(){
     if(row == -1){
         JOptionPane.showMessageDialog(this, "Seleccione una comida");
     }else{
-        GuardoDatos.selectedFoodName = foodList.get(row).getTitulo();
+        String foodSelected = foodList.get(row).getTitulo();
+        int quantity = (int) spinnerQuantity.getValue();
+        GuardoDatos.createFoodArrayList(foodSelected, quantity);
+
 
     }
 }
@@ -78,6 +81,7 @@ public void addFoodToCart(){
         tableFood1 = new javax.swing.JTable();
         buttonToCart = new javax.swing.JButton();
         spinnerQuantity = new javax.swing.JSpinner();
+        buttonGoCart = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -101,21 +105,29 @@ public void addFoodToCart(){
             }
         });
 
+        buttonGoCart.setText("Ir al carrito para pagar");
+        buttonGoCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonGoCartActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(100, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(buttonGoCart)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
+                .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +137,8 @@ public void addFoodToCart(){
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonGoCart))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -136,10 +149,13 @@ public void addFoodToCart(){
         // TODO add your handling code here:
         //
         addFoodToCart();
-        MenuCart menuCart = new MenuCart();
-        menuCart.setVisible(true);
+        
         
     }//GEN-LAST:event_buttonToCartActionPerformed
+
+    private void buttonGoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGoCartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonGoCartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +193,7 @@ public void addFoodToCart(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton buttonGoCart;
     private javax.swing.JButton buttonToCart;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spinnerQuantity;

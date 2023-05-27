@@ -17,12 +17,14 @@ public class Comidas implements Serializable {
     private ArrayList ingredientes;
     private double precio_venta;
     private String fotografia;
+    private int cantidad;
     //CONSTRUCTOR
-    public Comidas(String titulo, ArrayList ingredientes, double precio_venta) {
+    public Comidas(String titulo, ArrayList ingredientes, double precio_venta, String fotografia) {
         this.titulo = titulo;
         this.ingredientes = ingredientes;
         this.precio_venta = precio_venta;
-        
+        this.fotografia = fotografia;
+        this.cantidad = 1;
     }
 
     
@@ -52,6 +54,12 @@ public class Comidas implements Serializable {
         this.titulo = titulo;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
     @Override
     public String toString() {
         return "Comidas{" + "titulo=" + titulo + ", ingredientes=" + ingredientes + ", precio_venta=" + precio_venta + ", fotografia=" + fotografia + '}';
