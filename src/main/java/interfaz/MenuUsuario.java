@@ -48,6 +48,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         }
     private void ordenProductos(){
+        //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
         GuardoDatos.loadDataRestaurantes();
         ventaRestaurantes = GuardoDatos.getRestaurantes();
         String combo = jCombo.getSelectedItem().toString();
@@ -81,8 +82,9 @@ public class MenuUsuario extends javax.swing.JFrame {
        
     }
     private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
+         // añadir datos a la tabla
         prueba.setRowCount(0);
-        //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
+       
 
     for (Restaurante restaurante : restaurantes) {
         Object[] fila = {restaurante.getNombre(), restaurante.getCalificacion(), restaurante.getTiempoMedioEnvio(), restaurante.isServicioCatering() ? "Sí" : "No"};
@@ -93,12 +95,13 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     
 }
-//selected row return restaurante nombre
+
     public  void setRestauranteSeleccionado() {
+        //coge el String del restaurante seleccionado con getSelectedRow y lo guarda en la variable selectedRestaurantName que se encuentra en GuardoDatos
         int fila = tablaRestaurantes.getSelectedRow();
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun Restaurante");
-            return;
+            
         }
         GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);
     }
@@ -238,6 +241,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void botonBuscadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscadorActionPerformed
         // TODO add your handling c
+        //boton buscador 
         String texto = textoBuscador.getText();
 
         String combo = jCombo.getSelectedItem().toString();

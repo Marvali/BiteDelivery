@@ -132,6 +132,11 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 textoTelefonoActionPerformed(evt);
             }
         });
+        textoTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoTelefonoKeyTyped(evt);
+            }
+        });
 
         jLabel12.setText("WEBPAGE");
 
@@ -519,6 +524,23 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         }
         
     }//GEN-LAST:event_textoNumeroTarjetaKeyTyped
+
+    private void textoTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoTelefonoKeyTyped
+        // TODO add your handling code here:
+        //maximo 9 digitos
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+        if (textoTelefono.getText().length() == 9) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 9 digitos");
+        }
+        
+    }//GEN-LAST:event_textoTelefonoKeyTyped
 
     /**
      * @param args the command line arguments

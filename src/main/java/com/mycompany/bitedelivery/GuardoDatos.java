@@ -1,6 +1,7 @@
 package com.mycompany.bitedelivery;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 public class GuardoDatos implements Serializable {
 
@@ -10,6 +11,7 @@ public class GuardoDatos implements Serializable {
     public static ArrayList<Restaurante>restaurantes = new ArrayList<>();
     public static ArrayList<UsuarioEmpresa> prueba = new ArrayList<>();
     public static String selectedRestaurantName;
+    public static String selectedFoodName;
 
 
 
@@ -223,4 +225,8 @@ public String getselectedRestaurantName(){
 
 return selectedRestaurantName;
 };
+public String getSelectedFoodName(){
+
+    return selectedFoodName;
+}
 }
