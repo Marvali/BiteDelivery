@@ -12,6 +12,7 @@ import com.mycompany.bitedelivery.ComidaComprar;
 import com.mycompany.bitedelivery.Comidas;
 import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Restaurante;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -63,6 +64,7 @@ private void setDataTable() {
         buttonPay = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         tableToPay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 import com.mycompany.bitedelivery.Restaurante;
 import com.mycompany.bitedelivery.Direccion;
 import com.mycompany.bitedelivery.GuardoDatos;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -131,6 +132,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         tablaRestaurantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -71,6 +71,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         textoCorreo.setToolTipText("");
 
