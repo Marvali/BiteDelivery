@@ -4,6 +4,8 @@
  */
 package interfaz;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Fer
@@ -32,6 +34,7 @@ public class RealizarPedido extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
         setMaximumSize(new java.awt.Dimension(1280, 780));
         setMinimumSize(new java.awt.Dimension(1280, 780));
         setPreferredSize(new java.awt.Dimension(1280, 780));

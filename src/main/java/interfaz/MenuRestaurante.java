@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.mycompany.bitedelivery.Comidas;
 import com.mycompany.bitedelivery.GuardoDatos;
+import javax.swing.ImageIcon;
 /**
  *
  * @author isaac
@@ -87,6 +88,7 @@ public void addFoodToCart(){
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         tableFood1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
