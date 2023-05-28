@@ -401,16 +401,9 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 empresa = new UsuarioEmpresa(correo, contraseña, nombre, direccion, tarjeta, telefono, cif, web);
                     //imprimir(empresa);
                 //imprimir empresa
-                System.out.println(empresa.getNombre());
-                System.out.println(empresa.getCorreo());
-                System.out.println(empresa.getPassword());
-                System.out.println(empresa.getTelefono());
-                System.out.println(empresa.getTarjeta());
+                
 
-                System.out.println(empresa.getDireccion()); //to string usuario empresa
-                System.out.println(empresa.getDireccion().getCalle());
-                System.out.println(empresa.getDireccion().getNumero());
-                System.out.println(empresa.getDireccion().getZip());
+                
                 System.out.println(empresa.toString());
 
                 registerEmpresa(empresa);
@@ -418,15 +411,9 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 saveDataEmpresas();
                 for (int i = 0; i < empresas.size(); i++) {
                     System.out.println("leyendo de la lista de empresas " + i);
-                    System.out.println(empresas.get(i).getNombre());
-                    System.out.println(empresas.get(i).getDireccion().getCalle());
-                    System.out.println(empresas.get(i).getDireccion().getNumero());
-                    System.out.println(empresas.get(i).getDireccion().getZip());
-                    System.out.println(empresas.get(i).getCorreo());
-                    System.out.println(empresas.get(i).getPassword());
+                   System.out.println(empresa.toString());
 
-                    System.out.println(empresas.get(0).getTarjeta().getFechaCaducidad());
-                    System.out.println(empresas.get(0).getTarjeta().getNumero());
+                    
                     System.out.println("saliendo de la lista de empresas " + i);
 
 
@@ -445,16 +432,9 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 particular = new UsuarioParticular(correo, contraseña, nombre, direccion, tarjeta,telefono, dni);
                 //imprimir(particular);
                 //imprimir particular
-                System.out.println(particular.getNombre());
-                System.out.println(particular.getCorreo());
-                System.out.println(particular.getPassword());
-                System.out.println(particular.getTarjeta());
-                System.out.println(particular.getDNI());
-                System.out.println(particular.getDireccion()); //to string usuario empresa
-                System.out.println(particular.getDireccion().getCalle());
-                System.out.println(particular.getDireccion().getNumero());
-                System.out.println(particular.getDireccion().getZip());
+               
                 System.out.println(particular.toString());
+                
                 registerParticular(particular);
                 saveDataParticulares();
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");

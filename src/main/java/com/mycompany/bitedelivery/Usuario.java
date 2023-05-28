@@ -18,13 +18,13 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
     // ATRIBUTOS
-    private String nombre;
+    protected String nombre;
  
-    private String email;
-    private String password;
-    private TarjetaCredito tarjeta;
-    private Direccion direccion;
-    private int telefono;
+    protected String email;
+    protected String password;
+    protected TarjetaCredito tarjeta;
+    protected Direccion direccion;
+    protected int telefono;
     
 
 
@@ -61,6 +61,13 @@ public class Usuario implements Serializable {
     public String getCorreo() {
         return email;
     }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    //telefono
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
 
 
 
@@ -74,5 +81,9 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
        
+    }
+    @Override
+    public String toString() {
+        return "Usuario{" + "nombre=" + nombre + ", email=" + email + ", password=" + password + ", tarjeta=" + tarjeta + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
 }

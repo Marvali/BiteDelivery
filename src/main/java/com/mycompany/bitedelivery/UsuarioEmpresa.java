@@ -37,6 +37,12 @@ public class UsuarioEmpresa extends Usuario implements Serializable {
     }
 
         // Default constructor
+        
+         @Override
+    public String toString() {
+        return "UsuarioEmpresa{" + "CIF= " + CIF + ", web= " + web + "email= "+ email + "password= "+ password + "nombre= "+ nombre + "direccion= "+ direccion + "tarjeta= "+ tarjeta + "telefono= "+ telefono +'}';
+
+    }
     }
 
 

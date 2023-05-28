@@ -18,4 +18,8 @@ public class UsuarioParticular extends Usuario {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
+    @Override
+    public String toString() {
+        return "UsuarioParticular{" + "DNI= " + DNI +"email= "+ email + "password= "+ password + "nombre= "+ nombre + "direccion= "+ direccion + "tarjeta= "+ tarjeta + "telefono= "+ telefono +'}';
+    }
 }

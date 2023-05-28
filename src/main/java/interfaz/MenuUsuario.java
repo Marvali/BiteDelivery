@@ -131,7 +131,7 @@ public class MenuUsuario extends javax.swing.JFrame {
         botonOpenRestaurant = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         tablaRestaurantes.setModel(new javax.swing.table.DefaultTableModel(

@@ -4,6 +4,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 import com.mycompany.bitedelivery.GuardoDatos;
 
 /**
@@ -25,16 +27,23 @@ public class Perfil extends javax.swing.JFrame {
         txtCif.setVisible(false);
         jLabelcif.setVisible(false);
         txtWebPage.setVisible(false);
+        jLabelweb.setVisible(false);
         txtDni.setVisible(true);
+        jLabeldni.setVisible(true);
+    
 
         }else if(GuardoDatos.tipoUsuario.equals("empresa")){
         txtCif.setVisible(true);
+        jLabelcif.setVisible(true);
         txtWebPage.setVisible(true);
+        jLabelweb.setVisible(true);
         txtDni.setVisible(false);
+        jLabeldni.setVisible(false);
     }
     }
     public void setUserInfo(){
         if(GuardoDatos.tipoUsuario.equals("particular")){
+
         txtNombre.setText(GuardoDatos.particularActual.getNombre());
         txtEmail.setText(GuardoDatos.particularActual.getEmail());
         txtCalle.setText(GuardoDatos.particularActual.getDireccion().getCalle());
@@ -46,7 +55,15 @@ public class Perfil extends javax.swing.JFrame {
         txtTelefono.setText(String.valueOf(telefono));
         txtPassword.setText(GuardoDatos.particularActual.getPassword());
         txtDni.setText(GuardoDatos.particularActual.getDNI());
+        long tarjeta = GuardoDatos.particularActual.getTarjeta().getNumero();
+        txtNumeroTarjeta.setText(String.valueOf(tarjeta));
+        txtTitularTarjeta.setText(GuardoDatos.particularActual.getTarjeta().getTitular());
+        
+
+
         }else if(GuardoDatos.tipoUsuario.equals("empresa")){
+
+
         txtNombre.setText(GuardoDatos.empresaActual.getNombre());
         txtEmail.setText(GuardoDatos.empresaActual.getEmail());
         txtCalle.setText(GuardoDatos.empresaActual.getDireccion().getCalle());
@@ -59,9 +76,91 @@ public class Perfil extends javax.swing.JFrame {
         txtPassword.setText(GuardoDatos.empresaActual.getPassword());
         txtCif.setText(GuardoDatos.empresaActual.getCIF());
         txtWebPage.setText(GuardoDatos.empresaActual.getWeb());
+        long tarjeta = GuardoDatos.empresaActual.getTarjeta().getNumero();
+        txtNumeroTarjeta.setText(String.valueOf(tarjeta));
+        txtTitularTarjeta.setText(GuardoDatos.empresaActual.getTarjeta().getTitular());
+        
         }
 
         
+    }
+
+    public void saveNewUserInfo(){
+        if(GuardoDatos.tipoUsuario.equals("particular")){
+            //find the user in the arraylist delete 
+            
+            for(int i=0;i<GuardoDatos.particulares.size();i++){
+                if(GuardoDatos.particulares.get(i).getEmail().equals(GuardoDatos.particularActual.getEmail())){
+                    GuardoDatos.particulares.remove(i);
+                }
+            }
+
+            GuardoDatos.particularActual.setNombre(txtNombre.getText());
+            GuardoDatos.particularActual.setEmail(txtEmail.getText());
+            GuardoDatos.particularActual.getDireccion().setCalle(txtCalle.getText());
+            GuardoDatos.particularActual.getDireccion().setNumero(Integer.parseInt(txtNumero.getText()));
+            GuardoDatos.particularActual.getDireccion().setZip(Integer.parseInt(txtZip.getText()));
+            GuardoDatos.particularActual.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            char[] passwordChars = txtPassword.getPassword();
+            String password = new String(passwordChars);
+            GuardoDatos.particularActual.setPassword(password);
+            GuardoDatos.particularActual.setDNI(txtDni.getText());
+            GuardoDatos.particularActual.getTarjeta().setNumero(Integer.parseInt(txtNumeroTarjeta.getText()));
+            GuardoDatos.particularActual.getTarjeta().setTitular(txtTitularTarjeta.getText());
+            // if jDateChooser1 is null, get the date from particularActual
+            if(jDateChooser1.getDate() == null){
+                GuardoDatos.particularActual.getTarjeta().setFechaCaducidad(GuardoDatos.particularActual.getTarjeta().getFechaCaducidad());
+            }else{
+            GuardoDatos.particularActual.getTarjeta().setFechaCaducidad(jDateChooser1.getDate());
+            }
+            //add the new user to the arraylist and save it
+            GuardoDatos.registerParticular(GuardoDatos.particularActual);
+            GuardoDatos.saveDataParticulares();
+            GuardoDatos.loadDataParticulares();
+
+            
+        }else if(GuardoDatos.tipoUsuario.equals("empresa")){
+
+             //find the user in the arraylist and delete it
+            for(int i=0;i<GuardoDatos.empresas.size();i++){
+                if(GuardoDatos.empresas.get(i).getEmail().equals(GuardoDatos.empresaActual.getEmail())){
+                    GuardoDatos.empresas.remove(i);
+                }
+            }
+           
+            GuardoDatos.empresaActual.setNombre(txtNombre.getText());
+            GuardoDatos.empresaActual.setEmail(txtEmail.getText());
+            GuardoDatos.empresaActual.getDireccion().setCalle(txtCalle.getText());
+            GuardoDatos.empresaActual.getDireccion().setNumero(Integer.parseInt(txtNumero.getText()));
+            GuardoDatos.empresaActual.getDireccion().setZip(Integer.parseInt(txtZip.getText()));
+            GuardoDatos.empresaActual.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            char[] passwordChars = txtPassword.getPassword();
+            String password = new String(passwordChars);
+            GuardoDatos.empresaActual.setPassword(password);
+            GuardoDatos.empresaActual.setCIF(txtCif.getText());
+            GuardoDatos.empresaActual.setWeb(txtWebPage.getText());
+            GuardoDatos.empresaActual.getTarjeta().setNumero(Integer.parseInt(txtNumeroTarjeta.getText()));
+            GuardoDatos.empresaActual.getTarjeta().setTitular(txtTitularTarjeta.getText());
+            // if jDateChooser1 is null, get the date from empresaActual
+            if(jDateChooser1.getDate() == null){
+                GuardoDatos.empresaActual.getTarjeta().setFechaCaducidad(GuardoDatos.empresaActual.getTarjeta().getFechaCaducidad());
+            }else{
+            GuardoDatos.empresaActual.getTarjeta().setFechaCaducidad(jDateChooser1.getDate());
+            }
+
+
+            //add the new user to the arraylist and save it
+            GuardoDatos.registerEmpresa(GuardoDatos.empresaActual);
+            GuardoDatos.saveDataEmpresas();
+            GuardoDatos.loadDataEmpresas();
+
+            
+            
+
+
+
+
+    }
     }
     
 
@@ -94,8 +193,15 @@ public class Perfil extends javax.swing.JFrame {
         jLabelcalle = new javax.swing.JLabel();
         jLabelnumero = new javax.swing.JLabel();
         jLabelzip = new javax.swing.JLabel();
+        txtTitularTarjeta = new javax.swing.JTextField();
+        txtNumeroTarjeta = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        buttonSave = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,41 +248,70 @@ public class Perfil extends javax.swing.JFrame {
 
         jLabelzip.setText("Zip");
 
+        jLabel1.setText("Titular");
+
+        jLabel2.setText("N tarjeta");
+
+        jLabel3.setText("Fecha cad");
+
+        buttonSave.setText("Guardar");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabelnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabelpassword)
-                    .addComponent(jLabeltelfono)
-                    .addComponent(jLabeldni)
-                    .addComponent(jLabelcif)
-                    .addComponent(jLabelweb))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtWebPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelcalle)
-                    .addComponent(jLabelnumero)
-                    .addComponent(jLabelzip))
-                .addGap(21, 21, 21)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabelnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabelpassword)
+                            .addComponent(jLabeltelfono)
+                            .addComponent(jLabeldni)
+                            .addComponent(jLabelcif)
+                            .addComponent(jLabelweb))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtWebPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelcalle)
+                            .addComponent(jLabelnumero)
+                            .addComponent(jLabelzip)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(37, 37, 37)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(273, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTitularTarjeta, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtNumeroTarjeta, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtZip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)))
+                .addContainerGap(268, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,11 +323,12 @@ public class Perfil extends javax.swing.JFrame {
                     .addComponent(jLabelnombre)
                     .addComponent(jLabelcalle))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2email)
-                    .addComponent(jLabelnumero))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2email)
+                        .addComponent(jLabelnumero)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,22 +336,33 @@ public class Perfil extends javax.swing.JFrame {
                     .addComponent(jLabelpassword)
                     .addComponent(jLabelzip))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabeltelfono))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabeldni))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelcif))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtWebPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelweb))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabeltelfono))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabeldni))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelcif)
+                            .addComponent(txtTitularTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtWebPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelweb)
+                            .addComponent(txtNumeroTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(27, 27, 27)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addGap(4, 4, 4)
+                .addComponent(buttonSave, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -237,6 +384,21 @@ public class Perfil extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtPassword.setText("");
     }//GEN-LAST:event_txtPasswordFocusGained
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        // TODO add your handling code here:
+        //jdialog to confirm, are u sure?
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que quieres guardar los cambios?", "Confirmar", dialogButton);
+        if (dialogResult == 0) {
+            saveNewUserInfo();
+            JOptionPane.showMessageDialog(this, "Cambios guardados correctamente");
+            this.dispose();
+        
+        }
+
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,7 +437,12 @@ public class Perfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonSave;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2email;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelcalle;
     private javax.swing.JLabel jLabelcif;
     private javax.swing.JLabel jLabeldni;
@@ -291,8 +458,10 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumero;
+    private javax.swing.JTextField txtNumeroTarjeta;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTitularTarjeta;
     private javax.swing.JTextField txtWebPage;
     private javax.swing.JTextField txtZip;
     // End of variables declaration//GEN-END:variables
