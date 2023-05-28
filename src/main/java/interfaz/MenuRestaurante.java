@@ -60,7 +60,9 @@ public void addFoodToCart(){
     }else{
         String foodSelected = foodList.get(row).getTitulo();
         int quantity = (int) spinnerQuantity.getValue();
-        GuardoDatos.createFoodArrayList(foodSelected, quantity);
+        double price = foodList.get(row).getPrecio_venta();
+        GuardoDatos.createFoodArrayList(foodSelected,price,quantity);
+        GuardoDatos.saveDataComidas();
 
 
     }
@@ -82,6 +84,7 @@ public void addFoodToCart(){
         buttonToCart = new javax.swing.JButton();
         spinnerQuantity = new javax.swing.JSpinner();
         buttonGoCart = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -112,14 +115,13 @@ public void addFoodToCart(){
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setText("Restaurantes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(116, 116, 116)
                 .addComponent(buttonGoCart)
@@ -128,18 +130,26 @@ public void addFoodToCart(){
                 .addGap(82, 82, 82)
                 .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonGoCart))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -155,6 +165,10 @@ public void addFoodToCart(){
 
     private void buttonGoCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonGoCartActionPerformed
         // TODO add your handling code here:
+        // set visible MenuCart
+        GuardoDatos.saveDataComidas();
+        MenuCart menuCart = new MenuCart();
+        menuCart.setVisible(true);
     }//GEN-LAST:event_buttonGoCartActionPerformed
 
     /**
@@ -195,6 +209,7 @@ public void addFoodToCart(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton buttonGoCart;
     private javax.swing.JButton buttonToCart;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spinnerQuantity;
     private javax.swing.JTable tableFood1;

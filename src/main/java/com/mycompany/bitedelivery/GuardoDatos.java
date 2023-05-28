@@ -10,7 +10,7 @@ public class GuardoDatos implements Serializable {
     public static ArrayList<UsuarioParticular> particulares = new ArrayList<>();
     public static ArrayList<Restaurante>restaurantes = new ArrayList<>();
     public static ArrayList<UsuarioEmpresa> prueba = new ArrayList<>();
-     public static ArrayList<Comidas> selectedFoodArrayList = new ArrayList<>();
+     public static ArrayList<ComidaComprar> selectedFoodArrayList = new ArrayList<>();
      private static ArrayList<Comidas> comidasArrayList = new ArrayList<>();
     public static String selectedRestaurantName;
     public static String selectedFoodName;
@@ -21,7 +21,7 @@ public class GuardoDatos implements Serializable {
     public static void loadDataComidas() {
         try (FileInputStream fis = new FileInputStream("comidas.dat");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
-            comidas = (ArrayList<Comidas>) ois.readObject();
+            selectedFoodArrayList = (ArrayList<ComidaComprar>) ois.readObject();
         } catch (FileNotFoundException e) {
             // Handle file not found exception
             System.err.println("File not found: " + e.getMessage());
@@ -38,11 +38,11 @@ public class GuardoDatos implements Serializable {
     }
     public static void saveDataComidas(){
         //save all data from txt.
-        if(!comidas.isEmpty()){
+        
             try{
                 try(FileOutputStream fos = new FileOutputStream("comidas.dat")){
                     ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(comidas);
+                    oos.writeObject(selectedFoodArrayList);
                     //cerrar el fichero
                     oos.close();
                 } catch (IOException e) {
@@ -51,7 +51,7 @@ public class GuardoDatos implements Serializable {
             } catch (RuntimeException e) {
                 throw new RuntimeException(e);
             }
-        }
+        
     }
     public static void loadDataEmpresas() {
     try (FileInputStream fis = new FileInputStream("empresas.dat");
@@ -229,34 +229,15 @@ return selectedRestaurantName;
 };
 
 //selected foodarraylist
-public static ArrayList<Comidas> createFoodArrayList(String nombre, int quantity) {
-    ArrayList<Comidas> selectedFoodArrayList = new ArrayList<>();
-    loadDataComidas();
-    boolean found = false;
-    for (Comidas comidas : comidasArrayList) {
-        if (comidas.getTitulo().equalsIgnoreCase(nombre) && comidas.getCantidad() >= quantity) {
-            found = true;
-            // Check if the Comidas object already exists in the selectedFoodArrayList
-            boolean exists = false;
-            for (Comidas selectedComidas : selectedFoodArrayList) {
-                if (selectedComidas.getTitulo().equalsIgnoreCase(nombre)) {
-                    // If it exists, update its cantidad attribute
-                    selectedComidas.setCantidad(selectedComidas.getCantidad() + quantity);
-                    exists = true;
-                    break;
-                }
-            }
-            // If it doesn't exist, add it to the selectedFoodArrayList
-            if (!exists) {
-                selectedFoodArrayList.add(comidas);
-            }
-        }
-    }
-    if (found) {
-        saveDataComidas();
-    }
-    return selectedFoodArrayList;
+public static ArrayList<ComidaComprar> createFoodArrayList(String nombre,double price, int quantity) {
+
+//make a new list for the shipping cart with food
+ComidaComprar comidaComprar = new ComidaComprar(nombre,price,quantity);
+selectedFoodArrayList.add(comidaComprar);
+return selectedFoodArrayList;
 }
+
+
 }
 
 

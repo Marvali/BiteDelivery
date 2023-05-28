@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 
+import com.mycompany.bitedelivery.ComidaComprar;
 import com.mycompany.bitedelivery.Comidas;
 import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Restaurante;
@@ -18,7 +19,7 @@ import com.mycompany.bitedelivery.Restaurante;
  */
 public class MenuCart extends javax.swing.JFrame {
 DefaultTableModel modeloTabla= new DefaultTableModel();
-private static ArrayList<Comidas> foodtoPayList;
+private static ArrayList<ComidaComprar> foodtoPayList;
     /**
      * Creates new form MenuCart
      */
@@ -37,31 +38,14 @@ private static ArrayList<Comidas> foodtoPayList;
 
 private void setDataTable() {
     modeloTabla.setRowCount(0);
+    GuardoDatos.loadDataComidas();
     foodtoPayList = new ArrayList<>();
-    String foodSelected = GuardoDatos.selectedFoodName;
-    ArrayList<Restaurante> restaurantes = GuardoDatos.getRestaurantes();
-    boolean productAdded = false; // Initialize the flag to false
-    for (Restaurante restaurante : restaurantes) {
-        ArrayList<Comidas> comidas = restaurante.getComidas();
-        for (Comidas comida : comidas) {
-            if (comida.getTitulo().equals(foodSelected)) {
-                if (!productAdded) {
-                    foodtoPayList.add(comida);
-                    productAdded = true; // Set the flag to true
-                }
-                else {
-                    // If the product has already been added, update its quantity
-                    Comidas existingProduct = foodtoPayList.get(foodtoPayList.indexOf(comida));
-                    existingProduct.setCantidad(existingProduct.getCantidad() + 1);
-                }
-            }
-        }
-    }
-
-    for (Comidas comida : foodtoPayList) {
-        Object[] fila = {comida.getTitulo(), comida.getPrecio_venta(), comida.getCantidad()};
+    foodtoPayList= GuardoDatos.selectedFoodArrayList;
+    for (ComidaComprar comida : foodtoPayList){
+        Object[] fila = { comida.getNombre(), comida.getPrecio(), comida.getCantidad()};
         modeloTabla.addRow(fila);
     }
+
 }
 
     /**
@@ -78,7 +62,7 @@ private void setDataTable() {
         jLabel1 = new javax.swing.JLabel();
         buttonPay = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tableToPay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

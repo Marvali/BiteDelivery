@@ -166,6 +166,7 @@ Restaurante Restaurante5 = new Restaurante("La Trattoria", new Direccion("Calle 
 GuardoDatos.registerRestaurantes(Restaurante5);
 
 GuardoDatos.saveDataRestaurantes();
+GuardoDatos.saveDataComidas();
 
     }
 
