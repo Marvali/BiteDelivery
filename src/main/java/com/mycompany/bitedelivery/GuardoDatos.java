@@ -14,6 +14,9 @@ public class GuardoDatos implements Serializable {
      private static ArrayList<Comidas> comidasArrayList = new ArrayList<>();
     public static String selectedRestaurantName;
     public static String selectedFoodName;
+    public static UsuarioParticular particularActual;
+    public static UsuarioEmpresa empresaActual;
+    public static String tipoUsuario;
 
 
 
@@ -197,6 +200,8 @@ public class GuardoDatos implements Serializable {
 
         for (UsuarioEmpresa empresa : empresas){
             if (empresa.getEmail().equals(email) && empresa.getPassword().equals(password)){
+                empresaActual = empresa;
+                tipoUsuario = "empresa";
                 return true;
             }
         }
@@ -207,7 +212,10 @@ public class GuardoDatos implements Serializable {
 
         for (UsuarioParticular particular : particulares){
             if (particular.getEmail().equals(email) && particular.getPassword().equals(password)){
+                particularActual = particular;
+                tipoUsuario = "particular";
                 return true;
+
             }
         }
         return false;

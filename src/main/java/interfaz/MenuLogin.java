@@ -188,19 +188,23 @@ private MenuInicial prueba;
         if(loginEmpresa(correo,contraseña)){
             JOptionPane.showMessageDialog(null, "Login correcto");
             //open new window MenuEmpresa
-            MenuEmpresa ventana = new MenuEmpresa();
-
+            MenuUsuario ventana = new MenuUsuario();
+            ventana.setVisible(true);
+            MenuLogin.this.dispose();
             //
 
         }else if(loginParticular(correo,contraseña)){
             JOptionPane.showMessageDialog(null, "Login correcto");
             //open new window MenuUsuario
             MenuUsuario ventana = new MenuUsuario();
+            ventana.setVisible(true);
+            MenuLogin.this.dispose();
         }else if(correo.equals("admin@javaeat.com") && contraseña.equals("admin")){
             JOptionPane.showMessageDialog(null, "Login correcto");
             //open new window MenuAdmin
             MenuAdmin ventana = new MenuAdmin();
             ventana.setVisible(true);
+            MenuLogin.this.dispose();
 
         }
         else {
@@ -217,6 +221,12 @@ private MenuInicial prueba;
             System.out.println(empresas.get(i).getCorreo());
             System.out.println(empresas.get(i).getPassword());
             System.out.println("saliendo de la lista de empresas " + i);
+        }
+        for (int i = 0; i < particulares.size(); i++) {
+            System.out.println("datos de la lista de particulares " + i);
+            System.out.println(particulares.get(i).getCorreo());
+            System.out.println(particulares.get(i).getPassword());
+            System.out.println("saliendo de la lista de particulares " + i);
         }
     }//GEN-LAST:event_cargarDatosPruebasActionPerformed
 
