@@ -229,12 +229,24 @@ return selectedRestaurantName;
 };
 
 //selected foodarraylist
-public static ArrayList<ComidaComprar> createFoodArrayList(String nombre,double price, int quantity) {
-
-//make a new list for the shipping cart with food
-ComidaComprar comidaComprar = new ComidaComprar(nombre,price,quantity);
-selectedFoodArrayList.add(comidaComprar);
-return selectedFoodArrayList;
+public static ArrayList<ComidaComprar> createFoodArrayList(String nombre, double price, int quantity) {
+    boolean found = false;
+    for (ComidaComprar comidaComprar : selectedFoodArrayList) {
+        if (comidaComprar.getNombre().equalsIgnoreCase(nombre)) {
+            found = true;
+            if (quantity == 0) {
+                selectedFoodArrayList.remove(comidaComprar); // Remove the ComidaComprar object if quantity is 0
+            } else {
+                comidaComprar.setCantidad(comidaComprar.getCantidad() + quantity); // Update the quantity if the ComidaComprar object already exists
+            }
+            break;
+        }
+    }
+    if (!found && quantity > 0) {
+        ComidaComprar comidaComprar = new ComidaComprar(nombre, price, quantity);
+        selectedFoodArrayList.add(comidaComprar); // Add a new ComidaComprar object if it doesn't exist
+    }
+    return selectedFoodArrayList;
 }
 
 
