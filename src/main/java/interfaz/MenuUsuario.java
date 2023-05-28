@@ -299,6 +299,10 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     private void botonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPerfilActionPerformed
         // TODO add your handling code here:
+        //abrir ventana de perfil setvisible true
+        Perfil perfil = new Perfil();
+        perfil.setVisible(true);
+        
         
         
     }//GEN-LAST:event_botonPerfilActionPerformed
