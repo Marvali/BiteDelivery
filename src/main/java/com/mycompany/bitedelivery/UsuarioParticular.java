@@ -20,6 +20,6 @@ public class UsuarioParticular extends Usuario {
     }
     @Override
     public String toString() {
-        return "UsuarioParticular{" + "DNI= " + DNI +"email= "+ email + "password= "+ password + "nombre= "+ nombre + "direccion= "+ direccion + "tarjeta= "+ tarjeta + "telefono= "+ telefono +'}';
+        return "UsuarioParticular{" + "DNI= " + DNI +" email= "+ email + " password= "+ password + " nombre= "+ nombre + "direccion= "+ direccion + " tarjeta= "+ tarjeta + " telefono= "+ telefono +'}';
     }
 }

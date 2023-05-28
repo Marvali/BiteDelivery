@@ -15,6 +15,8 @@ public class UsuarioEmpresa extends Usuario implements Serializable {
     // CONSTRUCTOR
     public UsuarioEmpresa(String email, String password, String nombre, Direccion direccion, TarjetaCredito tarjeta, int telefono, String CIF, String web) {
         super(email, password, nombre, direccion, tarjeta, telefono);
+        this.CIF = CIF;
+        this.web = web;
 
 
     // GETTERS Y SETTERS
@@ -40,7 +42,7 @@ public class UsuarioEmpresa extends Usuario implements Serializable {
         
          @Override
     public String toString() {
-        return "UsuarioEmpresa{" + "CIF= " + CIF + ", web= " + web + "email= "+ email + "password= "+ password + "nombre= "+ nombre + "direccion= "+ direccion + "tarjeta= "+ tarjeta + "telefono= "+ telefono +'}';
+        return "UsuarioEmpresa{" + " CIF= " + CIF + ", web= " + web + " email= "+ email + " password= "+ password + " nombre= "+ nombre + " direccion= "+ direccion + " tarjeta= "+ tarjeta + " telefono= "+ telefono +'}';
 
     }
     }
