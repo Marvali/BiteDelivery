@@ -15,112 +15,112 @@ ArrayList<String> ingredientes1 = new ArrayList<>();
 ingredientes1.add("Espaguetis");
 ingredientes1.add("Carne picada");
 ingredientes1.add("Tomate");
-Comidas Comida1 = new Comidas("Espaguetis a la Boloñesa", ingredientes1, 13, "foto1.jpg");
+Comidas Comida1 = new Comidas("Espaguetis a la Boloñesa", ingredientes1, 13, "/foto1.jpg");
 
 // Example 2
 ArrayList<String> ingredientes2 = new ArrayList<>();
 ingredientes2.add("Pollo");
 ingredientes2.add("Arroz");
 ingredientes2.add("Verduras");
-Comidas Comida2 = new Comidas("Arroz con Pollo", ingredientes2, 15, "foto2.jpg");
+Comidas Comida2 = new Comidas("Arroz con Pollo", ingredientes2, 15, "/foto2.jpg");
 
 // Example 3
 ArrayList<String> ingredientes3 = new ArrayList<>();
 ingredientes3.add("Carne");
 ingredientes3.add("Papas");
 ingredientes3.add("Cebolla");
-Comidas Comida3 = new Comidas("Lomo Saltado", ingredientes3, 18, "foto3.jpg");
+Comidas Comida3 = new Comidas("Lomo Saltado", ingredientes3, 18, "/foto3.jpg");
 
 // Example 4
 ArrayList<String> ingredientes4 = new ArrayList<>();
 ingredientes4.add("Salmón");
 ingredientes4.add("Arroz");
 ingredientes4.add("Verduras");
-Comidas Comida4 = new Comidas("Salmón Teriyaki", ingredientes4, 20, "foto4.jpg");
+Comidas Comida4 = new Comidas("Salmón Teriyaki", ingredientes4, 20, "/foto4.jpg");
 
 // Example 5
 ArrayList<String> ingredientes5 = new ArrayList<>();
 ingredientes5.add("Hamburguesa");
 ingredientes5.add("Queso");
 ingredientes5.add("Lechuga");
-Comidas Comida5 = new Comidas("Hamburguesa con Queso", ingredientes5, 12, "foto5.jpg");
+Comidas Comida5 = new Comidas("Hamburguesa con Queso", ingredientes5, 12, "/foto5.jpg");
 
 // Example 6
 ArrayList<String> ingredientes6 = new ArrayList<>();
 ingredientes6.add("Pizza");
 ingredientes6.add("Pepperoni");
 ingredientes6.add("Queso");
-Comidas Comida6 = new Comidas("Pizza de Pepperoni", ingredientes6, 16, "foto6.jpg");
+Comidas Comida6 = new Comidas("Pizza de Pepperoni", ingredientes6, 16, "/foto6.jpg");
 
 // Example 7
 ArrayList<String> ingredientes7 = new ArrayList<>();
 ingredientes7.add("Ensalada");
 ingredientes7.add("Pollo");
 ingredientes7.add("Tomate");
-Comidas Comida7 = new Comidas("Ensalada César", ingredientes7, 9, "foto7.jpg");
+Comidas Comida7 = new Comidas("Ensalada César", ingredientes7, 9, "/foto7.jpg");
 
 // Example 8
 ArrayList<String> ingredientes8 = new ArrayList<>();
 ingredientes8.add("Sopa");
 ingredientes8.add("Pollo");
 ingredientes8.add("Fideos");
-Comidas Comida8 = new Comidas("Sopa de Pollo", ingredientes8, 6, "foto8.jpg");
+Comidas Comida8 = new Comidas("Sopa de Pollo", ingredientes8, 6, "/foto8.jpg");
 
 // Example 9
 ArrayList<String> ingredientes9 = new ArrayList<>();
 ingredientes9.add("Tacos");
 ingredientes9.add("Carne");
 ingredientes9.add("Cebolla");
-Comidas Comida9 = new Comidas("Tacos de Carne Asada", ingredientes9, 10, "foto9.jpg");
+Comidas Comida9 = new Comidas("Tacos de Carne Asada", ingredientes9, 10, "/foto9.jpg");
 
 // Example 10
 ArrayList<String> ingredientes10 = new ArrayList<>();
 ingredientes10.add("Sushi");
 ingredientes10.add("Arroz");
 ingredientes10.add("Pescado");
-Comidas Comida10 = new Comidas("Sushi de Salmón", ingredientes10, 18, "foto10.jpg");
+Comidas Comida10 = new Comidas("Sushi de Salmón", ingredientes10, 18, "/foto10.jpg");
 
 // Example 11
 ArrayList<String> ingredientes11 = new ArrayList<>();
 ingredientes11.add("Huevos");
 ingredientes11.add("Tocino");
 ingredientes11.add("Pan");
-Comidas Comida11 = new Comidas("Desayuno Americano", ingredientes11, 7, "foto11.jpg");
+Comidas Comida11 = new Comidas("Desayuno Americano", ingredientes11, 7, "/foto11.jpg");
 
 // Example 12
 ArrayList<String> ingredientes12 = new ArrayList<>();
 ingredientes12.add("Pollo");
 ingredientes12.add("Arroz");
 ingredientes12.add("Verduras");
-Comidas Comida12 = new Comidas("Pollo al Curry", ingredientes12, 14, "foto12.jpg");
+Comidas Comida12 = new Comidas("Pollo al Curry", ingredientes12, 14, "/foto12.jpg");
 
 // Example 13
 ArrayList<String> ingredientes13 = new ArrayList<>();
 ingredientes13.add("Pasta");
 ingredientes13.add("Salsa de Tomate");
 ingredientes13.add("Queso");
-Comidas Comida13 = new Comidas("Pasta a la Boloñesa", ingredientes13, 11, "foto13.jpg");
+Comidas Comida13 = new Comidas("Pasta a la Boloñesa", ingredientes13, 11, "/foto13.jpg");
 
 // Example 14
 ArrayList<String> ingredientes14 = new ArrayList<>();
 ingredientes14.add("Ensalada");
 ingredientes14.add("Atún");
 ingredientes14.add("Lechuga");
-Comidas Comida14 = new Comidas("Ensalada de Atún", ingredientes14, 8, "foto14.jpg");
+Comidas Comida14 = new Comidas("Ensalada de Atún", ingredientes14, 8, "/foto14.jpg");
 
 // Example 15
 ArrayList<String> ingredientes15 = new ArrayList<>();
 ingredientes15.add("Hamburguesa");
 ingredientes15.add("Bacon");
 ingredientes15.add("Queso");
-Comidas Comida15 = new Comidas("Hamburguesa con Bacon", ingredientes15, 13, "foto15.jpg");
+Comidas Comida15 = new Comidas("Hamburguesa con Bacon", ingredientes15, 13, "/foto15.jpg");
 
 // Example 16
 ArrayList<String> ingredientes16 = new ArrayList<>();
 ingredientes16.add("Pizza");
 ingredientes16.add("Jamón");
 ingredientes16.add("Queso");
-Comidas Comida16 = new Comidas("Pizza de Jamón y Queso", ingredientes16, 15, "foto16.jpg");
+Comidas Comida16 = new Comidas("Pizza de Jamón y Queso", ingredientes16, 15, "/foto16.jpg");
     // Example 1
 ArrayList<Comidas> restaurante1_comida = new ArrayList<>();
 restaurante1_comida.add(Comida1);
