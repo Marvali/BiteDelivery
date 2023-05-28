@@ -24,27 +24,41 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="txtWebPage" pref="109" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtCif" max="32767" attributes="0"/>
-                      <Component id="txtDni" max="32767" attributes="0"/>
-                      <Component id="txtTelefono" max="32767" attributes="0"/>
-                      <Component id="txtNombre" max="32767" attributes="0"/>
-                      <Component id="txtEmail" max="32767" attributes="0"/>
-                      <Component id="txtPassword" pref="109" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtCalle" min="-2" pref="167" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="txtZip" alignment="0" pref="99" max="32767" attributes="0"/>
-                      <Component id="txtNumero" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelnombre" max="32767" attributes="0"/>
+                      <Component id="jLabel2email" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="jLabelpassword" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabeltelfono" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabeldni" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelcif" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelweb" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="397" max="32767" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtNombre" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtWebPage" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtEmail" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtPassword" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtTelefono" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtDni" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+                  <Component id="txtCif" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelcalle" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelnumero" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelzip" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtNumero" min="-2" pref="99" max="-2" attributes="0"/>
+                  <Component id="txtCalle" min="-2" pref="167" max="-2" attributes="0"/>
+                  <Component id="txtZip" min="-2" pref="99" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="273" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,25 +69,43 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtCalle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelnombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelcalle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNumero" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2email" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelnumero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtZip" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelpassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelzip" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabeltelfono" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabeldni" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtDni" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtCif" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtWebPage" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCif" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelcif" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtWebPage" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelweb" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="114" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -114,6 +146,56 @@
     <Component class="javax.swing.JTextField" name="txtCif">
     </Component>
     <Component class="javax.swing.JTextField" name="txtWebPage">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelnombre">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2email">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Email"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelpassword">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeltelfono">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Telefono"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeldni">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DNI"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelcif">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CIF"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelweb">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Web"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelcalle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calle"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelnumero">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Numero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelzip">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zip"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

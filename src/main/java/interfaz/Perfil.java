@@ -18,10 +18,12 @@ public class Perfil extends javax.swing.JFrame {
     public Perfil() {
         initComponents();
         getUserType();
+        setUserInfo();
     }
     public void getUserType(){
         if(GuardoDatos.tipoUsuario.equals("particular")){
         txtCif.setVisible(false);
+        jLabelcif.setVisible(false);
         txtWebPage.setVisible(false);
         txtDni.setVisible(true);
 
@@ -36,10 +38,32 @@ public class Perfil extends javax.swing.JFrame {
         txtNombre.setText(GuardoDatos.particularActual.getNombre());
         txtEmail.setText(GuardoDatos.particularActual.getEmail());
         txtCalle.setText(GuardoDatos.particularActual.getDireccion().getCalle());
+        int numero = GuardoDatos.particularActual.getDireccion().getNumero();
+        txtNumero.setText(String.valueOf(numero));
+        int zip = GuardoDatos.particularActual.getDireccion().getZip();
+        txtZip.setText(String.valueOf(zip));
+        int telefono = GuardoDatos.particularActual.getTelefono();
+        txtTelefono.setText(String.valueOf(telefono));
+        txtPassword.setText(GuardoDatos.particularActual.getPassword());
+        txtDni.setText(GuardoDatos.particularActual.getDNI());
+        }else if(GuardoDatos.tipoUsuario.equals("empresa")){
+        txtNombre.setText(GuardoDatos.empresaActual.getNombre());
+        txtEmail.setText(GuardoDatos.empresaActual.getEmail());
+        txtCalle.setText(GuardoDatos.empresaActual.getDireccion().getCalle());
+        int numero = GuardoDatos.empresaActual.getDireccion().getNumero();
+        txtNumero.setText(String.valueOf(numero));
+        int zip = GuardoDatos.empresaActual.getDireccion().getZip();
+        txtZip.setText(String.valueOf(zip));
+        int telefono = GuardoDatos.empresaActual.getTelefono();
+        txtTelefono.setText(String.valueOf(telefono));
+        txtPassword.setText(GuardoDatos.empresaActual.getPassword());
+        txtCif.setText(GuardoDatos.empresaActual.getCIF());
+        txtWebPage.setText(GuardoDatos.empresaActual.getWeb());
+        }
 
         
     }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +84,16 @@ public class Perfil extends javax.swing.JFrame {
         txtDni = new javax.swing.JTextField();
         txtCif = new javax.swing.JTextField();
         txtWebPage = new javax.swing.JTextField();
+        jLabelnombre = new javax.swing.JLabel();
+        jLabel2email = new javax.swing.JLabel();
+        jLabelpassword = new javax.swing.JLabel();
+        jLabeltelfono = new javax.swing.JLabel();
+        jLabeldni = new javax.swing.JLabel();
+        jLabelcif = new javax.swing.JLabel();
+        jLabelweb = new javax.swing.JLabel();
+        jLabelcalle = new javax.swing.JLabel();
+        jLabelnumero = new javax.swing.JLabel();
+        jLabelzip = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,28 +122,61 @@ public class Perfil extends javax.swing.JFrame {
             }
         });
 
+        jLabelnombre.setText("Nombre");
+
+        jLabel2email.setText("Email");
+
+        jLabelpassword.setText("Contraseña");
+
+        jLabeltelfono.setText("Telefono");
+
+        jLabeldni.setText("DNI");
+
+        jLabelcif.setText("CIF");
+
+        jLabelweb.setText("Web");
+
+        jLabelcalle.setText("Calle");
+
+        jLabelnumero.setText("Numero");
+
+        jLabelzip.setText("Zip");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtWebPage, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtCif)
-                        .addComponent(txtDni)
-                        .addComponent(txtTelefono)
-                        .addComponent(txtNombre)
-                        .addComponent(txtEmail)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)))
-                .addGap(60, 60, 60)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelpassword)
+                    .addComponent(jLabeltelfono)
+                    .addComponent(jLabeldni)
+                    .addComponent(jLabelcif)
+                    .addComponent(jLabelweb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWebPage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelcalle)
+                    .addComponent(jLabelnumero)
+                    .addComponent(jLabelzip))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtZip, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                        .addComponent(txtNumero, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(397, Short.MAX_VALUE))
+                    .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(273, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,23 +184,37 @@ public class Perfil extends javax.swing.JFrame {
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelnombre)
+                    .addComponent(jLabelcalle))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2email)
+                    .addComponent(jLabelnumero))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelpassword)
+                    .addComponent(jLabelzip))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabeltelfono))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabeldni))
                 .addGap(18, 18, 18)
-                .addComponent(txtWebPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelcif))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtWebPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelweb))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
@@ -194,6 +275,16 @@ public class Perfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2email;
+    private javax.swing.JLabel jLabelcalle;
+    private javax.swing.JLabel jLabelcif;
+    private javax.swing.JLabel jLabeldni;
+    private javax.swing.JLabel jLabelnombre;
+    private javax.swing.JLabel jLabelnumero;
+    private javax.swing.JLabel jLabelpassword;
+    private javax.swing.JLabel jLabeltelfono;
+    private javax.swing.JLabel jLabelweb;
+    private javax.swing.JLabel jLabelzip;
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCif;
     private javax.swing.JTextField txtDni;
