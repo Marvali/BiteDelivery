@@ -83,6 +83,11 @@ private void setDataTable() {
         jScrollPane1.setViewportView(tableToPay);
 
         buttonPay.setText("Pagar");
+        buttonPay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPayActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -149,6 +154,15 @@ private void setDataTable() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPayActionPerformed
+        // TODO add your handling code here:
+        // open factura
+        Factura factura = new Factura();
+        factura.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_buttonPayActionPerformed
 
     /**
      * @param args the command line arguments

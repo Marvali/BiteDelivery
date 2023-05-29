@@ -208,10 +208,20 @@ public class Perfil extends javax.swing.JFrame {
                 txtNombreActionPerformed(evt);
             }
         });
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
+            }
+        });
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEmailKeyTyped(evt);
             }
         });
 
@@ -220,11 +230,57 @@ public class Perfil extends javax.swing.JFrame {
                 txtCalleActionPerformed(evt);
             }
         });
+        txtCalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCalleKeyTyped(evt);
+            }
+        });
+
+        txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroKeyTyped(evt);
+            }
+        });
+
+        txtZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtZipKeyTyped(evt);
+            }
+        });
+
+        txtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTelefonoKeyTyped(evt);
+            }
+        });
 
         txtPassword.setText("jPasswordField1");
         txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtPasswordFocusGained(evt);
+            }
+        });
+        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPasswordKeyTyped(evt);
+            }
+        });
+
+        txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDniKeyTyped(evt);
+            }
+        });
+
+        txtCif.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCifKeyTyped(evt);
+            }
+        });
+
+        txtWebPage.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtWebPageKeyTyped(evt);
             }
         });
 
@@ -247,6 +303,18 @@ public class Perfil extends javax.swing.JFrame {
         jLabelnumero.setText("Numero");
 
         jLabelzip.setText("Zip");
+
+        txtTitularTarjeta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtTitularTarjetaKeyTyped(evt);
+            }
+        });
+
+        txtNumeroTarjeta.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumeroTarjetaKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Titular");
 
@@ -370,6 +438,9 @@ public class Perfil extends javax.swing.JFrame {
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
+        //jdialog max 20 characters
+    
+        
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -399,6 +470,162 @@ public class Perfil extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 20 characters
+        if (txtNombre.getText().length() >= 20) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 20 characters
+        if (txtEmail.getText().length() >= 20) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+    }//GEN-LAST:event_txtEmailKeyTyped
+
+    private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 20 characters
+        if (txtPassword.getText().length() >= 20) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+    }//GEN-LAST:event_txtPasswordKeyTyped
+
+    private void txtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefonoKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 9 characters
+        if (txtTelefono.getText().length() >= 9) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 9 caracteres");
+        }
+
+    }//GEN-LAST:event_txtTelefonoKeyTyped
+
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 9 characters
+        if (txtDni.getText().length() >= 9) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 9 caracteres");
+        }
+        //fist 8 numbers, last letter
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            if (txtDni.getText().length() < 8) {
+                evt.consume();
+        
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Introduce 8 numeros primero");
+            }
+        }
+        
+    }//GEN-LAST:event_txtDniKeyTyped
+
+    private void txtCifKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCifKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 9 characters
+        if (txtCif.getText().length() >= 9) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 9 caracteres");
+        }
+        //fist 8 numbers, last letter
+       
+    }//GEN-LAST:event_txtCifKeyTyped
+
+    private void txtWebPageKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWebPageKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 20 characters
+        if (txtWebPage.getText().length() >= 20) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+    }//GEN-LAST:event_txtWebPageKeyTyped
+
+    private void txtCalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 20 characters
+        if (txtCalle.getText().length() >= 20) {
+            evt.consume();
+        
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+    }//GEN-LAST:event_txtCalleKeyTyped
+
+    private void txtNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroKeyTyped
+        // TODO add your handling code here:
+        //jdialog max 3 characters
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+        if (txtNumero.getText().length() == 3) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 3 digitos");
+        }
+
+    }//GEN-LAST:event_txtNumeroKeyTyped
+
+    private void txtZipKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+        if (txtZip.getText().length() == 5) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 5 digitos");
+        }
+
+    }//GEN-LAST:event_txtZipKeyTyped
+
+    private void txtTitularTarjetaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTitularTarjetaKeyTyped
+        // TODO add your handling code here:
+        //max 20 characters
+        if (txtTitularTarjeta.getText().length() == 20) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 20 caracteres");
+        }
+        
+    }//GEN-LAST:event_txtTitularTarjetaKeyTyped
+
+    private void txtNumeroTarjetaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroTarjetaKeyTyped
+        // TODO add your handling code here:
+        //max 16 characters
+        if (txtNumeroTarjeta.getText().length() == 16) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 16 caracteres");
+        }
+    }//GEN-LAST:event_txtNumeroTarjetaKeyTyped
 
     /**
      * @param args the command line arguments

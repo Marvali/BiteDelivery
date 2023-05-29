@@ -97,7 +97,7 @@ public class OpinionInterfaz extends javax.swing.JFrame {
     GuardoDatos.saveDataOpinion();
     //dialogo ha sido publicado
     javax.swing.JOptionPane.showMessageDialog(this, "Ha sido publicado");
-    MenuRestaurante.setDataTableOpinion();
+    MenuComida.setDataTableOpinion();
     dispose();
     
 

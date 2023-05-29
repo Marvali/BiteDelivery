@@ -23,8 +23,26 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
      */
     public VentanaRegistrarse() {
         initComponents();
+        hideEmpresa();
     }
-
+private void hideEmpresa(){
+     modelo = (String) eleccionCombo.getSelectedItem();
+        if (modelo.equals("Empresa")) {
+            textoCIF.setVisible(true);
+            jLabel6.setVisible(true);
+            textoDNI.setVisible(false);
+            jLabel5.setVisible(false);
+            textoWeb.setVisible(true);
+            jLabel12.setVisible(true);
+        } else {
+            textoCIF.setVisible(false);
+            jLabel6.setVisible(false);
+            textoDNI.setVisible(true);
+            jLabel5.setVisible(true);
+            textoWeb.setVisible(false);
+            jLabel12.setVisible(false);
+        }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -102,6 +120,11 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                 textoDNIActionPerformed(evt);
             }
         });
+        textoDNI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoDNIKeyTyped(evt);
+            }
+        });
 
         jLabel6.setText("CIF");
 
@@ -121,6 +144,12 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         textoNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textoNumeroKeyTyped(evt);
+            }
+        });
+
+        textoZip.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoZipKeyTyped(evt);
             }
         });
 
@@ -172,19 +201,17 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel15))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -233,9 +260,9 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
                             .addComponent(jLabel9)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)
-                            .addComponent(jLabel10))
-                        .addGap(21, 21, 21))
-                    .addComponent(jLabel14))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel14))
+                        .addGap(19, 19, 19)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Registrarse)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,7 +369,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
 
 
 
-            int numeroTarjeta = Integer.parseInt(textoNumeroTarjeta.getText());
+            long numeroTarjeta = Long.parseLong(textoNumeroTarjeta.getText());
             String titularTarjeta = textoTitularTarjeta.getText();
             System.out.println("fecha actual");
             System.out.println(new Date());
@@ -430,6 +457,8 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
 
 
             }
+            //set invisible
+           
         }
 
     }//GEN-LAST:event_RegistrarseActionPerformed
@@ -442,19 +471,7 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
 
     private void eleccionComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleccionComboActionPerformed
         // TODO add your handling code here:
-        modelo = (String) eleccionCombo.getSelectedItem();
-        if (modelo.equals("Empresa")) {
-            textoCIF.setVisible(true);
-            jLabel6.setVisible(true);
-            textoDNI.setVisible(false);
-            jLabel5.setVisible(false);
-        } else {
-            textoCIF.setVisible(false);
-            jLabel6.setVisible(false);
-            textoDNI.setVisible(true);
-            jLabel5.setVisible(true);
-
-        }
+        hideEmpresa();
     }//GEN-LAST:event_eleccionComboActionPerformed
 
     private void textoTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoTelefonoActionPerformed
@@ -469,6 +486,11 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
             getToolkit().beep();
             evt.consume();
             JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+        if (textoNumero.getText().length() == 5) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 5 digitos");
         }
 
     }//GEN-LAST:event_textoNumeroKeyTyped
@@ -510,6 +532,42 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         }
         
     }//GEN-LAST:event_textoTelefonoKeyTyped
+
+    private void textoZipKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoZipKeyTyped
+        // TODO add your handling code here:
+        //maximo 5 digitos
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Solo numeros");
+        }
+        if (textoZip.getText().length() == 5) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 5 digitos");
+        }
+    }//GEN-LAST:event_textoZipKeyTyped
+
+    private void textoDNIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoDNIKeyTyped
+        // TODO add your handling code here:
+        //maximo 9 digitos
+        if (textoDNI.getText().length() == 9) {
+            evt.consume();
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(null, "Maximo 9 digitos");
+        }
+        //check last character
+        if (textoDNI.getText().length() == 8) {
+            char c = evt.getKeyChar();
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "los primeros 8 digitos deben ser numeros");
+            }
+        }
+
+    }//GEN-LAST:event_textoDNIKeyTyped
 
     /**
      * @param args the command line arguments
