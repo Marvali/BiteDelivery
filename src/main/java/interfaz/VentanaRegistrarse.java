@@ -344,16 +344,19 @@ private void hideEmpresa(){
     public Direccion crearDireccion( ) {
         Direccion direccion = null;
         //if calle is empty numero emty zip empty parseInt
-        if (!textoCalle.getText().isEmpty() && !textoNumero.getText().isEmpty() && !textoZip.getText().isEmpty()) {
-            String calle = textoCalle.getText();
-            // get number from textfield convert to int
-            int numero = Integer.parseInt(textoNumero.getText());
-            int zip = Integer.parseInt(textoZip.getText());
-            direccion = new Direccion(calle, numero, zip);
-            
-        } else {
-            JOptionPane.showMessageDialog(null, "Rellene todos los campos de la direccion");
-        }
+       if (!textoCalle.getText().isEmpty() && !textoNumero.getText().isEmpty() && !textoZip.getText().isEmpty()) {
+    String calle = textoCalle.getText();
+    int numero = Integer.parseInt(textoNumero.getText());
+    String zipText = textoZip.getText();
+    if (zipText.length() != 5) {
+        JOptionPane.showMessageDialog(null, "El codigo postal debe tener 5 digitos", "Error", JOptionPane.ERROR_MESSAGE);
+        return null;
+    }
+    int zip = Integer.parseInt(zipText);
+    direccion = new Direccion(calle, numero, zip);
+} else {
+    JOptionPane.showMessageDialog(null, "Rellene todos los campos de la direccion", "Error", JOptionPane.ERROR_MESSAGE);
+}
         return direccion;
         
     }
@@ -363,9 +366,9 @@ private void hideEmpresa(){
         TarjetaCredito tarjeta = null;
         Date fechaActual = new Date();
         Date fechaCaducidad = jDateChooser1.getDate();
-        System.out.println(fechaCaducidad.before(fechaActual));
         
-        if (!textoNumeroTarjeta.getText().isEmpty() && !textoTitularTarjeta.getText().isEmpty() && fechaCaducidad.after(fechaActual)) {
+        
+        if (!textoNumeroTarjeta.getText().isEmpty() && !textoTitularTarjeta.getText().isEmpty() && fechaCaducidad.after(fechaActual)&& fechaCaducidad != null ) {
 
 
 
@@ -395,9 +398,9 @@ private void hideEmpresa(){
         String contraseña = textoContraseña.getText();
         String dni = textoDNI.getText();
         String cif = textoCIF.getText();
-        System.out.println(jDateChooser1.getDate());
+        
         jDateChooser1.setDateFormatString("dd/MM/yyyy");
-        System.out.println(jDateChooser1.getDate());
+        
 
 
         TarjetaCredito tarjeta = crearTarjeta();
@@ -407,7 +410,7 @@ private void hideEmpresa(){
         String web = textoWeb.getText();
         //print(nombre, apellido, correo, contraseña, dni);
         if (modelo.equals("Empresa")) {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("") || direccion.equals("") || tarjeta.equals("") || jDateChooser1.getDate().equals("") || dni.equals("")    ) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("") || direccion.equals("") || tarjeta.equals("") || jDateChooser1.getDate()== null   || dni.equals("")    ) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
 
@@ -432,6 +435,7 @@ private void hideEmpresa(){
                     System.out.println("saliendo de la lista de empresas " + i);
 
 
+
                 }
 
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
@@ -444,7 +448,7 @@ private void hideEmpresa(){
 
             }
         } else {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || telefono==0 || direccion.equals("")  || tarjeta.equals("") || jDateChooser1.getDate().equals("")    )  {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || telefono==0 || direccion.equals("")  || tarjeta.equals("") || jDateChooser1.getDate()== null   )  {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
                 UsuarioParticular particular;
