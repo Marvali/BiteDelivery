@@ -364,7 +364,8 @@ private void hideEmpresa(){
         Date fechaActual = new Date();
         Date fechaCaducidad = jDateChooser1.getDate();
         System.out.println(fechaCaducidad.before(fechaActual));
-        if (!textoNumeroTarjeta.getText().isEmpty() & !textoTitularTarjeta.getText().isEmpty() & jDateChooser1.getDate() != null&&!(fechaCaducidad.before(fechaActual))) {
+        
+        if (!textoNumeroTarjeta.getText().isEmpty() && !textoTitularTarjeta.getText().isEmpty() && fechaCaducidad.after(fechaActual)) {
 
 
 
@@ -406,7 +407,7 @@ private void hideEmpresa(){
         String web = textoWeb.getText();
         //print(nombre, apellido, correo, contraseña, dni);
         if (modelo.equals("Empresa")) {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("")) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("") || direccion.equals("") || tarjeta.equals("") || jDateChooser1.getDate().equals("") || dni.equals("")    ) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
 
@@ -443,7 +444,7 @@ private void hideEmpresa(){
 
             }
         } else {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || telefono==0) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || dni.equals("") || tarjeta.equals("") || telefono==0 || direccion.equals("")  || tarjeta.equals("") || jDateChooser1.getDate().equals("")    )  {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
                 UsuarioParticular particular;
