@@ -126,7 +126,7 @@ ArrayList<Comidas> restaurante1_comida = new ArrayList<>();
 restaurante1_comida.add(Comida1);
 restaurante1_comida.add(Comida2);
 restaurante1_comida.add(Comida3);
-Restaurante Restaurante1 = new Restaurante("La Pizzeria", new Direccion("Calle Mayor", 123, 28001), "Pizza", 8.5, 15, 50, true, restaurante1_comida);
+Restaurante Restaurante1 = new Restaurante("La Pizzeria", new Direccion("Calle Mayor", 123, 28601), "Pizza", 8.5, 15, 50, true, restaurante1_comida);
 GuardoDatos.registerRestaurantes(Restaurante1);
 
 
@@ -162,7 +162,7 @@ ArrayList<Comidas> restaurante5_comida = new ArrayList<>();
 restaurante5_comida.add(Comida13);
 restaurante5_comida.add(Comida14);
 restaurante5_comida.add(Comida15);
-Restaurante Restaurante5 = new Restaurante("La Trattoria", new Direccion("Calle de las Flores", 101, 28005), "Italiana", 10.0, 15, 40, true, restaurante5_comida);
+Restaurante Restaurante5 = new Restaurante("La Trattoria", new Direccion("Calle de las Flores", 101, 28505), "Italiana", 10.0, 15, 40, true, restaurante5_comida);
 GuardoDatos.registerRestaurantes(Restaurante5);
 
 GuardoDatos.saveDataRestaurantes();

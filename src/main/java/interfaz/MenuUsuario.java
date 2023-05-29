@@ -9,6 +9,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -48,12 +50,14 @@ public class MenuUsuario extends javax.swing.JFrame {
         
 
         }
-    private void ordenProductos(){
-        //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
-        GuardoDatos.loadDataRestaurantes();
-        ventaRestaurantes = GuardoDatos.getRestaurantes();
-        String combo = jCombo.getSelectedItem().toString();
-        Comparator<Restaurante> comparator = null;
+ private void ordenProductos() {
+    //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
+    GuardoDatos.loadDataRestaurantes();
+    ventaRestaurantes = GuardoDatos.getRestaurantes();
+    ArrayList<Restaurante> ventaRestauranteszip = new ArrayList<Restaurante>();
+    String combo = jCombo.getSelectedItem().toString();
+    Comparator<Restaurante> comparator = null;
+    
     switch (combo) {
         case "Por relevancia":
             comparator = Comparator.comparing(Restaurante::getCalificacion).reversed();
@@ -64,18 +68,35 @@ public class MenuUsuario extends javax.swing.JFrame {
         case "Servicio de catering disponible":
             comparator = Comparator.comparing(Restaurante::isServicioCatering).reversed();
             break;
-        case "Codigo postal":
+        case "Codigo Postal":
             //get current user code postal and compare it with the restaurant code postal
-            String tipo =GuardoDatos.tipoUsuario ;
+            String tipo = GuardoDatos.tipoUsuario;
+
             if (tipo.equals("particular")) {
-                int codigoPostal = GuardoDatos.particularActual.getDireccion().getZip();
-                comparator = Comparator.comparing((Restaurante r) -> r.getDireccion().getZip()).reversed();
+                
+                String userZipPrefix = String.valueOf(GuardoDatos.particularActual.getDireccion().getZip()).substring(0, 3);
+                for (Restaurante restaurante : ventaRestaurantes) {
+                    String restaurantZipPrefix = String.valueOf(restaurante.getDireccion().getZip()).substring(0, 3);
+                    if (restaurantZipPrefix.equals(userZipPrefix)) {
+                        ventaRestauranteszip.add(restaurante);
+                    }
+                }
+            } else if (tipo.equals("empresa")) {
+                String userZipPrefix = String.valueOf(GuardoDatos.empresaActual.getDireccion().getZip()).substring(0, 3);
+                for (Restaurante restaurante : ventaRestaurantes) {
+                    String restaurantZipPrefix = String.valueOf(restaurante.getDireccion().getZip()).substring(0, 3);
+                    if (restaurantZipPrefix.equals(userZipPrefix)) {
+                        ventaRestauranteszip.add(restaurante);
+                    }
+                }
+                
 
             }
+            setDatosTabla(ventaRestauranteszip);
             break;
         default:
             break;
-        
+
     }
     if (comparator != null) {
         System.out.println("sin comparar");
@@ -90,8 +111,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         System.out.println(ventaRestaurantes.get(2).getNombre());
 
     }
-       
-    }
+    
+    
+}
     private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
          // añadir datos a la tabla
         prueba.setRowCount(0);
