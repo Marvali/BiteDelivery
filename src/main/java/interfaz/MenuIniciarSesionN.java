@@ -6,6 +6,7 @@ package interfaz;
 
 import javax.swing.JOptionPane;
 import static com.mycompany.bitedelivery.GuardoDatos.*;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -71,6 +72,7 @@ public class MenuIniciarSesionN extends javax.swing.JFrame {
         buttonLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
