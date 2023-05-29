@@ -88,13 +88,28 @@ public class OpinionInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     String review = txtReview.getText();
     int nota = (int) jSpinnerNota.getValue();
-    //coger fecha y hora actual
-    Date fecha= Date.valueOf(LocalDate.now());
-    //crear objeto opinion
-    Opinion opinion = new Opinion(nota, review, fecha);
-    //guadar array
-    GuardoDatos.opiniones.add(opinion);
-    GuardoDatos.saveDataOpinion();
+    if (GuardoDatos.tipoUsuario.equals("particular")){
+            String name = GuardoDatos.particularActual.getNombre();
+            //coger fecha y hora actual
+            Date fecha= Date.valueOf(LocalDate.now());
+            Opinion opinion = new Opinion(name, nota, review, fecha);
+            //guadar array
+            GuardoDatos.opiniones.add(opinion);
+            GuardoDatos.saveDataOpinion();
+        }else if (GuardoDatos.tipoUsuario.equals("empresa")){
+            String name = GuardoDatos.empresaActual.getNombre();
+            //coger fecha y hora actual
+            Date fecha= Date.valueOf(LocalDate.now());
+              //crear objeto opinion
+            Opinion opinion = new Opinion(name, nota, review, fecha);
+            //guadar array
+            GuardoDatos.opiniones.add(opinion);
+            GuardoDatos.saveDataOpinion();
+        }
+    
+  
+    
+   
     //dialogo ha sido publicado
     javax.swing.JOptionPane.showMessageDialog(this, "Ha sido publicado");
     MenuComida.setDataTableOpinion();

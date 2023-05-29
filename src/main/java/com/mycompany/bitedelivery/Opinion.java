@@ -15,15 +15,23 @@ import java.io.Serializable;
  */
 public class Opinion implements Serializable {
     //atributes calificacion comentario y fecha
+    private String name;
     private int calificacion;
     private String comentario;
     private Date fechaOpinion; 
     //constructor
-    public Opinion(int calificacion, String comentario,Date fechaOpinion) {
+    public Opinion(String name,int calificacion, String comentario,Date fechaOpinion) {
+        this.name = name;
         this.calificacion = calificacion;
         this.comentario = comentario;
         this.fechaOpinion = fechaOpinion;
-        
+    }
+    //getters and setters
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
     public int getCalificacion() {
         return calificacion;

@@ -57,20 +57,17 @@ static void setDataTableOpinion(){
     opinionList = new ArrayList<>();
     opinionList= GuardoDatos.opiniones;
     //get tipo de usuario get name
-    if (GuardoDatos.tipoUsuario.equals("particular")){
-        String name= GuardoDatos.particularActual.getNombre();
+    
+        
         for (Opinion opinion : opinionList){
-            Object[] fila = { name, opinion.getComentario(), opinion.getCalificacion(), opinion.getFechaOpinion()};
+            Object[] fila = { opinion.getName(), opinion.getComentario(), opinion.getCalificacion(), opinion.getFechaOpinion()};
             tablaOpinion.addRow(fila);
         }
-    }
-    else{
-        String name= GuardoDatos.empresaActual.getNombre();
-        for (Opinion opinion : opinionList){
-            Object[] fila = { name, opinion.getComentario(), opinion.getCalificacion(), opinion.getFechaOpinion()};
-            tablaOpinion.addRow(fila);
-        }
-    }
+    
+    
+        
+        
+    
 }
 private void setDataTable(){
     modeloTabla.setRowCount(0);
@@ -191,7 +188,7 @@ public void addFoodToCart(){
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuAdmin/logotipoletras.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuAdmin/bite logo-192x192.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bite logo-100x100.png"))); // NOI18N
         jLabel3.setText("jLabel3");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -203,9 +200,9 @@ public void addFoodToCart(){
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(162, 162, 162)
+                .addGap(277, 277, 277)
                 .addComponent(jLabel3)
-                .addGap(199, 199, 199))
+                .addGap(84, 84, 84))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,11 +212,10 @@ public void addFoodToCart(){
                         .addGap(77, 77, 77)
                         .addComponent(jLabel1))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3)))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -264,8 +260,8 @@ public void addFoodToCart(){
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonGoCart)
-                                .addGap(53, 53, 53)
-                                .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(66, 66, 66)
+                                .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(49, 49, 49)
                                 .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(173, 173, 173))
@@ -284,7 +280,7 @@ public void addFoodToCart(){
                     .addGroup(layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addComponent(foodImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +299,7 @@ public void addFoodToCart(){
                                     .addComponent(spinnerQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(buttonGoCart)
                                     .addComponent(buttonToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ButtonOpenOpinion))))

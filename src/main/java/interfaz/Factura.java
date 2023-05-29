@@ -46,7 +46,7 @@ private void setPedido(){
         txtRestaurante.setText(restaurante);
        for (Restaurante rest : GuardoDatos.restaurantes) {
     if (restaurante.equals(rest.getNombre())) {
-        txtPrecio.setText(String.valueOf(rest.getTiempoMedioEnvio()));
+        txtEnvio.setText(String.valueOf(rest.getTiempoMedioEnvio()));
     }
 }
     }else if("empresa".equals(GuardoDatos.tipoUsuario)){

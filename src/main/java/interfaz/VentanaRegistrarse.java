@@ -410,7 +410,7 @@ private void hideEmpresa(){
         String web = textoWeb.getText();
         //print(nombre, apellido, correo, contraseña, dni);
         if (modelo.equals("Empresa")) {
-            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("") || direccion.equals("") || tarjeta.equals("") || jDateChooser1.getDate()== null   || dni.equals("")    ) {
+            if (nombre.equals("") || correo.equals("") || contraseña.equals("") || cif.equals("") || tarjeta.equals("") || telefono==0 || web.equals("") || direccion.equals("") || tarjeta.equals("") || jDateChooser1.getDate()== null    ) {
                 JOptionPane.showMessageDialog(null, "Rellene todos los campos");
             } else {
 
