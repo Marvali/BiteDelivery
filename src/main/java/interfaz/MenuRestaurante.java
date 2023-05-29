@@ -131,7 +131,7 @@ public void addFoodToCart(){
         tableReviews = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         ButtonOpenOpinion = new javax.swing.JButton();
-        pictureFood = new javax.swing.JLabel();
+        foodImageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
@@ -148,6 +148,11 @@ public void addFoodToCart(){
 
             }
         ));
+        tableFood1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableFood1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableFood1);
 
         buttonToCart.setText("Añadir al carrito");
@@ -238,7 +243,7 @@ public void addFoodToCart(){
             }
         });
 
-        pictureFood.setIcon(new javax.swing.ImageIcon(getClass().getResource("/android-chrome-192x192.png"))); // NOI18N
+        foodImageLabel.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -273,9 +278,10 @@ public void addFoodToCart(){
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(122, 122, 122)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pictureFood, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(foodImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -284,9 +290,9 @@ public void addFoodToCart(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -300,8 +306,9 @@ public void addFoodToCart(){
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ButtonOpenOpinion))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(pictureFood, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addComponent(foodImageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(37, 37, 37)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -334,6 +341,24 @@ public void addFoodToCart(){
         menuOpinion.setVisible(true);
 
     }//GEN-LAST:event_ButtonOpenOpinionActionPerformed
+
+    private void tableFood1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableFood1MouseClicked
+        // TODO add your handling code here:
+        // set image to label
+      int selectedRow = tableFood1.getSelectedRow();
+     
+    if (selectedRow != -1) {
+        String selectedFoodName = (String) tableFood1.getValueAt(selectedRow, 0);
+       
+        
+        // Load the corresponding food image into the JLabel
+        ImageIcon selectedFoodImage = new ImageIcon("/" + selectedFoodName + ".png");
+        foodImageLabel.setIcon(selectedFoodImage);
+    }
+    
+
+
+    }//GEN-LAST:event_tableFood1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -374,6 +399,7 @@ public void addFoodToCart(){
     private javax.swing.JButton ButtonOpenOpinion;
     private javax.swing.JToggleButton buttonGoCart;
     private javax.swing.JButton buttonToCart;
+    private javax.swing.JLabel foodImageLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -382,7 +408,6 @@ public void addFoodToCart(){
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel pictureFood;
     private javax.swing.JSpinner spinnerQuantity;
     private javax.swing.JTable tableFood1;
     private javax.swing.JTable tableReviews;
