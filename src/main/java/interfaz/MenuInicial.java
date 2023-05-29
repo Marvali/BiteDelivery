@@ -120,9 +120,10 @@ public class MenuInicial extends javax.swing.JFrame {
     private void BotonIniciarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonIniciarSesionMouseClicked
         // TODO add your handling code here:
         //open MenuIniciarSesionN
+
         MenuIniciarSesionN menuIniciarSesion = new MenuIniciarSesionN();
         menuIniciarSesion.setVisible(true);
-        
+        dispose();
        
         this.setVisible(false);
     }//GEN-LAST:event_BotonIniciarSesionMouseClicked
@@ -132,6 +133,7 @@ public class MenuInicial extends javax.swing.JFrame {
         //open VentanaRegistro
         VentanaRegistrarse ventanaRegistro = new VentanaRegistrarse();
         ventanaRegistro.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BotonRegistraseMouseClicked
 
     private void BotonIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonIniciarSesionMouseEntered

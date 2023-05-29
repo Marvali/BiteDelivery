@@ -64,8 +64,18 @@ public class MenuUsuario extends javax.swing.JFrame {
         case "Servicio de catering disponible":
             comparator = Comparator.comparing(Restaurante::isServicioCatering).reversed();
             break;
+        case "Codigo postal":
+            //get current user code postal and compare it with the restaurant code postal
+            String tipo =GuardoDatos.tipoUsuario ;
+            if (tipo.equals("particular")) {
+                int codigoPostal = GuardoDatos.particularActual.getDireccion().getZip();
+                comparator = Comparator.comparing((Restaurante r) -> r.getDireccion().getZip()).reversed();
+
+            }
+            break;
         default:
             break;
+        
     }
     if (comparator != null) {
         System.out.println("sin comparar");
@@ -195,7 +205,7 @@ public class MenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por relevancia", "Por tiempo medio de envio", "Servicio de catering disponible" }));
+        jCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo Postal", "Por relevancia", "Por tiempo medio de envio", "Servicio de catering disponible" }));
         jCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboActionPerformed(evt);

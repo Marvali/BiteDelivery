@@ -191,8 +191,7 @@ private void hideEmpresa(){
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/VentanaRegistrarse/logotipoletras.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/VentanaRegistrarse/bite logo-192x192.png"))); // NOI18N
-        jLabel15.setText("jLabel15");
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bite logo-100x100.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -201,9 +200,9 @@ private void hideEmpresa(){
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(70, 70, 70)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +299,7 @@ private void hideEmpresa(){
                     .addComponent(textoContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
                     .addComponent(textoZip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(textoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -324,7 +323,7 @@ private void hideEmpresa(){
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(Registrarse)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -435,7 +434,11 @@ private void hideEmpresa(){
                 }
 
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
-
+                //set invisible
+                //open MenuIniciarSesion
+                MenuIniciarSesionN menu = new MenuIniciarSesionN();
+                menu.setVisible(true);
+                dispose();
                
 
             }
@@ -453,6 +456,9 @@ private void hideEmpresa(){
                 registerParticular(particular);
                 saveDataParticulares();
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
+                MenuIniciarSesionN menu = new MenuIniciarSesionN();
+                menu.setVisible(true);
+                dispose();
                 
 
 
