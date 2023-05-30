@@ -423,7 +423,7 @@ private void hideEmpresa(){
 
                 
                 System.out.println(empresa.toString());
-
+                loadDataEmpresas();
                 registerEmpresa(empresa);
 
                 saveDataEmpresas();
@@ -457,7 +457,7 @@ private void hideEmpresa(){
                 //imprimir particular
                
                 System.out.println(particular.toString());
-                
+                loadDataParticulares();
                 registerParticular(particular);
                 saveDataParticulares();
                 JOptionPane.showMessageDialog(null, "Registrado correctamente");
@@ -569,7 +569,7 @@ private void hideEmpresa(){
             JOptionPane.showMessageDialog(null, "Maximo 9 digitos");
         }
         //check last character
-        if (textoDNI.getText().length() == 8) {
+        if (textoDNI.getText().length() == 7) {
             char c = evt.getKeyChar();
             if (Character.isLetter(c)) {
                 getToolkit().beep();
