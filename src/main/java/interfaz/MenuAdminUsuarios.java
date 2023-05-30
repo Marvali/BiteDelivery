@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MenuAdminUsuarios extends javax.swing.JFrame {
 DefaultTableModel UsuariosParticulares = new DefaultTableModel();
+DefaultTableModel UsuariosEmpresas = new DefaultTableModel();
 private ArrayList<UsuarioParticular> listaUsuariosParticulares;
 private ArrayList<UsuarioEmpresa> listaUsuariosEmpresas;
     /**
@@ -29,6 +30,8 @@ private ArrayList<UsuarioEmpresa> listaUsuariosEmpresas;
         initComponents();
         setModeloTablaParticulares();
         setDataTablaParticulares();
+        setModeloTablaEmpresas();
+        setDataTablaEmpresas();
     }
 
 
@@ -54,10 +57,25 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
     
     private void setModeloTablaEmpresas(){
         //String email, String password, String nombre, Direccion direccion,TarjetaCredito tarjeta, int telefono, String DNI
+String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Numero", "Telefono", "CIF","web"};
+        UsuariosEmpresas.setColumnIdentifiers(cabecera);
+        tablaUsuariosEmpresas.setModel(UsuariosEmpresas);
+    }
+    
+    private void setDataTablaEmpresas(){
+       
+        UsuariosEmpresas.setRowCount(0);
+        listaUsuariosEmpresas = new ArrayList<>();
+        GuardoDatos.saveDataEmpresas();
+        GuardoDatos.loadDataEmpresas();
+        listaUsuariosEmpresas = GuardoDatos.empresas;
+        for (UsuarioEmpresa usuarioEmpresa : listaUsuariosEmpresas) {
+           String[] datosFila = {usuarioEmpresa.getEmail(), usuarioEmpresa.getPassword(), usuarioEmpresa.getNombre(), usuarioEmpresa.getDireccion().getCalle(), String.valueOf(usuarioEmpresa.getDireccion().getZip()), String.valueOf(usuarioEmpresa.getDireccion().getNumero()), String.valueOf(usuarioEmpresa.getTelefono()), usuarioEmpresa.getCIF(),usuarioEmpresa.getWeb()};
+              UsuariosEmpresas.addRow(datosFila);
+        }
+    }
+    
 
-
-
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,6 +88,8 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaUsuariosParticulares = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaUsuariosEmpresas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,21 +106,38 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
         ));
         jScrollPane1.setViewportView(tablaUsuariosParticulares);
 
+        tablaUsuariosEmpresas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tablaUsuariosEmpresas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(114, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(108, 108, 108))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -143,6 +180,8 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tablaUsuariosEmpresas;
     private javax.swing.JTable tablaUsuariosParticulares;
     // End of variables declaration//GEN-END:variables
 }
