@@ -14,7 +14,7 @@ import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Restaurante;
 /**
  *
- * @author Fer
+ * @author Fer y Isaac
  */
 public class Factura extends javax.swing.JFrame {
 private static ArrayList<ComidaComprar> foodtoPayList;

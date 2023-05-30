@@ -14,8 +14,12 @@ import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Restaurante;
 import javax.swing.ImageIcon;
 /**
- *
+ *  Clase que representa el menu de administrador de restaurantes
+ *  puede dar de alta, baja y modificar restaurantes
+ * puede ver los restaurantes por orden de relevancia, tiempo medio de envio y servicio de catering
+ * 
  * @author isaac
+ * 
  */
 public class MenuAdminRestaurantes extends javax.swing.JFrame {
 private static ArrayList<Comidas> foodList;
@@ -31,6 +35,11 @@ private static ArrayList<Restaurante> ventaRestaurantes = new ArrayList<Restaura
        ordenProductos();
        
     }
+    /**
+     *  metodo que da la cabezera a la tabla
+     * 
+     * 
+     */
 private void setModeloTabla(){
         String[] cabecera = {"Nombre","Calificacion","Tiempo Medio envio ","Catering"};
 
@@ -40,6 +49,12 @@ private void setModeloTabla(){
 
         }
  
+    /**
+     *  metodo que ordena los restaurantes por relevancia, tiempo medio de envio y servicio de catering
+     *  
+     *  
+     *  
+     */
 private void ordenProductos() {
     //ordenar por calificacion, tiempo medio de envio y servicio de catering de mayor a menor
     GuardoDatos.loadDataRestaurantes();
@@ -78,6 +93,13 @@ private void ordenProductos() {
     
 }
 
+/**
+ *  metodo que añade los datos a la tabla
+ * 
+ * @param restaurantes
+ * 
+ */
+
 private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
          // añadir datos a la tabla
         prueba.setRowCount(0);
@@ -92,6 +114,11 @@ private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
 
     
 }
+/**
+ *  metodo que selecciona el restaurante que se ha seleccionado en la tabla
+ * 
+ * 
+ */
 
 public  void setRestauranteSeleccionado() {
         //coge el String del restaurante seleccionado con getSelectedRow y lo guarda en la variable selectedRestaurantName que se encuentra en GuardoDatos
@@ -102,6 +129,12 @@ public  void setRestauranteSeleccionado() {
         }
         GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);
     }
+
+/**
+ * metodo que borra un restaurante
+ *  
+ *  
+ */
 private void deleteRestaurant(){
     int fila = tablaRestaurantes.getSelectedRow();
     GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);

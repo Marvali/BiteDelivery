@@ -99,6 +99,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="buttonSave" max="32767" attributes="0"/>
+                                      <Component id="butonBack" pref="191" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -123,35 +127,28 @@
                                           <Component id="jLabel11" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txt2Ingrediente2" pref="93" max="32767" attributes="0"/>
-                                          <Component id="txt1Ingrediente3" max="32767" attributes="0"/>
-                                          <Component id="txt1Ingrediente1" max="32767" attributes="0"/>
-                                          <Component id="txt1Ingrediente2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtFoto1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtPrecio1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtFoto2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtPrecio2" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txt2Ingrediente3" min="-2" pref="93" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txt2Ingrediente2" pref="93" max="32767" attributes="0"/>
+                                              <Component id="txt1Ingrediente3" max="32767" attributes="0"/>
+                                              <Component id="txt1Ingrediente1" max="32767" attributes="0"/>
+                                              <Component id="txt1Ingrediente2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtFoto1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtPrecio1" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtFoto2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtPrecio2" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="txt2Ingrediente1" min="-2" pref="93" max="-2" attributes="0"/>
+                                          <Component id="txtComida2" min="-2" pref="93" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="buttonSave" max="32767" attributes="0"/>
-                                          <Component id="butonBack" pref="191" max="32767" attributes="0"/>
-                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txt2Ingrediente1" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="txt2Ingrediente3" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="txtComida2" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="txtComida1" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtComida1" min="-2" pref="93" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -214,21 +211,21 @@
                   <Component id="txtFoto1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCalificacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtComida2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtComida2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -292,7 +289,7 @@
                                   <Component id="txtFoto3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="33" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="buttonSave" max="32767" attributes="0"/>
@@ -303,7 +300,6 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txt2Ingrediente1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>

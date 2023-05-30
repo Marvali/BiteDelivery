@@ -16,8 +16,10 @@ import com.mycompany.bitedelivery.Restaurante;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * Clase que representa el menu de administrador para editar un restaurante 
  * @author isaac
+ *  @param <MenuAdminEditarRestaurante>
+ * 
  */
 public class MenuAdminEditarRestaurante extends javax.swing.JFrame {
 Restaurante selectedRestaurante;
@@ -33,7 +35,13 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
         initComponents();
         checkifNew();
     }
-
+    /**
+     * Metodo que se encarga de verificar si se esta creando un nuevo restaurante
+     * o se esta editando uno ya existente
+     * @param <MenuAdminEditarRestaurante>
+     * @autor isaac
+     * 
+     *  */
     private void checkifNew(){
         if (GuardoDatos.nuevoRestaurante == false) {
             setInfoRestaurante();
@@ -43,7 +51,13 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
             
         
 
-    
+/**
+ * Metodo que se encarga de poner la informacion del restaurante seleccionado
+ * en los campos de texto
+ * 
+ *  
+ * 
+ */
     private void setInfoRestaurante(){
         //setear la informacion del restaurante seleccionado
         //nombre, calificacion, tiempo medio de envio, servicio de catering
@@ -103,7 +117,13 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
     
 }
 
-
+/**
+ * Metodo que se encarga de editar la informacion del restaurante seleccionado
+ * @param <MenuAdminEditarRestaurante>
+ * @author isaac
+ *  
+ * 
+ */
 
 private void editarRestaurante(){
     //editar la informacion del restaurante seleccionado
@@ -353,6 +373,9 @@ private void editarRestaurante(){
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(butonBack, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGap(81, 81, 81)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,28 +394,23 @@ private void editarRestaurante(){
                                                     .addComponent(jLabel17)))
                                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addGap(33, 33, 33)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txt2Ingrediente2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
-                                            .addComponent(txt1Ingrediente3)
-                                            .addComponent(txt1Ingrediente1)
-                                            .addComponent(txt1Ingrediente2)
-                                            .addComponent(txtFoto1)
-                                            .addComponent(txtPrecio1)
-                                            .addComponent(txtFoto2)
-                                            .addComponent(txtPrecio2))
-                                        .addGap(0, 163, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(butonBack, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt2Ingrediente3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txt2Ingrediente2, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                                                .addComponent(txt1Ingrediente3)
+                                                .addComponent(txt1Ingrediente1)
+                                                .addComponent(txt1Ingrediente2)
+                                                .addComponent(txtFoto1)
+                                                .addComponent(txtPrecio1)
+                                                .addComponent(txtFoto2)
+                                                .addComponent(txtPrecio2))
+                                            .addComponent(txt2Ingrediente1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtComida2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 163, Short.MAX_VALUE)))
                                 .addGap(14, 14, 14))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt2Ingrediente1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt2Ingrediente3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtComida2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtComida1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtComida1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(37, 37, 37))))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -439,18 +457,18 @@ private void editarRestaurante(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFoto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(txtCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel11)
                             .addComponent(txtComida2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)))
+                        .addGap(13, 13, 13)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
@@ -501,14 +519,13 @@ private void editarRestaurante(){
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtFoto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel16))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(33, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(33, 33, 33)
                                 .addComponent(butonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txt2Ingrediente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17))
