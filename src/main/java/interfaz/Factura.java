@@ -51,7 +51,7 @@ private void setPedido(){
         foodtoPayList= GuardoDatos.selectedFoodArrayList;
         int precio = 0;
         for (ComidaComprar comida : foodtoPayList) {
-            precio += comida.getPrecio();
+            precio += comida.getPrecio()*comida.getCantidad();
         }
         txtPrecio.setText(String.valueOf(precio));
         String restaurante = GuardoDatos.selectedRestaurantName;
@@ -73,8 +73,11 @@ private void setPedido(){
         foodtoPayList= GuardoDatos.selectedFoodArrayList;
         int precio = 0;
         for (ComidaComprar comida : foodtoPayList) {
-            precio += comida.getPrecio();
+            precio += comida.getPrecio()*comida.getCantidad();
+           
         }
+        //descuento a empresas 10%
+        precio = precio - (precio/10);
         txtPrecio.setText(String.valueOf(precio));
         String restaurante = GuardoDatos.selectedRestaurantName;
         txtRestaurante.setText(restaurante);
@@ -115,6 +118,7 @@ private void setPedido(){
         txtZip = new javax.swing.JTextField();
         jlRestaurante = new javax.swing.JLabel();
         txtRestaurante = new javax.swing.JTextField();
+        buttonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
@@ -183,6 +187,13 @@ private void setPedido(){
 
         jlRestaurante.setText("Restaurante");
 
+        buttonBack.setText("Volver");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +227,10 @@ private void setPedido(){
                                 .addGap(83, 83, 83)
                                 .addComponent(jlRestaurante)
                                 .addGap(27, 27, 27)
-                                .addComponent(txtRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtRestaurante, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -251,7 +265,9 @@ private void setPedido(){
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtEnvio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(299, 299, 299))
+                .addGap(49, 49, 49)
+                .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(196, 196, 196))
         );
 
         pack();
@@ -261,6 +277,14 @@ private void setPedido(){
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+        MenuCart menu = new MenuCart();
+        menu.setVisible(true);
+        dispose();
+
+    }//GEN-LAST:event_buttonBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,6 +323,7 @@ private void setPedido(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

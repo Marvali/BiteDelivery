@@ -356,6 +356,7 @@ public void addFoodToCart(){
         GuardoDatos.saveDataComidas();
         MenuCart menuCart = new MenuCart();
         menuCart.setVisible(true);
+        dispose();
     }//GEN-LAST:event_buttonGoCartActionPerformed
 
     private void ButtonOpenOpinionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonOpenOpinionActionPerformed

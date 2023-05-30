@@ -63,6 +63,15 @@ private void setDataTable() {
 
 }
 
+/**
+     * metodo que elimina la lista de comidas seleccionadas
+     * 
+     */
+    private void deleteList(){
+        GuardoDatos.selectedFoodArrayList = new ArrayList<>();
+        GuardoDatos.saveDataComidas();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,6 +87,8 @@ private void setDataTable() {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        buttonDeleteCart = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
@@ -133,12 +144,30 @@ private void setDataTable() {
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
+        buttonDeleteCart.setText("Quitar todo del carrito");
+        buttonDeleteCart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteCartActionPerformed(evt);
+            }
+        });
+
+        buttonBack.setText("Atras");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(59, 59, 59)
+                .addComponent(buttonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonDeleteCart)
+                .addGap(85, 85, 85)
                 .addComponent(buttonPay, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
             .addGroup(layout.createSequentialGroup()
@@ -153,9 +182,17 @@ private void setDataTable() {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(buttonPay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonPay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonDeleteCart))
+                        .addContainerGap(32, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonBack)
+                        .addGap(26, 26, 26))))
         );
 
         pack();
@@ -170,6 +207,19 @@ private void setDataTable() {
         dispose();
         
     }//GEN-LAST:event_buttonPayActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+        MenuComida menuComida = new MenuComida();
+        menuComida.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonDeleteCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteCartActionPerformed
+        // TODO add your handling code here:
+        deleteList();
+        setDataTable();
+    }//GEN-LAST:event_buttonDeleteCartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +257,8 @@ private void setDataTable() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonDeleteCart;
     private javax.swing.JToggleButton buttonPay;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

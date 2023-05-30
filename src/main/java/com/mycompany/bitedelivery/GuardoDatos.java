@@ -257,8 +257,11 @@ public class GuardoDatos implements Serializable {
     }
 
 
-    /*
+    /**
      *  registra un nuevo restaurante
+     * @param restaurante
+     * 
+     * 
      */
     public static boolean registerRestaurantes(Restaurante restaurante){
         //Registrar un nuevo restaurante
