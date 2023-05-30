@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 /**
  * Clase que representa el menu de administrador para editar un restaurante 
  * @author isaac
- *  @param <MenuAdminEditarRestaurante>
+ *  
  * 
  */
 public class MenuAdminEditarRestaurante extends javax.swing.JFrame {
@@ -38,7 +38,7 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
     /**
      * Metodo que se encarga de verificar si se esta creando un nuevo restaurante
      * o se esta editando uno ya existente
-     * @param <MenuAdminEditarRestaurante>
+     * 
      * @autor isaac
      * 
      *  */
@@ -119,7 +119,7 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
 
 /**
  * Metodo que se encarga de editar la informacion del restaurante seleccionado
- * @param <MenuAdminEditarRestaurante>
+ * 
  * @author isaac
  *  
  * 
