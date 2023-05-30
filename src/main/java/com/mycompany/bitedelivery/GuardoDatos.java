@@ -27,8 +27,12 @@ public class GuardoDatos implements Serializable {
 
 
 
-    /*
+
+    /**
+     * 
      * carga los datos de los ficheros de la comida
+     * @autor Isaac
+     * 
      */
      
     public static void loadDataComidas() {
@@ -51,9 +55,11 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      *
      * guarda los datos de los ficheros de la comida
+     * @autor Isaac
+     * 
      */
     public static void saveDataComidas(){
         //save all data from txt.
@@ -74,8 +80,10 @@ public class GuardoDatos implements Serializable {
         
     }
 
-    /*
+    /**
      * carga los datos de los ficheros de las empresas
+     * @autor Isaac
+     * 
      */
     public static void loadDataEmpresas() {
         //metodo para cargar los datos de las empresas
@@ -98,8 +106,10 @@ public class GuardoDatos implements Serializable {
 }
 
 
-    /*
+    /**
      * guarda los datos de los ficheros de los particulares
+     * @autor Isaac
+     * 
      */
     
     public static void loadDataParticulares() {
@@ -122,8 +132,9 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      * carga los datos de los ficheros de los particulares
+     * @autor Isaac
      */
     public static void loadDataRestaurantes() {
         //metodo para cargar los datos de los restaurantes
@@ -145,8 +156,9 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      * guarda los datos de los ficheros de los particulares
+     * @autor Isaac
      */
 
     public static void saveDataParticulares(){
@@ -168,8 +180,9 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      * guarda los datos de los ficheros de los restaurantes
+     * @autor Isaac
      */
     public static void saveDataRestaurantes(){
         //save all data from txt.
@@ -190,9 +203,11 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      * carga los datos de los ficheros de las opiniones
+     * @autor Isaac
      */
+     
     public static void saveDataEmpresas(){
         //save all data from txt.
         //metodo para guardar los datos de las empresas
@@ -212,8 +227,10 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      * guarda los datos de los ficheros de las opiniones
+     * @autor Isaac
+     * 
      */
     public static void saveDataOpinion(){
         //save all data from txt.
@@ -232,8 +249,9 @@ public class GuardoDatos implements Serializable {
             }
         }
 
-    /*
+    /**
         * carga los datos de los ficheros de las opiniones
+        * @autor Isaac
         */
     
     public static void loadDataOpinion() {
@@ -260,6 +278,7 @@ public class GuardoDatos implements Serializable {
     /**
      *  registra un nuevo restaurante
      * @param restaurante
+     * @autor Isaac
      * 
      * 
      */
@@ -273,16 +292,21 @@ public class GuardoDatos implements Serializable {
         }
     }
     
-    /*
+    /**
      *  devuelve la lista de restaurantes
+     * @return restaurantes
      */
     public static ArrayList<Restaurante> getRestaurantes(){
         //metodo para obtener los restaurantes
         return restaurantes;
     }
 
-    /*
+    /**
      *  registra un nueva empresa
+     * @param empresa
+     * @autor isaac
+     * 
+     *
      */
 
     public static boolean registerEmpresa(UsuarioEmpresa empresa){
@@ -296,8 +320,11 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      *  registra un nuevo particular
+     * @param particular
+     * @autor isaac
+     * 
      */
     public static boolean registerParticular(UsuarioParticular particular){
         //registrar un nuevo particular
@@ -309,8 +336,12 @@ public class GuardoDatos implements Serializable {
         }
     }
 
-    /*
+    /**
      *  inicia sesion de una empresa
+     * @autor isaac
+     * @param email
+     * @param password
+     * 
      */
 
     public static boolean loginEmpresa(String email, String password){
@@ -326,8 +357,12 @@ public class GuardoDatos implements Serializable {
         return false;
     }
 
-    /*
+    /**
+     * 
      *  inicia sesion de un particular
+     * @autor isaac
+     * @param email
+     * @param password
      */
     public static boolean loginParticular(String email, String password){
         //login particular
@@ -343,8 +378,12 @@ public class GuardoDatos implements Serializable {
         return false;
     }
 
-    /*
+    /**
+     * 
      *  busca un restaurante por nombre
+     * @autor isaac
+     * @param nombre
+     * @return restaurantesEncontrados
      */
      
 public static ArrayList<Restaurante> buscar(String nombre) {
@@ -368,8 +407,12 @@ public String getselectedRestaurantName(){
 return selectedRestaurantName;
 };
 
-    /*
+    /**
      *  metodo de la creacion del arraylist de comida que se va a comprar
+     * @param nombre
+     * @param price
+     * @param quantity
+     * @return selectedFoodArrayList
      */
 public static ArrayList<ComidaComprar> createFoodArrayList(String nombre, double price, int quantity) {
     //metodo para crear un arraylist de comida que se va a comprar 

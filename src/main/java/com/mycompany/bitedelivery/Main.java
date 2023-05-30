@@ -10,8 +10,10 @@ import java.util.Scanner;
  * se crea el main para poder probar el programa con restaurantes y comidas
  * @author isaac
  * 
+ * 
  *
  */
+
 public class Main {
     public static void main(String[] args) {
 
