@@ -11,7 +11,7 @@ import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Opinion;
 import javax.swing.ImageIcon;
 /**
- *
+ *  esta clase representa la interfaz de opinion
  * @author isaac
  */
 public class OpinionInterfaz extends javax.swing.JFrame {

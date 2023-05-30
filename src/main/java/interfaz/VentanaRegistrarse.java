@@ -13,7 +13,7 @@ import java.util.Date;
 import static com.mycompany.bitedelivery.GuardoDatos.*;
 
 /**
- *
+ * esta clase representa la interfaz de registrarse
  * @author isaac
  */
 public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializable{
@@ -25,6 +25,10 @@ public class VentanaRegistrarse extends javax.swing.JFrame  implements Serializa
         initComponents();
         hideEmpresa();
     }
+    /**
+     * este metodo se encarga de cambiar los campos de la interfaz dependiendo de si es empresa o no
+     * 
+     */
 private void hideEmpresa(){
      modelo = (String) eleccionCombo.getSelectedItem();
         if (modelo.equals("Empresa")) {

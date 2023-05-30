@@ -10,7 +10,7 @@ import com.mycompany.bitedelivery.GuardoDatos;
 import javax.swing.ImageIcon;
 
 /**
- *
+ *  esta clase representa el perfil de usuario y empresa
  * @author isaac
  */
 public class Perfil extends javax.swing.JFrame {
@@ -23,6 +23,9 @@ public class Perfil extends javax.swing.JFrame {
         getUserType();
         setUserInfo();
     }
+    /**
+     * metodo que carga el tipo de usuario
+     */
     public void getUserType(){
         if(GuardoDatos.tipoUsuario.equals("particular")){
         txtCif.setVisible(false);
@@ -42,6 +45,9 @@ public class Perfil extends javax.swing.JFrame {
         jLabeldni.setVisible(false);
     }
     }
+    /**
+     * metodo que carga la informacion del usuario
+     */
     public void setUserInfo(){
         if(GuardoDatos.tipoUsuario.equals("particular")){
 
@@ -86,6 +92,9 @@ public class Perfil extends javax.swing.JFrame {
         
     }
 
+    /**
+     * metodo que guarda la informacion del usuario
+     */
     public void saveNewUserInfo(){
         if(GuardoDatos.tipoUsuario.equals("particular")){
             //find the user in the arraylist delete 
