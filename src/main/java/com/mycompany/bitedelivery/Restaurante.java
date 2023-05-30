@@ -2,14 +2,8 @@ package com.mycompany.bitedelivery;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/* -direccion: Direccion             |
-        -especialidad: String             |
-        -calificacion: double             |
-        -gastosEnvio: double              |
-         -tiempoMedioEnvio: int            |
-        -servicioCatering: boolean
-
-
+/*  
+    *  el objeto restaurante que se va a usar en la aplicacion
  */
 public class Restaurante implements Serializable {
     // ATRIBUTOS

@@ -1,8 +1,9 @@
 package com.mycompany.bitedelivery;
 
-/*
-Inherits Cliente
--DNI: String*/
+/**
+ *  el objeto usuario particular que hereda de usuario
+ *  @autor isaac
+ */
 public class UsuarioParticular extends Usuario {
     // ATRIBUTOS
     private String DNI;

@@ -21,7 +21,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * esta clase representa el menu principal del restaurante
+ * 
  * @author isaac
  */
 public class MenuUsuario extends javax.swing.JFrame {

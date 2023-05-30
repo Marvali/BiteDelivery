@@ -3,9 +3,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /*
-titular: String          |
-numero: String           |
--fechaCaducidad: String */
+*   el objeto tarjeta de credito que tiene el cliente 
+*   @autor isaac
+*/
 public class TarjetaCredito implements Serializable {
     // ATRIBUTOS
     private String titular;

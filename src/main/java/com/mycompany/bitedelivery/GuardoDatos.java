@@ -3,6 +3,11 @@ package com.mycompany.bitedelivery;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+/**
+ * Clase que guarda los datos de la aplicacion
+ * @autor Isaac
+ */
 public class GuardoDatos implements Serializable {
 
     public static ArrayList<Comidas> comidas = new ArrayList<>();
@@ -22,7 +27,10 @@ public class GuardoDatos implements Serializable {
 
 
 
-    
+    /*
+     * carga los datos de los ficheros de la comida
+     */
+     
     public static void loadDataComidas() {
         //metodo para cargar los datos de las comidas
         try (FileInputStream fis = new FileInputStream("comidas.dat");
@@ -42,6 +50,11 @@ public class GuardoDatos implements Serializable {
             System.err.println("Error loading data: " + e.getMessage());
         }
     }
+
+    /*
+     *
+     * guarda los datos de los ficheros de la comida
+     */
     public static void saveDataComidas(){
         //save all data from txt.
         //metodo para guardar los datos de las comidas
@@ -60,6 +73,10 @@ public class GuardoDatos implements Serializable {
             }
         
     }
+
+    /*
+     * carga los datos de los ficheros de las empresas
+     */
     public static void loadDataEmpresas() {
         //metodo para cargar los datos de las empresas
     try (FileInputStream fis = new FileInputStream("empresas.dat");
@@ -81,6 +98,10 @@ public class GuardoDatos implements Serializable {
 }
 
 
+    /*
+     * guarda los datos de los ficheros de los particulares
+     */
+    
     public static void loadDataParticulares() {
         //metodo para cargar los datos de los particulares
         try (FileInputStream fis = new FileInputStream("particulares.dat");
@@ -100,6 +121,10 @@ public class GuardoDatos implements Serializable {
             System.err.println("Error loading data: " + e.getMessage());
         }
     }
+
+    /*
+     * carga los datos de los ficheros de los particulares
+     */
     public static void loadDataRestaurantes() {
         //metodo para cargar los datos de los restaurantes
         try (FileInputStream fis = new FileInputStream("restaurantes.dat");
@@ -120,6 +145,10 @@ public class GuardoDatos implements Serializable {
         }
     }
 
+    /*
+     * guarda los datos de los ficheros de los particulares
+     */
+
     public static void saveDataParticulares(){
         //save all data from txt.
         //metodo para guardar los datos de los particulares
@@ -138,6 +167,10 @@ public class GuardoDatos implements Serializable {
             }
         }
     }
+
+    /*
+     * guarda los datos de los ficheros de los restaurantes
+     */
     public static void saveDataRestaurantes(){
         //save all data from txt.
         //metodo para guardar los datos de los restaurantes
@@ -156,6 +189,10 @@ public class GuardoDatos implements Serializable {
             }
         }
     }
+
+    /*
+     * carga los datos de los ficheros de las opiniones
+     */
     public static void saveDataEmpresas(){
         //save all data from txt.
         //metodo para guardar los datos de las empresas
@@ -174,6 +211,10 @@ public class GuardoDatos implements Serializable {
             }
         }
     }
+
+    /*
+     * guarda los datos de los ficheros de las opiniones
+     */
     public static void saveDataOpinion(){
         //save all data from txt.
         //metodo para guardar los datos de las opinio
@@ -190,6 +231,10 @@ public class GuardoDatos implements Serializable {
                 throw new RuntimeException(e);
             }
         }
+
+    /*
+        * carga los datos de los ficheros de las opiniones
+        */
     
     public static void loadDataOpinion() {
         //metodo para cargar los datos de las opiniones
@@ -211,6 +256,10 @@ public class GuardoDatos implements Serializable {
         }
     }
 
+
+    /*
+     *  registra un nuevo restaurante
+     */
     public static boolean registerRestaurantes(Restaurante restaurante){
         //Registrar un nuevo restaurante
         if (restaurantes.contains(restaurante)){
@@ -220,10 +269,18 @@ public class GuardoDatos implements Serializable {
             return true;
         }
     }
+    
+    /*
+     *  devuelve la lista de restaurantes
+     */
     public static ArrayList<Restaurante> getRestaurantes(){
         //metodo para obtener los restaurantes
         return restaurantes;
     }
+
+    /*
+     *  registra un nueva empresa
+     */
 
     public static boolean registerEmpresa(UsuarioEmpresa empresa){
         //registrar una nueva empresa
@@ -235,6 +292,10 @@ public class GuardoDatos implements Serializable {
             return true;
         }
     }
+
+    /*
+     *  registra un nuevo particular
+     */
     public static boolean registerParticular(UsuarioParticular particular){
         //registrar un nuevo particular
         if (particulares.contains(particular)){
@@ -244,6 +305,10 @@ public class GuardoDatos implements Serializable {
             return true;
         }
     }
+
+    /*
+     *  inicia sesion de una empresa
+     */
 
     public static boolean loginEmpresa(String email, String password){
         //inicio de sesion empresa
@@ -257,6 +322,10 @@ public class GuardoDatos implements Serializable {
         }
         return false;
     }
+
+    /*
+     *  inicia sesion de un particular
+     */
     public static boolean loginParticular(String email, String password){
         //login particular
 
@@ -270,6 +339,11 @@ public class GuardoDatos implements Serializable {
         }
         return false;
     }
+
+    /*
+     *  busca un restaurante por nombre
+     */
+     
 public static ArrayList<Restaurante> buscar(String nombre) {
     //buscar un restaurante por nombre
     ArrayList<Restaurante> restaurantesEncontrados = new ArrayList<>();
@@ -282,12 +356,18 @@ public static ArrayList<Restaurante> buscar(String nombre) {
     return restaurantesEncontrados;
 }
 
+    /*
+     *  devuelve el restaurante actual
+     */
+    
 public String getselectedRestaurantName(){
 
 return selectedRestaurantName;
 };
 
-//selected foodarraylist
+    /*
+     *  metodo de la creacion del arraylist de comida que se va a comprar
+     */
 public static ArrayList<ComidaComprar> createFoodArrayList(String nombre, double price, int quantity) {
     //metodo para crear un arraylist de comida que se va a comprar 
     boolean found = false;

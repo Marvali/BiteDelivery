@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *  Clase que representa el menu de administrador para ver los usuarios
  * @author isaac
  */
 public class MenuAdminUsuarios extends javax.swing.JFrame {
@@ -35,14 +35,25 @@ private ArrayList<UsuarioEmpresa> listaUsuariosEmpresas;
         setDataTablaEmpresas();
     }
 
-
+    /**
+     *  este metodo crea la cabecera de la tabla de particulares
+     *  
+     * 
+     * .
+     */
     private void setModeloTablaParticulares(){
         //String email, String password, String nombre, Direccion direccion,TarjetaCredito tarjeta, int telefono, String DNI
 String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Numero", "Telefono", "DNI"};
         UsuariosParticulares.setColumnIdentifiers(cabecera);
         tablaUsuariosParticulares.setModel(UsuariosParticulares);
     }
-    
+    /**
+     *  este metodo se llama desde dentro del constructor para inicializar el formulario
+     *  este metodo se encarga de rellenar la tabla de particulares
+     * 
+     * .
+     */
+
     private void setDataTablaParticulares(){
         //String email, String password, String nombre, Direccion direccion,TarjetaCredito tarjeta, int telefono, String DNI
         UsuariosParticulares.setRowCount(0);
@@ -56,6 +67,12 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
         }
     }
     
+    /**
+     *  crea la cabecera de la tabla de empresas
+     *  
+     * 
+     * .
+     */
     private void setModeloTablaEmpresas(){
         //String email, String password, String nombre, Direccion direccion,TarjetaCredito tarjeta, int telefono, String DNI
 String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Numero", "Telefono", "CIF","web"};
@@ -63,6 +80,12 @@ String [] cabecera = {"Email", "Password", "Nombre", "Calle","Codigo Postal","Nu
         tablaUsuariosEmpresas.setModel(UsuariosEmpresas);
     }
     
+    /**
+     *  este metodo se llama desde dentro del constructor para inicializar el formulario
+     *  este metodo se encarga de rellenar la tabla de empresas
+     * 
+     * .
+     */
     private void setDataTablaEmpresas(){
        
         UsuariosEmpresas.setRowCount(0);

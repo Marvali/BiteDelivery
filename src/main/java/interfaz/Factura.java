@@ -13,8 +13,10 @@ import com.mycompany.bitedelivery.ComidaComprar;
 import com.mycompany.bitedelivery.GuardoDatos;
 import com.mycompany.bitedelivery.Restaurante;
 /**
- *
+ * Clase que muestra la factura del pedido realizado
+ * 
  * @author Fer y Isaac
+ * @version 1.0
  */
 public class Factura extends javax.swing.JFrame {
 private static ArrayList<ComidaComprar> foodtoPayList;
@@ -25,6 +27,16 @@ private static ArrayList<ComidaComprar> foodtoPayList;
         initComponents();
         setPedido();
     }
+
+    /**
+     *Sets the information for the current food order.
+     * 
+     * 
+     *
+     * 
+     * 
+     * 
+     */
 private void setPedido(){
     //get current user
     if("particular".equals(GuardoDatos.tipoUsuario)){

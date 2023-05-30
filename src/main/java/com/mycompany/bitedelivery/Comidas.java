@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 
 /**
- *
+ *  comidas que estan en el menu de la aplicacion
  * @author Fer
  */
 public class Comidas implements Serializable {

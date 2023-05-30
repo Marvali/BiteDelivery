@@ -7,8 +7,9 @@ package com.mycompany.bitedelivery;
 import java.util.logging.Logger;
 
 /**
- *
+ *  representa los administradores de la aplicacion
  * @author Fer
+ * 
  */
 public class Administradores {
     //ATRIBUTOS

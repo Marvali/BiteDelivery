@@ -2,17 +2,7 @@ package com.mycompany.bitedelivery;
 import java.io.Serializable;
 
 /*
-    Clase Cliente
-    -nombre
-    -apellido
-
-    -email: String
-    -password: String
-    -tarjeta: Tarjeta
-    -direccion: Direccion
-    -tarjetaCredito: TarjetaCredito
-    -telefono: String
-  
+*   clase pradre de los usuarios , tiene los atributos comunes de los usuarios 
  */
 
 

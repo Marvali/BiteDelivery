@@ -2,11 +2,10 @@ package com.mycompany.bitedelivery;
 import java.io.Serializable;
 
 /*
-*-calle: String        |
- -numero: String       |
- -zip: String |
+*   el objeto direccion que se va a usar en el restaurante y en el cliente
+*   @autor Isaac
+*/
 
-* */
 public class Direccion implements Serializable {
     // ATRIBUTOS
     private String calle;

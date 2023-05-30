@@ -5,7 +5,7 @@
 package com.mycompany.bitedelivery;
 import java.io.Serializable;
 /**
- *
+ *   la comida que se va a comprar
  * @author isaac
  */
 

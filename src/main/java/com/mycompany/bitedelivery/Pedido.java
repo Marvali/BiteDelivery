@@ -2,10 +2,7 @@ package com.mycompany.bitedelivery;
 
 /*
 *
-*
--titular: String          |
--numero: String           |
--fechaCaducidad: String
+* el objeto 
 *
 * */
 public class Pedido {
