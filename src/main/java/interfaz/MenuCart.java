@@ -62,7 +62,6 @@ private void setDataTable() {
         tableToPay = new javax.swing.JTable();
         buttonPay = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -91,9 +90,6 @@ private void setDataTable() {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CESTA");
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logos/bite logo-192x192.png"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MenuAdmin/logotipoletras.png"))); // NOI18N
@@ -106,8 +102,6 @@ private void setDataTable() {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(jLabel3)
-                .addGap(116, 116, 116)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(19, 19, 19))
@@ -121,9 +115,7 @@ private void setDataTable() {
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(76, 76, 76)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel3)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
 
@@ -202,7 +194,6 @@ private void setDataTable() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton buttonPay;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
