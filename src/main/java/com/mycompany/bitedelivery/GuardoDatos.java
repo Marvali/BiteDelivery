@@ -18,6 +18,7 @@ public class GuardoDatos implements Serializable {
     public static UsuarioParticular particularActual;
     public static UsuarioEmpresa empresaActual;
     public static String tipoUsuario;
+    public static boolean nuevoRestaurante = false;
 
 
 

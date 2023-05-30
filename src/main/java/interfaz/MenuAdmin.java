@@ -41,6 +41,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         botonUsuarios = new javax.swing.JButton();
         botonRestaurantes = new javax.swing.JButton();
+        buttonCloseSession = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setIconImage(new ImageIcon(getClass().getResource("/images/logos/bite logo-32x32.png")).getImage());
@@ -88,6 +89,13 @@ public class MenuAdmin extends javax.swing.JFrame {
             }
         });
 
+        buttonCloseSession.setText("Cerrar Sesion");
+        buttonCloseSession.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCloseSessionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,6 +107,10 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(botonRestaurantes)
                 .addGap(299, 299, 299))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonCloseSession)
+                .addGap(252, 252, 252))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +120,9 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addComponent(buttonCloseSession)
+                .addGap(75, 75, 75))
         );
 
         pack();
@@ -128,6 +142,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         menuAdminRestaurantes.setVisible(true);
         dispose();
     }//GEN-LAST:event_botonRestaurantesActionPerformed
+
+    private void buttonCloseSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseSessionActionPerformed
+        // TODO add your handling code here:
+        MenuIniciarSesionN menuIniciarSesionN = new MenuIniciarSesionN();
+        menuIniciarSesionN.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonCloseSessionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +194,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRestaurantes;
     private javax.swing.JButton botonUsuarios;
+    private javax.swing.JButton buttonCloseSession;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -76,6 +76,7 @@ private void ordenProductos() {
     
     
 }
+
 private void setDatosTabla(ArrayList<Restaurante> restaurantes) {
          // añadir datos a la tabla
         prueba.setRowCount(0);
@@ -100,7 +101,24 @@ public  void setRestauranteSeleccionado() {
         }
         GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);
     }
-
+private void deleteRestaurant(){
+    int fila = tablaRestaurantes.getSelectedRow();
+    GuardoDatos.selectedRestaurantName = (String) prueba.getValueAt(fila, 0);
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningun Restaurante");
+            
+        }
+        for (int i = 0; i < GuardoDatos.getRestaurantes().size(); i++) {
+           
+            if (GuardoDatos.getRestaurantes().get(i).getNombre().equals(GuardoDatos.selectedRestaurantName)) {
+                GuardoDatos.getRestaurantes().remove(i);
+                GuardoDatos.saveDataRestaurantes();
+                JOptionPane.showMessageDialog(null, "Restaurante eliminado");
+                setDatosTabla(GuardoDatos.getRestaurantes());
+                break;
+            }
+}
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,6 +132,9 @@ public  void setRestauranteSeleccionado() {
         tablaRestaurantes = new javax.swing.JTable();
         butonRestaurantEdit = new javax.swing.JButton();
         jCombo = new javax.swing.JComboBox<>();
+        buttonBack = new javax.swing.JButton();
+        buttonDelete = new javax.swing.JButton();
+        buttonNewRestaurant = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -144,30 +165,67 @@ public  void setRestauranteSeleccionado() {
             }
         });
 
+        buttonBack.setText("Atras");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
+
+        buttonDelete.setText("BORRAR RESTAURANTE");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
+
+        buttonNewRestaurant.setText("Dar de alta");
+        buttonNewRestaurant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewRestaurantActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
+                .addComponent(buttonBack)
+                .addGap(92, 92, 92)
                 .addComponent(butonRestaurantEdit)
-                .addGap(121, 121, 121))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonDelete)
+                .addGap(38, 38, 38))
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonNewRestaurant)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(butonRestaurantEdit)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(buttonNewRestaurant)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(butonRestaurantEdit)
+                    .addComponent(buttonBack)
+                    .addComponent(buttonDelete))
                 .addGap(37, 37, 37))
         );
 
@@ -186,6 +244,26 @@ public  void setRestauranteSeleccionado() {
         menuAdminEditarRestaurante.setVisible(true);
         dispose();
     }//GEN-LAST:event_butonRestaurantEditActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+        MenuAdmin menuAdmin = new MenuAdmin();
+        menuAdmin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // TODO add your handling code here:
+        deleteRestaurant();
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonNewRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewRestaurantActionPerformed
+        // TODO add your handling code here:
+        GuardoDatos.nuevoRestaurante=true;
+        MenuAdminEditarRestaurante menuAdminEditarRestaurante = new MenuAdminEditarRestaurante();
+        menuAdminEditarRestaurante.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonNewRestaurantActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +302,9 @@ public  void setRestauranteSeleccionado() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butonRestaurantEdit;
+    private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonDelete;
+    private javax.swing.JButton buttonNewRestaurant;
     private javax.swing.JComboBox<String> jCombo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaRestaurantes;

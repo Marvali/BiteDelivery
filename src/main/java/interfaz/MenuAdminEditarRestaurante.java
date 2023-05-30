@@ -30,8 +30,19 @@ private static ArrayList<String> ingredientes3 = new ArrayList<>();
      */
     public MenuAdminEditarRestaurante() {
         initComponents();
-        setInfoRestaurante();
+        checkifNew();
     }
+
+    private void checkifNew(){
+        if (GuardoDatos.nuevoRestaurante == false) {
+            setInfoRestaurante();
+            
+        }
+    }
+            
+        
+
+    
     private void setInfoRestaurante(){
         //setear la informacion del restaurante seleccionado
         //nombre, calificacion, tiempo medio de envio, servicio de catering
@@ -118,7 +129,10 @@ private void editarRestaurante(){
 
         // Create a new Restaurante object with the edited information
         Restaurante newRestaurante = new Restaurante(txtNombre.getText(), direccion, txtEspecialidad.getText(), Double.parseDouble(txtCalificacion.getText()), Double.parseDouble(txtGastosEnvio.getText()), Integer.parseInt(txtTiempoMedio.getText()), jComboServicioCatering.getSelectedIndex() == 0, comidaList);
-        GuardoDatos.getRestaurantes().remove(selectedRestaurante);
+        if (!GuardoDatos.nuevoRestaurante) {
+            GuardoDatos.getRestaurantes().remove(selectedRestaurante);
+        }
+        
         GuardoDatos.getRestaurantes().add(newRestaurante);
         GuardoDatos.saveDataRestaurantes();
     }
@@ -463,6 +477,9 @@ private void editarRestaurante(){
             //System.out.println("Yes option");
             //guardar cambios
             editarRestaurante();
+            dispose();
+            MenuAdminRestaurantes menuAdminRestaurantes = new MenuAdminRestaurantes();
+            menuAdminRestaurantes.setVisible(true);
         } else {
             //System.out.println("No Option");
         }
