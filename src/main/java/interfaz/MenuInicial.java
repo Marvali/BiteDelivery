@@ -7,7 +7,8 @@ package interfaz;
 import javax.swing.ImageIcon;
 
 /**
- *
+ *  Clase que representa el menu inicial
+ * 
  * @author isaac
  */
 public class MenuInicial extends javax.swing.JFrame {

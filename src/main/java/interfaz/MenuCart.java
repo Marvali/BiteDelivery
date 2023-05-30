@@ -15,8 +15,10 @@ import com.mycompany.bitedelivery.Restaurante;
 import javax.swing.ImageIcon;
 
 /**
- *
+ * esta clase representa el menu de carrito de compras
+ * 
  * @author isaac
+ * 
  */
 public class MenuCart extends javax.swing.JFrame {
 DefaultTableModel modeloTabla= new DefaultTableModel();
@@ -29,6 +31,11 @@ private static ArrayList<ComidaComprar> foodtoPayList;
         setModeloTabla();
         setDataTable();
     }
+
+    /**
+     * metodo que carga la cabezera de la tabla
+     * 
+     */
     private void setModeloTabla(){
         String[] cabecera = {"Nombre", "Precio", "Cantidad"};
         modeloTabla.setColumnIdentifiers(cabecera);
@@ -36,6 +43,13 @@ private static ArrayList<ComidaComprar> foodtoPayList;
 
        
     }
+
+
+
+    /**
+     * metodo que carga los datos de la tabla
+     * 
+     */
 
 private void setDataTable() {
     modeloTabla.setRowCount(0);

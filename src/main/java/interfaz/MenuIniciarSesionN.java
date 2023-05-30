@@ -9,7 +9,7 @@ import static com.mycompany.bitedelivery.GuardoDatos.*;
 import javax.swing.ImageIcon;
 
 /**
- *
+ *  Clase que representa el menu de iniciar sesion
  * @author isaac
  */
 public class MenuIniciarSesionN extends javax.swing.JFrame {

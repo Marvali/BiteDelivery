@@ -16,8 +16,10 @@ import com.mycompany.bitedelivery.Opinion;
 
 import javax.swing.ImageIcon;
 /**
- *
+ * esta clase representa el menu de comida de el respectivo restaurante
  * @author isaac
+ * 
+ *
  */
 public class MenuComida extends javax.swing.JFrame {
 DefaultTableModel modeloTabla= new DefaultTableModel();
@@ -36,6 +38,12 @@ private static ArrayList<Opinion> opinionList;
 
 
     }
+
+
+    /**
+     * metodo que carga la cabezera de la tabla
+     * 
+     */
     private void setModeloTabla(){
         String[] cabecera = {"Nombre", "Precio"};
         modeloTabla.setColumnIdentifiers(cabecera);
@@ -43,6 +51,11 @@ private static ArrayList<Opinion> opinionList;
 
        
     }
+
+    /**
+     * metodo que carga los datos de la tabla
+     * 
+     */
 private void setModeloTablaOpinion(){
         String[] cabecera = {"Nombre", "Opinion", "Puntuacion", "Fecha"};
         tablaOpinion.setColumnIdentifiers(cabecera);
@@ -51,6 +64,11 @@ private void setModeloTablaOpinion(){
        
     }
 
+
+    /**
+     * metodo que carga los datos de la tabla
+     * 
+     */
 static void setDataTableOpinion(){
     tablaOpinion.setRowCount(0);
     GuardoDatos.loadDataOpinion();
@@ -69,6 +87,11 @@ static void setDataTableOpinion(){
         
     
 }
+    
+        /**
+        * metodo que carga los datos de la tabla
+        * 
+        */
 private void setDataTable(){
     modeloTabla.setRowCount(0);
     String restauranteselecionado = GuardoDatos.selectedRestaurantName;
@@ -87,6 +110,11 @@ private void setDataTable(){
 
 
 }
+
+/**
+ * metodo que añade la comida seleccionada al carrito
+ * 
+ */
 
 public void addFoodToCart(){
     int row = tableFood1.getSelectedRow();
