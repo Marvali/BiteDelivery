@@ -340,6 +340,7 @@ private void hideEmpresa(){
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     public Direccion crearDireccion( ) {
         Direccion direccion = null;

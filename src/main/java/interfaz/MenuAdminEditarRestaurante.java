@@ -459,6 +459,7 @@ private void editarRestaurante(){
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void butonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonBackActionPerformed
