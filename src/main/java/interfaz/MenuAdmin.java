@@ -82,6 +82,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         });
 
         botonRestaurantes.setText("Restaurantes del servicio");
+        botonRestaurantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRestaurantesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +121,13 @@ public class MenuAdmin extends javax.swing.JFrame {
         dispose();
 
     }//GEN-LAST:event_botonUsuariosActionPerformed
+
+    private void botonRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRestaurantesActionPerformed
+        // TODO add your handling code here:
+        MenuAdminRestaurantes menuAdminRestaurantes = new MenuAdminRestaurantes();
+        menuAdminRestaurantes.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botonRestaurantesActionPerformed
 
     /**
      * @param args the command line arguments
