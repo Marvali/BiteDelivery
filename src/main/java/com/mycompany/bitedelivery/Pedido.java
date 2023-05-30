@@ -1,10 +1,9 @@
 package com.mycompany.bitedelivery;
 
-/*
-*
+/**
 * el objeto 
-*
-* */
+* @author  fer y isaac
+*/
 public class Pedido {
     // ATRIBUTOS
     private String titular;

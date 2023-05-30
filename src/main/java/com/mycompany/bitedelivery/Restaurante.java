@@ -2,8 +2,9 @@ package com.mycompany.bitedelivery;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/*  
-    *  el objeto restaurante que se va a usar en la aplicacion
+/**  
+ * el objeto restaurante que se va a usar en la aplicacion
+ * @author isaac y fer
  */
 public class Restaurante implements Serializable {
     // ATRIBUTOS

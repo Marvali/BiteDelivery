@@ -1,9 +1,9 @@
 package com.mycompany.bitedelivery;
 import java.io.Serializable;
 
-/*
+/**
 *   el objeto direccion que se va a usar en el restaurante y en el cliente
-*   @autor Isaac
+*   @autor Isaac y fer
 */
 
 public class Direccion implements Serializable {

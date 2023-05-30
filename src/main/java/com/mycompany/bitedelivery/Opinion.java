@@ -10,9 +10,8 @@ import java.time.LocalDateTime;
 import java.io.Serializable;
 
 /**
- *
- * @author isaac
  * clase opinion que representa la opinion de un usuario
+ * @author isaac y fer
  */
 public class Opinion implements Serializable {
     //atributes calificacion comentario y fecha

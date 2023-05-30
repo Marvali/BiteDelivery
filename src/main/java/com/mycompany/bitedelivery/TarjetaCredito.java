@@ -2,9 +2,9 @@ package com.mycompany.bitedelivery;
 import java.io.Serializable;
 import java.util.Date;
 
-/*
+/**
 *   el objeto tarjeta de credito que tiene el cliente 
-*   @autor isaac
+*   @autor isaac y fer
 */
 public class TarjetaCredito implements Serializable {
     // ATRIBUTOS

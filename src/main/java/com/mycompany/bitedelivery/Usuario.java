@@ -1,8 +1,9 @@
 package com.mycompany.bitedelivery;
 import java.io.Serializable;
 
-/*
-*   clase pradre de los usuarios , tiene los atributos comunes de los usuarios 
+/**
+ *  clase pradre de los usuarios , tiene los atributos comunes de los usuarios
+ * @author fer y isaac
  */
 
 

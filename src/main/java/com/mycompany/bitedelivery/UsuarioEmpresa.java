@@ -1,8 +1,9 @@
 package com.mycompany.bitedelivery;
 import java.io.Serializable;
 
-/*
+/**
 *   clase que hereda de usuario y tiene los atributos de la empresa
+* @author fer y isaac
 */
 public class UsuarioEmpresa extends Usuario implements Serializable {
 

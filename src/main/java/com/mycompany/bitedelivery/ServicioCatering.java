@@ -5,9 +5,8 @@
 package com.mycompany.bitedelivery;
 
 /**
- *
- * @author Fer
- *  representa el servicio de catering
+ *  representa el servicio de catering 
+ * @author Fer y isaac
  */
 public class ServicioCatering {
     //ATRIBUTOS
